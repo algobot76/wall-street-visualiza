@@ -1,5 +1,21 @@
 # Wall Ave Journal
 
+- [Wall Ave Journal](#wall-ave-journal)
+  - [Group Members](#group-members)
+  - [Project Description](#project-description)
+    - [Who is it for?](#who-is-it-for)
+    - [What will it do?](#what-will-it-do)
+    - [What type of data will it store?](#what-type-of-data-will-it-store)
+    - [What will users be able to do with this data?](#what-will-users-be-able-to-do-with-this-data)
+    - [What is some additional functionality you can add or remove based on time constraints?](#what-is-some-additional-functionality-you-can-add-or-remove-based-on-time-constraints)
+  - [Project Task Requirements](#project-task-requirements)
+    - [Minimal Requirement](#minimal-requirement)
+    - [Standard Requirements](#standard-requirements)
+    - [Stretch Requirements](#stretch-requirements)
+  - [Minimum Requirement Task BreakDown](#minimum-requirement-task-breakdown)
+    - [Requirement 1: Category Box for a Given Company](#requirement-1-category-box-for-a-given-company)
+    - [Requirement 2: Graphical representation of the price movement using charts](#requirement-2-graphical-representation-of-the-price-movement-using-charts)
+
 ## Group Members
 
 - Kyo Tang
