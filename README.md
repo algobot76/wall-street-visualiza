@@ -15,6 +15,7 @@
   - [Minimum Requirement Task BreakDown](#minimum-requirement-task-breakdown)
     - [Requirement 1: Category Box for a Given Company](#requirement-1-category-box-for-a-given-company)
     - [Requirement 2: Graphical representation of the price movement using charts](#requirement-2-graphical-representation-of-the-price-movement-using-charts)
+  - [Prototype](#prototype)
 
 ## Group Members
 
@@ -77,3 +78,7 @@ We are hoping to add news links to days where important news are released for a 
 
 1. Finding the relevant API that can allow us to retrieve all the financial price data for the companies that we intend to show.
 1. Finding relevant technologies that we can use to incorporate the financial data to form it in a graphical way so that visualization can be achieved.
+
+## Prototype
+
+![alt text](prototype.jpg)
