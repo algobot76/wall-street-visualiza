@@ -1,6 +1,6 @@
-# Wall Ave Journal
+# Wall Street Visualiza
 
-- [Wall Ave Journal](#wall-ave-journal)
+- [Wall Street Visualiza](#wall-street-visualiza)
   - [Group Members](#group-members)
   - [Project Description](#project-description)
     - [Who is it for?](#who-is-it-for)
