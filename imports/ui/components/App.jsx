@@ -12,7 +12,6 @@ function App() {
       <Grid padded>
         <Navbar logoPath={logo} menuItems={['Home', 'About']} />
       </Grid>
-        <SearchBar/>
     </div>
   );
 }
