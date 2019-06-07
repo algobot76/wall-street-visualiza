@@ -1,8 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
 import { Grid } from 'semantic-ui-react';
-import SearchBar from "./SearchBar";
-
 
 function App() {
   const logo =
