@@ -5,12 +5,11 @@ import Link from './Link';
 import Logo from './Logo'
 import PropTypes from 'prop-types';
 
-function Navbar({ menuItems }) {
-  const logoPlaceHolder = "https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg";
+function Navbar({ logoPath, menuItems }) {
   return (
     <Menu borderless fluid size="huge">
       <Container>
-        <Logo path={logoPlaceHolder}/>
+        <Logo path={logoPath}/>
         {menuItems.map((item, i) => (
           <Link key={i} name={item} />
         ))}
@@ -21,6 +20,7 @@ function Navbar({ menuItems }) {
 }
 
 Navbar.propTypes = {
+  logoPath: PropTypes.string,
   menuItems: PropTypes.arrayOf(PropTypes.string)
 };
 
