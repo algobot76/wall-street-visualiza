@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search } from 'semantic-ui-react';
+import { Menu, Search } from 'semantic-ui-react';
 
 function SearchBar() {
   const [query, setQuery] = useState('');
@@ -7,7 +7,11 @@ function SearchBar() {
     setQuery(value);
   };
 
-  return <Search onSearchChange={handleSearchChange} value={query} />;
+  return (
+    <Menu.Item>
+      <Search onSearchChange={handleSearchChange} value={query} size="medium" />
+    </Menu.Item>
+  );
 }
 
 export default SearchBar;
