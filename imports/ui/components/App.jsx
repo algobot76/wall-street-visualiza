@@ -1,6 +1,8 @@
 import React from 'react';
 import Navbar from './Navbar';
 import { Grid } from 'semantic-ui-react';
+import SearchBar from "./SearchBar";
+
 
 function App() {
   const logo =
@@ -8,8 +10,9 @@ function App() {
   return (
     <div>
       <Grid padded>
-        <Navbar logoPath={logo} menuItems={['foo', 'bar']} />
+        <Navbar logoPath={logo} menuItems={['Home', 'About']} />
       </Grid>
+        <SearchBar/>
     </div>
   );
 }

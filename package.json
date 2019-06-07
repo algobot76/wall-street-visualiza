@@ -11,8 +11,8 @@
     "@babel/runtime": "^7.3.4",
     "meteor-node-stubs": "^0.4.1",
     "prop-types": "^15.7.2",
-    "react": "^16.5.0",
-    "react-dom": "^16.5.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.1"
   },

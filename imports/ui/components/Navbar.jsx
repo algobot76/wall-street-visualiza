@@ -13,7 +13,7 @@ function Navbar({ logoPath, menuItems }) {
         {menuItems.map((item, i) => (
           <Link key={i} name={item} />
         ))}
-        <Dropdown title={'fuck'} items={['a', 'b']} />
+        <Dropdown title={'Company List'} items={['Tesla inc.', 'Apple inc.', 'Alibaba inc.', 'Aurora Cannabis inc.', 'General Motor inc.']} />
       </Container>
     </Menu>
   );
