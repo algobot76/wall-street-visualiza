@@ -86,4 +86,8 @@ class Chart extends Component {
   }
 }
 
+Chart.propTypes = {
+  data: PropTyps.arrayOf(PropTypes.object).isRequired
+};
+
 export default Chart;
