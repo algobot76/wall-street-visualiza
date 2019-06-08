@@ -11,9 +11,9 @@ import {
   AreaChart,
   Area
 } from 'recharts';
-import data from '../assets/dummy_stock_prices';
 
-function Chart() {
+
+function Chart({ data }) {
   return (
     <div className="line-charts">
       <p style={{ fontWeight: 'bold', fontSize: 25, textAlign: 'center' }}>
