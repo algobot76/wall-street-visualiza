@@ -27,7 +27,7 @@ const data = [
 
 const initialState = {data};
 
-class chart extends Component {
+class Chart extends Component {
   state = initialState;
   render() {
     const {data} = this.state;
@@ -66,4 +66,4 @@ class chart extends Component {
   }
 }
 
-export default chart;
+export default Chart;

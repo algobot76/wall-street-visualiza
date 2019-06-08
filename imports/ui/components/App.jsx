@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './Navbar';
 import { Grid } from 'semantic-ui-react';
-import Chart from './StockChart';
+import Chart from './Chart';
 import logo from '../assets/logo.jpg';
 
 function App() {
