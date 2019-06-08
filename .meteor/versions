@@ -49,6 +49,7 @@ mongo@1.6.2
 mongo-decimal@0.1.1
 mongo-dev-server@1.1.0
 mongo-id@1.0.7
+nathantreid:static-assets@0.1.0
 npm-mongo@3.1.2
 ordered-dict@1.1.0
 promise@0.11.2
