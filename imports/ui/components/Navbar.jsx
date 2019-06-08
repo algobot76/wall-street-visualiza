@@ -8,24 +8,22 @@ import PropTypes from 'prop-types';
 
 function Navbar({ logoPath, menuItems }) {
   return (
-    <Menu borderless fluid size="huge">
-      <Container>
-        <Logo path={logoPath} />
-        {menuItems.map((item, i) => (
-          <Link key={i} name={item} />
-        ))}
-        <Dropdown
-          title={'Company List'}
-          items={[
-            'Tesla inc.',
-            'Apple inc.',
-            'Alibaba inc.',
-            'Aurora Cannabis inc.',
-            'General Motor inc.'
-          ]}
-        />
-        <SearchBar />
-      </Container>
+    <Menu borderless secondary size="huge">
+      <Logo path={logoPath} />
+      {menuItems.map((item, i) => (
+        <Link key={i} name={item} />
+      ))}
+      <Dropdown
+        title={'Company List'}
+        items={[
+          'Tesla inc.',
+          'Apple inc.',
+          'Alibaba inc.',
+          'Aurora Cannabis inc.',
+          'General Motor inc.'
+        ]}
+      />
+      <SearchBar />
     </Menu>
   );
 }
