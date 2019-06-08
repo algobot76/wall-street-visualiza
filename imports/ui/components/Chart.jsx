@@ -13,11 +13,11 @@ import {
 } from 'recharts';
 
 
-function Chart({ data }) {
+function Chart({ data, title }) {
   return (
     <div className="line-charts">
       <p style={{ fontWeight: 'bold', fontSize: 25, textAlign: 'center' }}>
-        Stock Market Chart (2016)
+        {title}
       </p>
       <div className="line-chart-wrapper">
         <LineChart

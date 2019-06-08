@@ -10,7 +10,7 @@ function App() {
     <div>
       <Grid padded>
         <Navbar logoPath={logo} menuItems={['Home', 'About']} />
-        <Chart data={data}/>
+        <Chart data={data} title="Stock Market Chart (2016)" />
       </Grid>
     </div>
   );
