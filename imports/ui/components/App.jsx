@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import { Grid } from 'semantic-ui-react';
 import SearchBar from "./SearchBar";
 
+import Chart from './StockChart';
+
 
 function App() {
   const logo =
@@ -11,6 +13,7 @@ function App() {
     <div>
       <Grid padded>
         <Navbar logoPath={logo} menuItems={['Home', 'About']} />
+        <Chart/>
       </Grid>
     </div>
   );
