@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Brush, AreaChart, Area} from 'recharts';
-//import { scalePow, scaleLog } from 'd3-scale';
 
 const data = [
   { date: 'Dec 02', price: 109.9 },
