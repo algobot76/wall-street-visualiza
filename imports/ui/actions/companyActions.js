@@ -4,3 +4,9 @@ export const selectCompany = company => ({
   type: SELECT_COMPANY,
   payload: { company }
 });
+
+export const FETCH_COMPANIES = 'FETCH_COMPANIES';
+
+export const fetchCompanies = () => ({
+  type: FETCH_COMPANIES
+});
