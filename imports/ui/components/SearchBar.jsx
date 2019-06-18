@@ -9,7 +9,7 @@ function SearchBar() {
 
   return (
     <Menu.Item>
-      <Search onSearchChange={handleSearchChange} value={query} size="medium" />
+      <Search onSearchChange={handleSearchChange} value={query} size="large" />
     </Menu.Item>
   );
 }

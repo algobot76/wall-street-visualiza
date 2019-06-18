@@ -52,14 +52,14 @@ function Chart({ data, title }) {
             }}
             contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
             labelStyle={{ fontWeight: 'bold', color: 'black' }}
-            offset={'10'}
+            offset={10}
           />
           <Line
             dataKey="price"
             stroke="#ff7300"
             activeDot={{ stroke: 'red', strokeWidth: 12, r: 2 }}
             isAnimationActive={true}
-            animationBegin={'0'}
+            animationBegin={0}
             animationEasing={'linear'}
           />
           <Brush dataKey="date" startIndex={0}>
