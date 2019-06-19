@@ -1,6 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 
+import '../../../node_modules/bulma/css/bulma.css';
+
 import Chart from '../components/Chart';
 
 const data = [
