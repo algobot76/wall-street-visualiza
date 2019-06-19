@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 const NavbarBrand = ({ logo }) => {
   return (
     <div className="navbar-brand">
-      <a className="navbar-item">
+      <div className="navbar-item">
         <img src={logo} />
-      </a>
+      </div>
     </div>
   );
 };
