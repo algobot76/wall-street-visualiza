@@ -1,7 +1,8 @@
 import React from 'react';
+import ChartContainer from '../components/ChartContainer';
 
 const Visualiza = () => {
-  return <div>Visualiza</div>;
+  return <ChartContainer />;
 };
 
 export default Visualiza;
