@@ -1,7 +1,15 @@
 import React from 'react';
 
+import HeroTitle from './HeroTitle';
+
 const Headlines = () => {
-  return <div>headlines</div>;
+  return (
+    <HeroTitle
+      title="Headlines"
+      subtitle="Latest financial news"
+      color="is-dark"
+    />
+  );
 };
 
 export default Headlines;
