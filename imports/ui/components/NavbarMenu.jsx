@@ -14,6 +14,12 @@ class NavbarMenu extends Component {
     return (
       <div className="navbar-menu">
         <div className="navbar-start">
+          <div className="navbar-item">
+            Home
+          </div>
+          <div className="navbar-item">
+            About
+          </div>
           <div className="navbar-item has-dropdown is-hoverable">
             <div className="navbar-link">Company List</div>
             <div className="navbar-dropdown is-right">
