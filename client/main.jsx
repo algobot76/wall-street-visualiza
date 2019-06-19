@@ -10,6 +10,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from '../imports/ui/reducers';
 
+import '../node_modules/bulma/css/bulma.css';
+
 const middleware = [thunk, createLogger()];
 
 const store = createStore(
