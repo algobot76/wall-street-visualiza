@@ -6,7 +6,7 @@ const Headlines = () => {
   return (
     <HeroTitle
       title="Headlines"
-      subtitle="Latest financial news"
+      subtitle="Latest financial and business news 🤑🤑🤑"
       color="is-dark"
     />
   );
