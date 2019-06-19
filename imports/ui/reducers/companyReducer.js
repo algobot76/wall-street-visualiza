@@ -1,4 +1,4 @@
-import { FETCH_COMPANIES, SELECT_COMPANY, SEARCH_QUERY } from '../actions';
+import { FETCH_COMPANIES, SELECT_COMPANY, QUERY } from '../actions';
 
 const initialState = {
   names: ['AAPL', 'FB', 'MSFT', 'TSLA'],
@@ -17,7 +17,7 @@ const companyReducer = (state = initialState, action) => {
         ...state,
         names: ['AAPL', 'FB', 'MSFT', 'TSLA']
       };
-    case SEARCH_QUERY:
+    case QUERY:
       return {
         ...state,
         query: action.payload.query

@@ -11,9 +11,9 @@ export const fetchCompanies = () => ({
   type: FETCH_COMPANIES
 });
 
-export const SEARCH_QUERY = 'SEARCH_QUERY';
+export const QUERY = 'QUERY';
 
-export const searchQuery = query => ({
-  type: SEARCH_QUERY,
+export const search = query => ({
+  type: QUERY,
   payload: { query }
 });
