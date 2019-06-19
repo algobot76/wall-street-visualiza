@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  ResponsiveContainer,
   LineChart,
   Line,
   XAxis,
@@ -19,13 +20,17 @@ const Title = styled.p`
   text-align: center;
 `;
 
+const StyledLineChart = styled(LineChart)`
+  margin: 0 auto;
+`;
+
 const Chart = ({ data, title }) => {
   return (
     <section className="section">
-      <div className="container">
+      <div className="container is-fluid">
         <Title className="title">{title}</Title>
         <div className="box">
-          <LineChart
+          <StyledLineChart
             width={1000}
             height={600}
             data={data}
@@ -79,7 +84,7 @@ const Chart = ({ data, title }) => {
                 />
               </AreaChart>
             </Brush>
-          </LineChart>
+          </StyledLineChart>
         </div>
       </div>
     </section>
