@@ -7,7 +7,8 @@
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "dev-server": "json-server --watch db.json --port 7000"
   },
   "dependencies": {
     "@babel/runtime": "^7.3.4",
