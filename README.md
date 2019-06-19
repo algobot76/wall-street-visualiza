@@ -1,6 +1,6 @@
 # Wall Street Visualiza
 
-![logo](logo.jpg)
+![logo](logo.png)
 
 - [Wall Street Visualiza](#wall-street-visualiza)
   - [Group Members](#group-members)
