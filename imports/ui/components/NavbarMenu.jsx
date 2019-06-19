@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import Search from './Search';
+
 import { fetchCompanies } from '../actions';
 
 class NavbarMenu extends Component {
@@ -14,12 +16,8 @@ class NavbarMenu extends Component {
     return (
       <div className="navbar-menu">
         <div className="navbar-start">
-          <div className="navbar-item">
-            Home
-          </div>
-          <div className="navbar-item">
-            About
-          </div>
+          <div className="navbar-item">Home</div>
+          <div className="navbar-item">About</div>
           <div className="navbar-item has-dropdown is-hoverable">
             <div className="navbar-link">Company List</div>
             <div className="navbar-dropdown is-right">
@@ -30,6 +28,9 @@ class NavbarMenu extends Component {
               ))}
             </div>
           </div>
+        </div>
+        <div className="navbar-end">
+          <Search />
         </div>
       </div>
     );
