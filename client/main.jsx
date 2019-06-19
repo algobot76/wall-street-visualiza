@@ -10,8 +10,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from '../imports/ui/reducers';
 
-import 'semantic-ui-css/semantic.min.css';
-
 const middleware = [thunk, createLogger()];
 
 const store = createStore(
@@ -24,12 +22,6 @@ Meteor.startup(() => {
     <Provider store={store}>
       <App />
     </Provider>,
-    document.getElementById('react-target')
+    document.getElementById('root')
   );
 });
-
-const styleLink = document.createElement('link');
-styleLink.rel = 'stylesheet';
-styleLink.href =
-  'https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css';
-document.head.appendChild(styleLink);
