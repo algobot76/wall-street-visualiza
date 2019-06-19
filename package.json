@@ -40,6 +40,7 @@
     "@storybook/addons": "^5.1.8",
     "@storybook/react": "^5.1.8",
     "babel-loader": "^8.0.6",
+    "json-server": "^0.15.0",
     "prettier": "^1.18.0",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6"
