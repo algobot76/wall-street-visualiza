@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import NavbarBrand from './NavbarBrand';
@@ -9,7 +10,9 @@ class Navbar extends Component {
     const { logo } = this.props;
     return (
       <nav className="navbar has-shadow">
-        <NavbarBrand logo={logo} />
+        <Link to={'/'}>
+          <NavbarBrand logo={logo} />
+        </Link>
         <NavbarMenu />
       </nav>
     );
