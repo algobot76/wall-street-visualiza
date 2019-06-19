@@ -11,15 +11,19 @@ import {
   AreaChart,
   Area
 } from 'recharts';
+import styled from 'styled-components';
 
+const Title = styled.p`
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+`;
 
-function Chart({ data, title }) {
+const Chart = ({ data, title }) => {
   return (
-    <div className="line-charts">
-      <p style={{ fontWeight: 'bold', fontSize: 25, textAlign: 'center' }}>
-        {title}
-      </p>
-      <div className="line-chart-wrapper">
+    <div>
+      <Title>{title}</Title>
+      <div>
         <LineChart
           width={1000}
           height={600}
@@ -78,7 +82,7 @@ function Chart({ data, title }) {
       </div>
     </div>
   );
-}
+};
 
 Chart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object).isRequired
