@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Sidebar from '../components/Sidebar';
+import Chart from '../components/Chart';
 import { fetchCompanies } from '../actions';
 
 class Visualiza extends Component {
@@ -10,11 +11,12 @@ class Visualiza extends Component {
   }
 
   render() {
-    const { names } = this.props;
+    const { names, company, data } = this.props;
     return (
       <div className="section">
         <div className="columns">
           <Sidebar names={names} />
+          <Chart title={`Stock Prices of ${company}`} data={data} />
         </div>
       </div>
     );
@@ -22,7 +24,9 @@ class Visualiza extends Component {
 }
 
 const mapStateToProps = state => ({
-  names: state.companies.names
+  names: state.companies.names,
+  company: state.companies.selectedCompany,
+  data: state.companies.data
 });
 
 export default connect(mapStateToProps)(Visualiza);

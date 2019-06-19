@@ -26,10 +26,9 @@ const StyledLineChart = styled(LineChart)`
 
 const Chart = ({ data, title }) => {
   return (
-    <section className="section">
-      <div className="container is-fluid">
-        <Title className="title">{title}</Title>
+    <section className="column">
         <div className="box">
+          <Title className="title">{title}</Title>
           <StyledLineChart
             width={1000}
             height={600}
@@ -86,7 +85,6 @@ const Chart = ({ data, title }) => {
             </Brush>
           </StyledLineChart>
         </div>
-      </div>
     </section>
   );
 };
