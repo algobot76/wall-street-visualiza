@@ -1,49 +1,105 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { search } from '../actions';
+import { fetchCompanies, search } from '../actions';
 
-const Search = ({ dispatch }) => {
-  let input;
-  return (
-    <div className="navbar-item">
-      <div className="level">
-        <div className="level-right">
-          <div className="level-item">
-            <form
-              onSubmit={e => {
-                e.preventDefault();
-                if (!input.value.trim()) {
-                  return;
-                }
-                dispatch(search(input.value));
-                input.value = '';
-              }}
-            >
-              <div className="field has-addons">
-                <div className="control has-icons-left">
-                  <input
-                    ref={node => (input = node)}
-                    type="text"
-                    className="input"
-                    placeholder="Look for a company?"
-                  />
-                  <span className="icon is-left">
-                    <FontAwesomeIcon icon={faSearch} />
-                  </span>
+class Search extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchCompanies());
+  }
+
+  state = {
+    inputSelected: false,
+    inputValue: ''
+  };
+
+  handleInputOnSelect() {
+    this.setState({
+      inputSelected: true
+    });
+  }
+
+  handleInputOnBlur() {
+    this.setState({
+      inputSelected: false
+    });
+  }
+
+  updateInputValue(e) {
+    this.setState({
+      inputValue: e.target.value
+    });
+  }
+
+  render() {
+    const { dispatch, names } = this.props;
+    let input;
+    return (
+      <div className="navbar-item">
+        <div className="level">
+          <div className="level-right">
+            <div className="level-item">
+              <form
+                onSubmit={e => {
+                  e.preventDefault();
+                  if (!input.value.trim()) {
+                    return;
+                  }
+                  dispatch(search(input.value));
+                  input.value = '';
+                }}
+              >
+                <div className="field has-addons">
+                  <div className="dropdown is-active">
+                    <div className="dropdown-trigger">
+                      <div className="control has-icons-left">
+                        <input
+                          ref={node => (input = node)}
+                          type="text"
+                          className="input"
+                          placeholder="Look for a company?"
+                          onChange={e => this.updateInputValue(e)}
+                          onSelect={() => this.handleInputOnSelect()}
+                          onBlur={() => this.handleInputOnBlur()}
+                        />
+                        <span className="icon is-left">
+                          <FontAwesomeIcon icon={faSearch} />
+                        </span>
+                      </div>
+                    </div>
+                    {this.state.inputSelected && (
+                      <div className="dropdown-menu">
+                        <div className="dropdown-content">
+                          {names
+                            .filter(name =>
+                              name.includes(this.state.inputValue.toUpperCase())
+                            )
+                            .map((name, idx) => (
+                              <div key={idx} className="dropdown-item">
+                                <a>{name}</a>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div className="control">
+                    <button className="button is-dark">Search</button>
+                  </div>
                 </div>
-                <div className="control">
-                  <button className="button is-dark">Search</button>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default connect()(Search);
+const mapStateToProps = state => ({
+  names: state.companies.names
+});
+
+export default connect(mapStateToProps)(Search);
