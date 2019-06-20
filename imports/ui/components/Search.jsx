@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { fetchCompanies, search } from '../actions';
+import { fetchCompanies, search, selectCompany } from '../actions';
 
 class Search extends Component {
   componentDidMount() {
@@ -11,20 +11,24 @@ class Search extends Component {
   }
 
   state = {
-    inputSelected: false,
+    inputOnFocus: false,
     inputValue: ''
   };
 
-  handleInputOnSelect() {
-    this.setState({
-      inputSelected: true
-    });
+  handleInputOnFocus() {
+    setTimeout(() => {
+      this.setState({
+        inputOnFocus: true
+      });
+    }, 0);
   }
 
   handleInputOnBlur() {
-    this.setState({
-      inputSelected: false
-    });
+    setTimeout(() => {
+      this.setState({
+        inputOnFocus: false
+      });
+    }, 0);
   }
 
   updateInputValue(e) {
@@ -61,7 +65,7 @@ class Search extends Component {
                           className="input"
                           placeholder="Look for a company?"
                           onChange={e => this.updateInputValue(e)}
-                          onSelect={() => this.handleInputOnSelect()}
+                          onFocus={() => this.handleInputOnFocus()}
                           onBlur={() => this.handleInputOnBlur()}
                         />
                         <span className="icon is-left">
@@ -69,7 +73,7 @@ class Search extends Component {
                         </span>
                       </div>
                     </div>
-                    {this.state.inputSelected && (
+                    {this.state.inputOnFocus && (
                       <div className="dropdown-menu">
                         <div className="dropdown-content">
                           {names
@@ -78,7 +82,13 @@ class Search extends Component {
                             )
                             .map((name, idx) => (
                               <div key={idx} className="dropdown-item">
-                                <a>{name}</a>
+                                <a
+                                  onClick={() => {
+                                    dispatch(selectCompany(name));
+                                  }}
+                                >
+                                  {name}
+                                </a>
                               </div>
                             ))}
                         </div>
