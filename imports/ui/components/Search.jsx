@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { search } from '../actions';
 
@@ -21,13 +23,16 @@ const Search = ({ dispatch }) => {
               }}
             >
               <div className="field has-addons">
-                <div className="control">
+                <div className="control has-icons-left">
                   <input
                     ref={node => (input = node)}
                     type="text"
                     className="input"
                     placeholder="Search..."
                   />
+                  <span className="icon is-left">
+                    <FontAwesomeIcon icon={faSearch} />
+                  </span>
                 </div>
                 <div className="control">
                   <button className="button is-dark">Search</button>
