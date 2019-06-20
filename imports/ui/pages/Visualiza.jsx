@@ -12,11 +12,16 @@ class Visualiza extends Component {
 
   render() {
     const { names, company, data } = this.props;
+    const filteredData = data.find(item => item.company === company);
+
     return (
       <div className="section has-background-light">
         <div className="columns">
           <Sidebar names={names} />
-          <Chart title={company} data={data} />
+          <Chart
+            title={company}
+            data={filteredData ? filteredData.prices : []}
+          />
         </div>
       </div>
     );
