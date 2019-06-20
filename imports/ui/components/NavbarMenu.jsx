@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import Search from './Search';
 
-const NavbarMenu = () => {
+const NavbarMenu = ({ location }) => {
   return (
     <div className="navbar-menu">
       <div className="navbar-start">
@@ -18,15 +19,13 @@ const NavbarMenu = () => {
           Visuliza
         </Link>
       </div>
-      <div className="navbar-end">
-        <Search />
-      </div>
+      {location.pathname === '/visualiza' && (
+        <div className="navbar-end">
+          <Search />
+        </div>
+      )}
     </div>
   );
 };
 
-NavbarMenu.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string)
-};
-
-export default NavbarMenu;
+export default withRouter(NavbarMenu);
