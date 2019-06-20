@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { selectCompany } from '../actions';
 
-const Sidebar = ({ dispatch, names }) => {
+const Sidebar = ({ dispatch, selectedCompany, names }) => {
   return (
     <div className="column is-4-tablet is-3-desktop is-2-widescreen">
       <aside className="menu">
@@ -17,7 +17,9 @@ const Sidebar = ({ dispatch, names }) => {
                 dispatch(selectCompany(name));
               }}
             >
-              <a>{name}</a>
+              <a className={name === selectedCompany ? 'is-active' : ''}>
+                {name}
+              </a>
             </li>
           ))}
         </ul>
@@ -27,7 +29,12 @@ const Sidebar = ({ dispatch, names }) => {
 };
 
 Sidebar.propTypes = {
+  selectedCompany: PropTypes.string,
   names: PropTypes.arrayOf(PropTypes.string)
 };
 
-export default connect()(Sidebar);
+const mapStateToProps = state => ({
+  selectedCompany: state.companies.selectedCompany
+});
+
+export default connect(mapStateToProps)(Sidebar);
