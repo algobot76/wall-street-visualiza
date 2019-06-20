@@ -13,7 +13,7 @@ class Visualiza extends Component {
   render() {
     const { names, company, data } = this.props;
     return (
-      <div className="section">
+      <div className="section has-background-light">
         <div className="columns">
           <Sidebar names={names} />
           <Chart title={company} data={data} />

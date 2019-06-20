@@ -1,5 +1,16 @@
 @charset "utf-8";
 
+// colors
+$dimgray: #696969;
+$black: #000000;
+$white-smoke: #f5f5f5;
+
+// menu
+$menu-item-active-color: $white-smoke;
+$menu-item-active-background-color: $black;
+$menu-item-hover-color: $white-smoke;
+$menu-item-hover-background-color: $dimgray;
+
 // navbar
 $navbar-height: 4.25rem;
 $navbar-item-img-max-height: 4rem;
