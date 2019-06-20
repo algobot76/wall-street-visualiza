@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
@@ -8,19 +8,25 @@ import Visualiza from './pages/Visualiza';
 
 import logo from './assets/logo.png';
 
-const App = () => {
-  return (
-    <Router>
-      <div>
-        <Navbar logo={logo} />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/about" component={About} />
-          <Route path="/visualiza" component={Visualiza} />
-        </Switch>
-      </div>
-    </Router>
-  );
-};
+class App extends Component {
+  componentDidMount() {
+    document.body.classList.add('has-navbar-fixed-top');
+  }
+
+  render() {
+    return (
+      <Router>
+        <div>
+          <Navbar logo={logo} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/visualiza" component={Visualiza} />
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
+}
 
 export default App;

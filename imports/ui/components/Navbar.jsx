@@ -9,7 +9,7 @@ class Navbar extends Component {
   render() {
     const { logo } = this.props;
     return (
-      <nav className="navbar has-shadow">
+      <nav className="navbar has-shadow is-fixed-top">
         <Link to={'/'}>
           <NavbarBrand logo={logo} />
         </Link>
