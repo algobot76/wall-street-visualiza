@@ -10,6 +10,13 @@ const About = () => {
         subtitle="Learn more about Wall St Visualiza 😘"
         color="is-dark"
       />
+      <div className="section has-text-centered">
+        <div className="content has-text-centered is-large">
+          <p>
+            xxxx
+          </p>
+        </div>
+      </div>
     </Fragment>
   );
 };
