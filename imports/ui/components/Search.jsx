@@ -28,7 +28,7 @@ const Search = ({ dispatch }) => {
                     ref={node => (input = node)}
                     type="text"
                     className="input"
-                    placeholder="Search..."
+                    placeholder="Look for a company?"
                   />
                   <span className="icon is-left">
                     <FontAwesomeIcon icon={faSearch} />
