@@ -26,6 +26,33 @@ const StyledLineChart = styled(LineChart)`
   margin: 0 auto;
 `;
 
+const StyledTooltipLabel = styled.p`
+  font-weight: bold;
+  color: $black;
+`;
+
+const StyledTooltipEntry = styled.p`
+  font-weight: lighter;
+  color: $darkgray;
+`;
+
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active) {
+    const data = payload[0].payload;
+    return (
+      <div>
+        <StyledTooltipLabel>Date: {label}</StyledTooltipLabel>
+        <StyledTooltipEntry>Open: {data.open}</StyledTooltipEntry>
+        <StyledTooltipEntry>Close: {data.close}</StyledTooltipEntry>
+        <StyledTooltipEntry>High: {data.high}</StyledTooltipEntry>
+        <StyledTooltipEntry>Low: {data.low}</StyledTooltipEntry>
+        <StyledTooltipEntry>Volume: {data.volume}</StyledTooltipEntry>
+      </div>
+    );
+  }
+  return null;
+};
+
 class Chart extends Component {
   componentDidMount() {
     const { dispatch, data } = this.props;
@@ -49,18 +76,9 @@ class Chart extends Component {
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="date" />
             <YAxis domain={['auto', 'auto']} />
-            <Tooltip
-              cursor={{ strokeDasharray: '3 3' }}
-              wrapperStyle={{
-                borderColor: 'blue',
-                boxShadow: '2px 2px 3px 0px rgb(204, 204, 204)'
-              }}
-              contentStyle={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
-              labelStyle={{ fontWeight: 'bold', color: 'black' }}
-              offset={10}
-            />
+            <Tooltip content={<CustomTooltip />} />
             <Line
-              dataKey="price"
+              dataKey="close"
               stroke="#292421"
               activeDot={{ stroke: '#292421', strokeWidth: 15, r: 2 }}
               isAnimationActive={true}
@@ -76,7 +94,7 @@ class Chart extends Component {
               <AreaChart>
                 <CartesianGrid />
                 <YAxis hide domain={['auto', 'auto']} />
-                <Area dataKey="price" stroke="#696969" fill="#292421" />
+                <Area dataKey="close" stroke="#696969" fill="#292421" />
               </AreaChart>
             </Brush>
           </StyledLineChart>
