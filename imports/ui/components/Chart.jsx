@@ -1,7 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
-  ResponsiveContainer,
   LineChart,
   Line,
   XAxis,
@@ -14,6 +14,8 @@ import {
 } from 'recharts';
 import styled from 'styled-components';
 
+import { updateIndices } from '../actions';
+
 const Title = styled.p`
   font-weight: bold;
   font-size: 25px;
@@ -24,7 +26,7 @@ const StyledLineChart = styled(LineChart)`
   margin: 0 auto;
 `;
 
-const Chart = ({ data, title }) => {
+const Chart = ({ dispatch, title, data }) => {
   return (
     <section className="section">
       <div className="container is-widescreen">
@@ -56,7 +58,12 @@ const Chart = ({ data, title }) => {
             animationBegin={0}
             animationEasing={'linear'}
           />
-          <Brush dataKey="date" startIndex={0}>
+          <Brush
+            dataKey="date"
+            onChange={e => {
+              dispatch(updateIndices(e.startIndex, e.endIndex));
+            }}
+          >
             <AreaChart>
               <CartesianGrid />
               <YAxis hide domain={['auto', 'auto']} />
@@ -70,7 +77,9 @@ const Chart = ({ data, title }) => {
 };
 
 Chart.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object).isRequired
+  dispatch: PropTypes.func,
+  title: PropTypes.string,
+  data: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default Chart;
+export default connect()(Chart);
