@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
+import NewsModal from '../components/NewsModal';
 import { fetchCompanies } from '../actions';
 
 class Visualiza extends Component {
@@ -16,7 +17,10 @@ class Visualiza extends Component {
       <div className="section has-background-light">
         <div className="columns">
           <Sidebar names={names} />
-          <Chart title={company} data={data} />
+          <div className="column">
+            <Chart title={company} data={data} />
+            <NewsModal className="column" title="News" content="foo bar" />
+          </div>
         </div>
       </div>
     );
