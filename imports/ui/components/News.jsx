@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import NewsEntry from './NewsEntry';
+import { fetchHeadlines } from '../actions';
 
-const News = ({ data }) => {
-  return (
-    <section className="section">
-      <div className="columns is-multiline">
-        <div className="column is-12-tablet is-6-desktop is-4-widescreen">
+class News extends Component {
+  componentDidMount() {
+    this.props.dispatch(fetchHeadlines());
+  }
+
+  render() {
+    const { data } = this.props;
+    return (
+      <section className="section">
+        <div className="columns is-multiline">
           {data &&
             data.map((entry, idx) => (
               <NewsEntry
@@ -15,16 +22,21 @@ const News = ({ data }) => {
                 image={entry.image}
                 title={entry.title}
                 description={entry.description}
+                url={entry.url}
               />
             ))}
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  }
+}
 
 News.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default News;
+const mapStateToProps = state => ({
+  data: state.news.headlines
+});
+
+export default connect(mapStateToProps)(News);
