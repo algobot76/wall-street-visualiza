@@ -1,3 +1,3 @@
 export * from './companyActions';
-export * from './newsAction';
+export * from './newsActions';
 export * from './chartActions';
