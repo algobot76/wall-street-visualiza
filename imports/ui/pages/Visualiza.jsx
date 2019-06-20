@@ -16,7 +16,7 @@ class Visualiza extends Component {
       <div className="section">
         <div className="columns">
           <Sidebar names={names} />
-          <Chart title={`Stock Prices of ${company}`} data={data} />
+          <Chart title={company} data={data} />
         </div>
       </div>
     );
