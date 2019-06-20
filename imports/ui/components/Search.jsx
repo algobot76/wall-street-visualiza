@@ -30,7 +30,7 @@ const Search = ({ dispatch }) => {
                   />
                 </div>
                 <div className="control">
-                  <button className="button">Search</button>
+                  <button className="button is-dark">Search</button>
                 </div>
               </div>
             </form>
