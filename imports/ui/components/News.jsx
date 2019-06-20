@@ -13,18 +13,20 @@ class News extends Component {
   render() {
     const { data } = this.props;
     return (
-      <section className="section">
-        <div className="columns is-multiline">
-          {data &&
-            data.map((entry, idx) => (
-              <NewsEntry
-                key={idx}
-                image={entry.image}
-                title={entry.title}
-                description={entry.description}
-                url={entry.url}
-              />
-            ))}
+      <section className="hero is-fullheight has-background-light">
+        <div className="hero-body">
+          <div className="columns is-multiline">
+            {data &&
+              data.map((entry, idx) => (
+                <NewsEntry
+                  key={idx}
+                  image={entry.image}
+                  title={entry.title}
+                  description={entry.description}
+                  url={entry.url}
+                />
+              ))}
+          </div>
         </div>
       </section>
     );
