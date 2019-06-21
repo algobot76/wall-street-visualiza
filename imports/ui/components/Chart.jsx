@@ -74,7 +74,7 @@ class Chart extends Component {
           >
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="date" />
-            <YAxis domain={['auto', 'auto']} />
+            <YAxis domain={['dataMin', 'dataMax']} />
             <Tooltip content={<CustomTooltip />} />
             <Line dataKey="close" stroke="#292421" activeDot={{ r: 5 }} />
             <Brush
