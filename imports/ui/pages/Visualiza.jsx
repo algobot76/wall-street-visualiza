@@ -19,7 +19,7 @@ class Visualiza extends Component {
           <Sidebar names={names} />
           <div className="column">
             <Chart title={company} data={data} />
-            <NewsModal className="column" title="News" content="foo bar" />
+            <NewsModal buttonName="Get News" title="News" content="foo bar" />
           </div>
         </div>
       </div>
