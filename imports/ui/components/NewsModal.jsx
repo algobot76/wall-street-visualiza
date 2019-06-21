@@ -36,6 +36,10 @@ const StyledModal = styled(Modal)`
   transition: opacity 300ms ease-in-out;
 `;
 
+const Section = styled.section`
+  padding: 0;
+`;
+
 class NewsModal extends Component {
   state = {
     isToggled: false
@@ -51,7 +55,7 @@ class NewsModal extends Component {
     const { buttonName, buttonColor = 'is-dark', title, content } = this.props;
 
     return (
-      <section className="section">
+      <Section className="section">
         <div className="container">
           <div className="has-text-centered content">
             <button
@@ -72,7 +76,7 @@ class NewsModal extends Component {
             content={content}
           />
         </div>
-      </section>
+      </Section>
     );
   }
 }
