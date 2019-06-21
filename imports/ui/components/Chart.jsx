@@ -71,7 +71,6 @@ class Chart extends Component {
             width={1000}
             height={600}
             data={data}
-            margin={{ top: 10, right: 100, bottom: 50, left: 50 }}
           >
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="date" />
