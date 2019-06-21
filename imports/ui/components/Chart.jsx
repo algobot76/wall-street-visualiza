@@ -67,14 +67,10 @@ class Chart extends Component {
       <section className="section">
         <div className="container is-widescreen">
           <Title className="title">{title}</Title>
-          <StyledLineChart
-            width={1000}
-            height={600}
-            data={data}
-          >
+          <StyledLineChart width={1000} height={600} data={data}>
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="date" />
-            <YAxis domain={['dataMin', 'dataMax']} />
+            <YAxis domain={['auto', 'auto']} />
             <Tooltip content={<CustomTooltip />} />
             <Line dataKey="close" stroke="#292421" activeDot={{ r: 5 }} />
             <Brush
