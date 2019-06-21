@@ -80,9 +80,8 @@ class Chart extends Component {
             <Line
               dataKey="close"
               stroke="#292421"
-              activeDot={{ stroke: '#292421', strokeWidth: 15, r: 2 }}
+              activeDot={{ r: 5 }}
               isAnimationActive={true}
-              animationBegin={0}
               animationEasing={'linear'}
             />
             <Brush
