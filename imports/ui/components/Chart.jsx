@@ -38,15 +38,15 @@ const StyledTooltipEntry = styled.p`
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active) {
-    const data = payload[0].payload;
+    const data = payload ? payload[0].payload : null;
     return (
       <div>
         <StyledTooltipLabel>Date: {label}</StyledTooltipLabel>
-        <StyledTooltipEntry>Open: {data.open}</StyledTooltipEntry>
-        <StyledTooltipEntry>Close: {data.close}</StyledTooltipEntry>
-        <StyledTooltipEntry>High: {data.high}</StyledTooltipEntry>
-        <StyledTooltipEntry>Low: {data.low}</StyledTooltipEntry>
-        <StyledTooltipEntry>Volume: {data.volume}</StyledTooltipEntry>
+        {data && <StyledTooltipEntry>Open: {data.open}</StyledTooltipEntry>}
+        {data && <StyledTooltipEntry>Close: {data.close}</StyledTooltipEntry>}
+        {data && <StyledTooltipEntry>High: {data.high}</StyledTooltipEntry>}
+        {data && <StyledTooltipEntry>Low: {data.low}</StyledTooltipEntry>}
+        {data && <StyledTooltipEntry>Volume: {data.volume}</StyledTooltipEntry>}
       </div>
     );
   }
@@ -77,13 +77,7 @@ class Chart extends Component {
             <XAxis dataKey="date" />
             <YAxis domain={['auto', 'auto']} />
             <Tooltip content={<CustomTooltip />} />
-            <Line
-              dataKey="close"
-              stroke="#292421"
-              activeDot={{ r: 5 }}
-              isAnimationActive={true}
-              animationEasing={'linear'}
-            />
+            <Line dataKey="close" stroke="#292421" activeDot={{ r: 5 }} />
             <Brush
               dataKey="date"
               onChange={e => {
