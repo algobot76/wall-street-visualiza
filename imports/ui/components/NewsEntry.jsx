@@ -11,25 +11,23 @@ const Title = styled.a`
 
 const NewsEntry = ({ image, title, description, url }) => {
   return (
-    <div className="column is-12-tablet is-6-desktop is-4-widescreen">
-      <article className="box">
-        <div className="media">
-          <aside className="media-left">
-            <img src={image} width="80" />
-          </aside>
-          <div className="media-content">
-            <Title
-              href={url ? url : ''}
-              target="_blank"
-              className="title is-5 is-spaced is-marginless"
-            >
-              {title}
-            </Title>
-            <div className="content is-small">{description}</div>
-          </div>
+    <article className="box">
+      <div className="media">
+        <aside className="media-left">
+          <img src={image} width="80" />
+        </aside>
+        <div className="media-content">
+          <Title
+            href={url ? url : ''}
+            target="_blank"
+            className="title is-5 is-spaced is-marginless"
+          >
+            {title}
+          </Title>
+          <div className="content is-small">{description}</div>
         </div>
-      </article>
-    </div>
+      </div>
+    </article>
   );
 };
 

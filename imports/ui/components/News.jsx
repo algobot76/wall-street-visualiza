@@ -18,13 +18,15 @@ class News extends Component {
           <div className="columns is-multiline">
             {data &&
               data.map((entry, idx) => (
-                <NewsEntry
-                  key={idx}
-                  image={entry.image}
-                  title={entry.title}
-                  description={entry.description}
-                  url={entry.url}
-                />
+                <div className="column is-12-tablet is-6-desktop is-4-widescreen">
+                  <NewsEntry
+                    key={idx}
+                    image={entry.image}
+                    title={entry.title}
+                    description={entry.description}
+                    url={entry.url}
+                  />
+                </div>
               ))}
           </div>
         </div>
