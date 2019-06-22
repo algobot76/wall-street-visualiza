@@ -40,7 +40,7 @@ Modal.propTypes = {
   isToggled: PropTypes.bool,
   closeModal: PropTypes.func,
   title: PropTypes.string,
-  content: PropTypes.string
+  content: PropTypes.arrayOf(PropTypes.object)
 };
 
 const StyledModal = styled(Modal)`
@@ -100,7 +100,7 @@ NewsModal.propTypes = {
   buttonName: PropTypes.string,
   buttonColor: PropTypes.string,
   title: PropTypes.string,
-  content: PropTypes.string
+  content: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default NewsModal;
