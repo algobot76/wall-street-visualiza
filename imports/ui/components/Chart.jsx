@@ -63,6 +63,7 @@ class Chart extends Component {
 
   render() {
     const { dispatch, title, data } = this.props;
+
     return (
       <section className="section">
         <div className="container is-widescreen">
@@ -70,9 +71,14 @@ class Chart extends Component {
           <StyledLineChart width={1000} height={600} data={data}>
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="date" />
-            <YAxis domain={['auto', 'auto']} />
+            <YAxis domain={['dataMin', 'dataMax']} />
             <Tooltip content={<CustomTooltip />} />
-            <Line dataKey="close" stroke="#292421" activeDot={{ r: 5 }} />
+            <Line
+              dataKey="close"
+              stroke="#292421"
+              dot={false}
+              activeDot={{ r: 5 }}
+            />
             <Brush
               dataKey="date"
               onChange={e => {
@@ -81,7 +87,7 @@ class Chart extends Component {
             >
               <AreaChart>
                 <CartesianGrid />
-                <YAxis hide domain={['auto', 'auto']} />
+                <YAxis dataKey="close" hide domain={['auto', 'auto']} />
                 <Area dataKey="close" stroke="#696969" fill="#292421" />
               </AreaChart>
             </Brush>
