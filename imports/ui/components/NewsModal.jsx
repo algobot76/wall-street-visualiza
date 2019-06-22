@@ -4,6 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
+const NewsNotFound = () => (
+  <div className="content has-text-centered">
+    <p className="title">News Not Found</p>
+  </div>
+);
+
+const NewsDisplay = ({ content }) => <div className="content">{content}</div>;
+
 const Modal = ({ isToggled, closeModal, title, content }) => {
   if (!isToggled) {
     return null;
@@ -14,11 +22,13 @@ const Modal = ({ isToggled, closeModal, title, content }) => {
       <div className="modal-background" onClick={closeModal}>
         <div className="modal-card">
           <header className="modal-card-head">
-            {title && <p className="modal-card-title">{title}</p>}
+            {title && (
+              <p className="modal-card-title has-text-centered">{title}</p>
+            )}
             <a className="delete" onClick={closeModal} />
           </header>
           <section className="modal-card-body">
-            <div className="content">{content}</div>
+            {content ? <NewsDisplay content={content} /> : <NewsNotFound />}
           </section>
         </div>
       </div>

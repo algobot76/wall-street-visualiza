@@ -42,7 +42,6 @@ class Visualiza extends Component {
                   ? `News from ${startDate} to ${endDate}`
                   : 'News'
               }
-              content="404 News Not Found"
             />
             <Chart data={filteredData ? filteredData.prices : []} />
           </div>
