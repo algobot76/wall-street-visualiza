@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 
+import logo from '../assets/logo.png';
 import HeroTitle from '../components/HeroTitle';
 
 const About = () => {
@@ -24,6 +25,9 @@ const About = () => {
                 such information will be provided at the click of a button.
               </p>
             </div>
+            <figure className="image container is-128x128">
+              <img src={logo} />
+            </figure>
           </div>
         </div>
       </section>
