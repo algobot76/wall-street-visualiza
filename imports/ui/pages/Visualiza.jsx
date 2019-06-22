@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
 import NewsModal from '../components/NewsModal';
-import { fetchCompanies } from '../actions';
+import { fetchCompanies, fetchNews } from '../actions';
 
 const Title = styled.p`
   font-weight: bold;
@@ -17,16 +17,33 @@ const Title = styled.p`
 class Visualiza extends Component {
   componentDidMount() {
     this.props.dispatch(fetchCompanies());
+    this.props.dispatch(fetchNews());
   }
 
   render() {
-    const { names, company, data, startIndex, endIndex } = this.props;
+    const { names, company, data, startIndex, endIndex, news } = this.props;
+
     const filteredData = data.find(item => item.company === company);
     let startDate = '';
     let endDate = '';
     if (filteredData) {
-      startDate = filteredData.prices[startIndex]['date'];
-      endDate = filteredData.prices[endIndex]['date'];
+      startDate = filteredData['prices'][startIndex]['date'];
+      endDate = filteredData['prices'][endIndex]['date'];
+    }
+    const filteredNews = news.find(item => item.company === company);
+    const newsEntries = [];
+    if (filteredNews) {
+      const startDate = new Date(filteredData['prices'][startIndex]['date']);
+      const endDate = new Date(filteredData['prices'][endIndex]['date']);
+      filteredNews['articles'].forEach(article => {
+        const currDate = new Date(article['publishedAt']);
+        if (
+          currDate.getTime() >= startDate.getTime() &&
+          currDate.getTime() <= endDate.getTime()
+        ) {
+          newsEntries.push(article);
+        }
+      });
     }
 
     return (
@@ -42,6 +59,7 @@ class Visualiza extends Component {
                   ? `News from ${startDate} to ${endDate}`
                   : 'News'
               }
+              content={newsEntries}
             />
             <Chart data={filteredData ? filteredData.prices : []} />
           </div>
@@ -56,7 +74,8 @@ const mapStateToProps = state => ({
   company: state.companies.selectedCompany,
   data: state.companies.data,
   startIndex: state.chart.startIndex,
-  endIndex: state.chart.endIndex
+  endIndex: state.chart.endIndex,
+  news: state.news.news
 });
 
 export default connect(mapStateToProps)(Visualiza);
