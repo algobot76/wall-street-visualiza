@@ -44,7 +44,11 @@ const Modal = ({ isToggled, closeModal, title, content }) => {
             <a className="delete" onClick={closeModal} />
           </header>
           <section className="modal-card-body">
-            {content ? <NewsDisplay content={content} /> : <NewsNotFound />}
+            {content.length > 0 ? (
+              <NewsDisplay content={content} />
+            ) : (
+              <NewsNotFound />
+            )}
           </section>
         </div>
       </div>
