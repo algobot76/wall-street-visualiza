@@ -15,4 +15,9 @@ $menu-item-hover-background-color: $dimgray;
 $navbar-height: 4.25rem;
 $navbar-item-img-max-height: 4rem;
 
+// custom widths
+.is-15rem-wide {
+  width: 15rem;
+}
+
 @import '../node_modules/bulma-scss/bulma.scss';
