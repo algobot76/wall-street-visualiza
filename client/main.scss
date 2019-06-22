@@ -20,4 +20,9 @@ $navbar-item-img-max-height: 4rem;
   width: 15rem;
 }
 
+// display
+.is-display-none-important {
+  display: none !important;
+}
+
 @import '../node_modules/bulma-scss/bulma.scss';

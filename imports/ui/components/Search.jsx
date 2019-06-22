@@ -16,19 +16,15 @@ class Search extends Component {
   };
 
   handleInputOnFocus() {
-    setTimeout(() => {
-      this.setState({
-        inputOnFocus: true
-      });
-    }, 0);
+    this.setState({
+      inputOnFocus: true
+    });
   }
 
   handleInputOnBlur() {
-    setTimeout(() => {
-      this.setState({
-        inputOnFocus: false
-      });
-    }, 0);
+    this.setState({
+      inputOnFocus: false
+    });
   }
 
   updateInputValue(e) {
@@ -37,9 +33,15 @@ class Search extends Component {
     });
   }
 
+  clearInputValue() {
+    this.setState({
+      inputValue: ''
+    });
+  }
+
   render() {
-    const { dispatch, names } = this.props;
     let input;
+    const { dispatch, names } = this.props;
     return (
       <div className="navbar-item">
         <div className="level">
@@ -63,27 +65,31 @@ class Search extends Component {
                       </span>
                     </div>
                   </div>
-                  {this.state.inputOnFocus && (
-                    <div className="dropdown-menu is-15rem-wide">
-                      <div className="dropdown-content">
-                        {names
-                          .filter(name =>
-                            name.includes(this.state.inputValue.toUpperCase())
-                          )
-                          .map((name, idx) => (
-                            <div key={idx} className="dropdown-item">
-                              <a
-                                onClick={() => {
-                                  dispatch(selectCompany(name));
-                                }}
-                              >
-                                {name}
-                              </a>
-                            </div>
-                          ))}
-                      </div>
+                  <div
+                    className={`dropdown-menu is-15rem-wide ${
+                      this.state.inputOnFocus ? '' : 'is-display-none-important'
+                    }`}
+                  >
+                    <div className="dropdown-content">
+                      {names
+                        .filter(name =>
+                          name.includes(this.state.inputValue.toUpperCase())
+                        )
+                        .map((name, idx) => (
+                          <div key={idx} className="dropdown-item">
+                            <a
+                              onMouseDown={() => {
+                                input.value = '';
+                                this.clearInputValue();
+                                dispatch(selectCompany(name));
+                              }}
+                            >
+                              {name}
+                            </a>
+                          </div>
+                        ))}
                     </div>
-                  )}
+                  </div>
                 </div>
               </div>
             </div>
