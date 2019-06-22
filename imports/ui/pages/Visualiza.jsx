@@ -29,7 +29,7 @@ class Visualiza extends Component {
           <Sidebar names={names} />
           <div className="column">
             <Title>{company}</Title>
-            <NewsModal buttonName="Get News" title="News" content="foo bar" />
+            <NewsModal buttonName="News" title="News" content="foo bar" />
             <Chart data={filteredData ? filteredData.prices : []} />
           </div>
         </div>

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const Modal = ({ isToggled, closeModal, title, content }) => {
@@ -59,12 +61,15 @@ class NewsModal extends Component {
         <div className="container">
           <div className="has-text-centered content">
             <button
-              className={`button ${buttonColor}`}
+              className={`button is-rounded ${buttonColor}`}
               onClick={() => {
                 this.toggleModal();
               }}
             >
-              {buttonName}
+              <span className="icon is-left">
+                <FontAwesomeIcon icon={faNewspaper} />
+              </span>
+              <span>{buttonName}</span>
             </button>
           </div>
           <StyledModal
