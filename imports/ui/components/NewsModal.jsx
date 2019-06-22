@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
+import {
+  faNewspaper,
+  faExclamationTriangle
+} from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 import NewsEntry from './NewsEntry';
 
 const NewsNotFound = () => (
   <div className="content has-text-centered">
-    <p className="title">News Not Found</p>
+    <p className="title">
+      <span className="icon is-large">
+        <FontAwesomeIcon icon={faExclamationTriangle} />
+      </span>
+    </p>
+    <p className="subtitle">
+      <span>News Not Found</span>
+    </p>
   </div>
 );
 
