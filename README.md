@@ -24,6 +24,7 @@
 - Kyo Tang
 - Eric Xiao
 - Kaitian Xie
+- Honourable mention: Kristy Yang ([@kristyyang](https://github.com/kristyyang)) as our UI designer
 
 ## Project Description
 
