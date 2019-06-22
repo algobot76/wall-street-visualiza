@@ -2,22 +2,33 @@
 
 ![logo](logo.png)
 
-- [Wall Street Visualiza](#wall-street-visualiza)
-  - [Group Members](#group-members)
-  - [Project Description](#project-description)
-    - [Who is it for?](#who-is-it-for)
-    - [What will it do?](#what-will-it-do)
-    - [What type of data will it store?](#what-type-of-data-will-it-store)
-    - [What will users be able to do with this data?](#what-will-users-be-able-to-do-with-this-data)
-    - [What is some additional functionality you can add or remove based on time constraints?](#what-is-some-additional-functionality-you-can-add-or-remove-based-on-time-constraints)
-  - [Project Task Requirements](#project-task-requirements)
-    - [Minimal Requirement](#minimal-requirement)
-    - [Standard Requirements](#standard-requirements)
-    - [Stretch Requirements](#stretch-requirements)
-  - [Minimum Requirement Task BreakDown](#minimum-requirement-task-breakdown)
-    - [Requirement 1: Category Box for a Given Company](#requirement-1-category-box-for-a-given-company)
-    - [Requirement 2: Graphical representation of the price movement using charts](#requirement-2-graphical-representation-of-the-price-movement-using-charts)
-  - [UI Design](#ui-design)
+- [Wall Street Visualiza](#Wall-Street-Visualiza)
+  - [Website Snapshots](#Website-Snapshots)
+  - [Group Members](#Group-Members)
+  - [Project Description](#Project-Description)
+    - [Who is it for?](#Who-is-it-for)
+    - [What will it do?](#What-will-it-do)
+    - [What type of data will it store?](#What-type-of-data-will-it-store)
+    - [What will users be able to do with this data?](#What-will-users-be-able-to-do-with-this-data)
+    - [What is some additional functionality you can add or remove based on time constraints?](#What-is-some-additional-functionality-you-can-add-or-remove-based-on-time-constraints)
+  - [Project Task Requirements](#Project-Task-Requirements)
+    - [Minimal Requirement](#Minimal-Requirement)
+    - [Standard Requirements](#Standard-Requirements)
+    - [Stretch Requirements](#Stretch-Requirements)
+  - [Minimum Requirement Task BreakDown](#Minimum-Requirement-Task-BreakDown)
+    - [Requirement 1: Category Box for a Given Company](#Requirement-1-Category-Box-for-a-Given-Company)
+    - [Requirement 2: Graphical representation of the price movement using charts](#Requirement-2-Graphical-representation-of-the-price-movement-using-charts)
+  - [UI Design](#UI-Design)
+
+## Website Snapshots
+
+![snapshot 1](snapshot_1.png)
+
+![snapshot 2](snapshot_2.png)
+
+![snapshot 3](snapshot_3.png)
+
+![snapshot 4](snapshot_4.png)
 
 ## Group Members
 
