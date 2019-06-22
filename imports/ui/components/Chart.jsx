@@ -16,12 +16,6 @@ import styled from 'styled-components';
 
 import { updateIndices } from '../actions';
 
-const Title = styled.p`
-  font-weight: bold;
-  font-size: 25px;
-  text-align: center;
-`;
-
 const StyledLineChart = styled(LineChart)`
   margin: 0 auto;
 `;
@@ -62,12 +56,11 @@ class Chart extends Component {
   }
 
   render() {
-    const { dispatch, title, data } = this.props;
+    const { dispatch, data } = this.props;
 
     return (
       <section className="section">
         <div className="container is-widescreen">
-          <Title className="title">{title}</Title>
           <StyledLineChart width={1000} height={600} data={data}>
             <CartesianGrid strokeDasharray="5 5" />
             <XAxis dataKey="date" />
@@ -100,7 +93,6 @@ class Chart extends Component {
 
 Chart.propTypes = {
   dispatch: PropTypes.func,
-  title: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object)
 };
 
