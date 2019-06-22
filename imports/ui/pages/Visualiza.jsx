@@ -20,8 +20,14 @@ class Visualiza extends Component {
   }
 
   render() {
-    const { names, company, data } = this.props;
+    const { names, company, data, startIndex, endIndex } = this.props;
     const filteredData = data.find(item => item.company === company);
+    let startDate = '';
+    let endDate = '';
+    if (filteredData) {
+      startDate = filteredData.prices[startIndex]['date'];
+      endDate = filteredData.prices[endIndex]['date'];
+    }
 
     return (
       <div className="section has-background-light">
@@ -29,7 +35,15 @@ class Visualiza extends Component {
           <Sidebar names={names} />
           <div className="column">
             <Title>{company}</Title>
-            <NewsModal buttonName="News" title="News" content="foo bar" />
+            <NewsModal
+              buttonName="News"
+              title={
+                startDate && endDate
+                  ? `News from ${startDate} to ${endDate}`
+                  : 'News'
+              }
+              content="foo bar"
+            />
             <Chart data={filteredData ? filteredData.prices : []} />
           </div>
         </div>
@@ -41,7 +55,9 @@ class Visualiza extends Component {
 const mapStateToProps = state => ({
   names: state.companies.names,
   company: state.companies.selectedCompany,
-  data: state.companies.data
+  data: state.companies.data,
+  startIndex: state.chart.startIndex,
+  endIndex: state.chart.endIndex
 });
 
 export default connect(mapStateToProps)(Visualiza);

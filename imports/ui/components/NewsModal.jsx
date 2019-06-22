@@ -14,7 +14,7 @@ const Modal = ({ isToggled, closeModal, title, content }) => {
       <div className="modal-background" onClick={closeModal}>
         <div className="modal-card">
           <header className="modal-card-head">
-            <p className="modal-card-title">{title}</p>
+            {title && <p className="modal-card-title">{title}</p>}
             <a className="delete" onClick={closeModal} />
           </header>
           <section className="modal-card-body">
