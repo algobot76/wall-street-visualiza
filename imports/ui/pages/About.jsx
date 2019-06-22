@@ -21,8 +21,7 @@ const About = () => {
                 <br />
                 as well as its related financial information such as news and
                 financial statement of the interested company <br />
-                such information will be provided at the click of a button.{' '}
-                <br />
+                such information will be provided at the click of a button.
               </p>
             </div>
           </div>
