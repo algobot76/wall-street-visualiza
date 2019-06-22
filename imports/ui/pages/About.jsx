@@ -14,7 +14,11 @@ const About = () => {
         <div className="hero-head">
           <div className="container">
             <div className="content has-text-centered is-large">
-              <p>xxxx</p>
+              <p>The Visualiza Web-Application is dedicated to provide a easy-to-navigate 
+                <br>users experience, where users can easily access the price of a choosen company</br>
+                <br>as well as its related financial information such as news and financial statement of the interested company </br>
+                <br>such information will be provided at the click of a button. </br>
+              </p>
             </div>
           </div>
         </div>
