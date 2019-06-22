@@ -4,13 +4,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
+import NewsEntry from './NewsEntry';
+
 const NewsNotFound = () => (
   <div className="content has-text-centered">
     <p className="title">News Not Found</p>
   </div>
 );
 
-const NewsDisplay = ({ content }) => <div className="content">{content}</div>;
+const NewsDisplay = ({ content }) => (
+  <div className="column">
+    <div className="content">
+      {content.map((entry, idx) => (
+        <NewsEntry
+          key={idx}
+          image={entry.image}
+          title={entry.title}
+          description={entry.description}
+          url={entry.url}
+        />
+      ))}
+    </div>
+  </div>
+);
 
 const Modal = ({ isToggled, closeModal, title, content }) => {
   if (!isToggled) {
