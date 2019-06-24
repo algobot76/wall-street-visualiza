@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+import useReactRouter from 'use-react-router';
 
 import Search from './Search';
 
-const NavbarMenu = ({ location }) => {
+function NavbarMenu() {
+  const { location } = useReactRouter();
+
   return (
     <div className="navbar-menu">
       <div className="navbar-start">
@@ -25,6 +27,6 @@ const NavbarMenu = ({ location }) => {
       )}
     </div>
   );
-};
+}
 
-export default withRouter(NavbarMenu);
+export default NavbarMenu;
