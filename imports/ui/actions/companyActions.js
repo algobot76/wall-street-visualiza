@@ -10,10 +10,3 @@ export const FETCH_COMPANIES = 'FETCH_COMPANIES';
 export const fetchCompanies = () => ({
   type: FETCH_COMPANIES
 });
-
-export const QUERY = 'QUERY';
-
-export const search = query => ({
-  type: QUERY,
-  payload: { query }
-});

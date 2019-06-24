@@ -1,4 +1,4 @@
-import { FETCH_COMPANIES, SELECT_COMPANY, QUERY } from '../actions';
+import { FETCH_COMPANIES, SELECT_COMPANY } from '../actions';
 
 import stocks from '../seeds/stocks';
 
@@ -41,11 +41,6 @@ const companyReducer = (state = initialState, action) => {
       return {
         ...state,
         names: companies.sort()
-      };
-    case QUERY:
-      return {
-        ...state,
-        query: action.payload.query
       };
     default:
       return state;
