@@ -1,10 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { selectCompany } from '../actions';
 
-const Sidebar = ({ dispatch, selectedCompany, names }) => {
+function Sidebar({ names }) {
+  const dispatch = useDispatch();
+  const selectedCompany = useSelector(state => state.companies.selectedCompany);
+
   return (
     <div className="column is-4-tablet is-3-desktop is-2-widescreen">
       <aside className="menu">
@@ -26,15 +29,11 @@ const Sidebar = ({ dispatch, selectedCompany, names }) => {
       </aside>
     </div>
   );
-};
+}
 
 Sidebar.propTypes = {
   selectedCompany: PropTypes.string,
   names: PropTypes.arrayOf(PropTypes.string)
 };
 
-const mapStateToProps = state => ({
-  selectedCompany: state.companies.selectedCompany
-});
-
-export default connect(mapStateToProps)(Sidebar);
+export default Sidebar;
