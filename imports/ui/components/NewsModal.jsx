@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faNewspaper,
   faExclamationTriangle
 } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import NewsEntry from './NewsEntry';
@@ -82,48 +82,36 @@ const Section = styled.section`
   padding: 0;
 `;
 
-class NewsModal extends Component {
-  state = {
-    isToggled: false
-  };
+function NewsModal({ buttonName, buttonColor = 'is-dark', title, content }) {
+  const [isToggled, setIsToggled] = useState(false);
 
-  toggleModal() {
-    this.setState({
-      isToggled: !this.state.isToggled
-    });
-  }
-
-  render() {
-    const { buttonName, buttonColor = 'is-dark', title, content } = this.props;
-
-    return (
-      <Section className="section">
-        <div className="container">
-          <div className="has-text-centered content">
-            <button
-              className={`button is-rounded ${buttonColor}`}
-              onClick={() => {
-                this.toggleModal();
-              }}
-            >
-              <span className="icon is-left">
-                <FontAwesomeIcon icon={faNewspaper} />
-              </span>
-              <span>{buttonName}</span>
-            </button>
-          </div>
-          <StyledModal
-            isToggled={this.state.isToggled}
-            closeModal={() => {
-              this.toggleModal();
+  return (
+    <Section className="section">
+      <div className="container">
+        <div className="has-text-centered content">
+          <button
+            className={`button is-rounded ${buttonColor}`}
+            onClick={() => {
+              setIsToggled(!isToggled);
             }}
-            title={title}
-            content={content}
-          />
+          >
+            <span className="icon is-left">
+              <FontAwesomeIcon icon={faNewspaper} />
+            </span>
+            <span>{buttonName}</span>
+          </button>
         </div>
-      </Section>
-    );
-  }
+        <StyledModal
+          isToggled={isToggled}
+          closeModal={() => {
+            setIsToggled(!isToggled);
+          }}
+          title={title}
+          content={content}
+        />
+      </div>
+    </Section>
+  );
 }
 
 NewsModal.propTypes = {
