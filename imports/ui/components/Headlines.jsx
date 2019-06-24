@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import HeroTitle from './HeroTitle';
 import News from './News';
 
-const Headlines = () => {
+function Headlines() {
   return (
     <Fragment>
       <HeroTitle
@@ -14,6 +14,6 @@ const Headlines = () => {
       <News />
     </Fragment>
   );
-};
+}
 
 export default Headlines;
