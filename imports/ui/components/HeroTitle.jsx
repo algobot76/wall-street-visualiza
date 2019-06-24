@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const HeroTitle = ({ title = '', subtitle = '', color = '' }) => {
+function HeroTitle({ title = '', subtitle = '', color = '' }) {
   return (
     <section className={`hero ${color}`}>
       <div className="hero-body">
@@ -12,7 +12,7 @@ const HeroTitle = ({ title = '', subtitle = '', color = '' }) => {
       </div>
     </section>
   );
-};
+}
 
 HeroTitle.propTypes = {
   title: PropTypes.string,
