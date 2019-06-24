@@ -9,7 +9,7 @@ const Title = styled.a`
   }
 `;
 
-const NewsEntry = ({ image, title, description, url }) => {
+function NewsEntry({ image, title, description, url }) {
   return (
     <article className="box">
       <div className="media">
@@ -29,7 +29,7 @@ const NewsEntry = ({ image, title, description, url }) => {
       </div>
     </article>
   );
-};
+}
 
 NewsEntry.propTypes = {
   image: PropTypes.string,
