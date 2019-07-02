@@ -29,6 +29,7 @@
     "recharts": "^1.6.2",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "simpl-schema": "^1.5.5",
     "styled-components": "^4.3.1",
     "use-react-router": "^1.0.7"
   },
