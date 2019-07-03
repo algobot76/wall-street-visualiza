@@ -21,3 +21,4 @@ static-html             # Define static page content in .html files
 react-meteor-data       # React higher-order component for reactively tracking Meteor data
 nathantreid:static-assets
 fourseven:scss
+mdg:validated-method
