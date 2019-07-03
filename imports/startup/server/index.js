@@ -1,5 +1,5 @@
 import { Meteor } from 'meteor/meteor';
-import Companies from '../../api/companies';
+import Companies from '../../api/companies/companies';
 
 import companies from '../seeds/companies';
 
