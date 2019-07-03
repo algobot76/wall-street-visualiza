@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { fetchCompanies, selectCompany } from '../actions';
+import { selectCompany } from '../actions';
 
 function Search() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCompanies());
-  }, []);
+
   const names = useSelector(state => state.companies.names);
 
   const [inputOnFocus, setInputOnFocus] = useState(false);
