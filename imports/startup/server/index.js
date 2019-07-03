@@ -5,6 +5,7 @@ import './register-api';
 import companies from '../seeds/companies';
 
 Meteor.startup(() => {
+  Companies.remove({});
   companies.forEach(company => {
     Companies.insert({ symbol: company.symbol });
   });
