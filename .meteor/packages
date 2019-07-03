@@ -22,3 +22,4 @@ react-meteor-data       # React higher-order component for reactively tracking M
 nathantreid:static-assets
 fourseven:scss
 mdg:validated-method
+aldeed:simple-schema
