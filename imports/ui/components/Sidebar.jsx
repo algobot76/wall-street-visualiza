@@ -32,7 +32,6 @@ function Sidebar({ names }) {
 }
 
 Sidebar.propTypes = {
-  selectedCompany: PropTypes.string,
   names: PropTypes.arrayOf(PropTypes.string)
 };
 
