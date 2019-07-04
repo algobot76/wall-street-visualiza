@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import NewsEntry from './NewsEntry';
 import { fetchHeadlines } from '../actions';
@@ -34,9 +33,5 @@ function News() {
     </section>
   );
 }
-
-News.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.object)
-};
 
 export default News;
