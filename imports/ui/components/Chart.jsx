@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import {
   LineChart,
@@ -47,53 +47,48 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-class Chart extends Component {
-  componentDidMount() {
-    const { dispatch, data } = this.props;
+function Chart({ data }) {
+  const dispatch = useDispatch();
+  useEffect(() => {
     if (data) {
       dispatch(updateIndices(0, data.length - 1));
     }
-  }
+  }, []);
 
-  render() {
-    const { dispatch, data } = this.props;
-
-    return (
-      <section className="section">
-        <div className="container is-widescreen">
-          <StyledLineChart width={1000} height={600} data={data}>
-            <CartesianGrid strokeDasharray="5 5" />
-            <XAxis dataKey="date" />
-            <YAxis domain={['dataMin', 'dataMax']} />
-            <Tooltip content={<CustomTooltip />} />
-            <Line
-              dataKey="close"
-              stroke="#292421"
-              dot={false}
-              activeDot={{ r: 5 }}
-            />
-            <Brush
-              dataKey="date"
-              onChange={e => {
-                dispatch(updateIndices(e.startIndex, e.endIndex));
-              }}
-            >
-              <AreaChart>
-                <CartesianGrid />
-                <YAxis dataKey="close" hide domain={['auto', 'auto']} />
-                <Area dataKey="close" stroke="#696969" fill="#292421" />
-              </AreaChart>
-            </Brush>
-          </StyledLineChart>
-        </div>
-      </section>
-    );
-  }
+  return (
+    <section className="section">
+      <div className="container is-widescreen">
+        <StyledLineChart width={1000} height={600} data={data}>
+          <CartesianGrid strokeDasharray="5 5" />
+          <XAxis dataKey="date" />
+          <YAxis domain={['dataMin', 'dataMax']} />
+          <Tooltip content={<CustomTooltip />} />
+          <Line
+            dataKey="close"
+            stroke="#292421"
+            dot={false}
+            activeDot={{ r: 5 }}
+          />
+          <Brush
+            dataKey="date"
+            onChange={e => {
+              dispatch(updateIndices(e.startIndex, e.endIndex));
+            }}
+          >
+            <AreaChart>
+              <CartesianGrid />
+              <YAxis dataKey="close" hide domain={['auto', 'auto']} />
+              <Area dataKey="close" stroke="#696969" fill="#292421" />
+            </AreaChart>
+          </Brush>
+        </StyledLineChart>
+      </div>
+    </section>
+  );
 }
 
 Chart.propTypes = {
-  dispatch: PropTypes.func,
   data: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default connect()(Chart);
+export default Chart;
