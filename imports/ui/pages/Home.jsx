@@ -2,7 +2,7 @@ import React from 'react';
 
 import Headlines from '../components/Headlines';
 
-const Home = () => {
+function Home() {
   return (
     <div>
       <Headlines />

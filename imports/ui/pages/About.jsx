@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import logo from '../assets/logo.png';
 import HeroTitle from '../components/HeroTitle';
 
-const About = () => {
+function About() {
   return (
     <Fragment>
       <HeroTitle
@@ -33,6 +33,6 @@ const About = () => {
       </section>
     </Fragment>
   );
-};
+}
 
 export default About;

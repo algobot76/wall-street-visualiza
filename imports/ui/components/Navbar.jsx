@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -17,8 +17,7 @@ function Navbar({ logo }) {
 }
 
 Navbar.propTypes = {
-  logo: PropTypes.string,
-  names: PropTypes.arrayOf(PropTypes.string)
+  logo: PropTypes.string
 };
 
 export default Navbar;
