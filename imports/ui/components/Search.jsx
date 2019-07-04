@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
@@ -69,9 +68,5 @@ function Search() {
     </div>
   );
 }
-
-Search.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string)
-};
 
 export default Search;
