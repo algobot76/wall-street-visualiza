@@ -18,9 +18,11 @@ function News() {
         <div className="columns is-multiline">
           {data &&
             data.map((entry, idx) => (
-              <div className="column is-12-tablet is-6-desktop is-4-widescreen">
+              <div
+                key={idx}
+                className="column is-12-tablet is-6-desktop is-4-widescreen"
+              >
                 <NewsEntry
-                  key={idx}
                   image={entry.image}
                   title={entry.title}
                   description={entry.description}
