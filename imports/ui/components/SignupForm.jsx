@@ -8,7 +8,7 @@ const Error = styled.p`
   color: #dc143c;
 `;
 
-function Signup() {
+function SignupForm() {
   const [error, setError] = useState('');
 
   const nameRef = useRef(null);
@@ -96,4 +96,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignupForm;
