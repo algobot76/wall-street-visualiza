@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 
 import Companies from '../../api/companies/companies';
+import Headlines from "../../api/headlines/headlines";
 import Stocks from '../../api/stocks/stocks';
 import News from '../../api/news/news';
-import Headlines from "../../api/headlines/headlines";
 
 import './register-api';
 import companies from '../seeds/companies';
