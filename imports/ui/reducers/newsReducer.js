@@ -11,8 +11,6 @@ const initialState = {
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_NEWS_BEGIN:
-      return console.log('loading');
     case FETCH_NEWS_SUCCESS:
       return {
           ... state,
@@ -23,6 +21,7 @@ const newsReducer = (state = initialState, action) => {
          ... state,
          state: action.payload.error
        }
+    case FETCH_NEWS_BEGIN:
     default:
       return state;
   }
