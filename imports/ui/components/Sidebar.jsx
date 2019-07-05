@@ -2,11 +2,12 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { selectCompany } from '../actions/stockActions';
+
+import { selectCompany } from '../actions/companyActions';
 
 function Sidebar({ names }) {
   const dispatch = useDispatch();
-  const selectedCompany = useSelector(state => state.companies.selectedCompany);
+  const selectedCompany = useSelector(state => state.companies);
 
   return (
     <div className="column is-4-tablet is-3-desktop is-2-widescreen">

@@ -2,7 +2,6 @@ import { combineReducers } from 'redux';
 import companies from './companyReducer';
 import news from './newsReducer';
 import chart from './chartReducer';
-import headline from './headlineReducer';
 import stocks from './stockReducer';
 
 export default combineReducers({
@@ -10,5 +9,4 @@ export default combineReducers({
   news,
   chart,
   stocks,
-  headline
 });

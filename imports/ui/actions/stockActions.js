@@ -31,7 +31,7 @@ export const fetchStocksBegin = () => ({
 
 export const fetchStocksSuccess = stocks => ({
   type: FETCH_STOCKS_SUCCESS,
-  payload: { stocks }
+  payload: { stocks}
 });
 
 export const fetchStocksFailure = error => ({

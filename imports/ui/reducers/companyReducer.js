@@ -23,7 +23,7 @@ const companyReducer = (state = initialState, action) => {
     case FETCH_COMPANIES_SUCCESS:
       return {
         ...state,
-        names: action.payload.companies.map(company => company.symbol)
+        names: action.payload.companies.map(company => company.symbol).sort()
       };
     case FETCH_COMPANIES_BEGIN:
     default:

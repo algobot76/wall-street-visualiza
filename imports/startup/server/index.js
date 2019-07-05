@@ -6,7 +6,7 @@ import Stocks from '../../api/stocks/stocks';
 import News from '../../api/news/news';
 
 import './register-api';
-import companies from '../seeds/companies';
+import companies from '../seeds/stocks';
 import headlines from '../seeds/headlines';
 import news from '../seeds/news';
 import stocks from '../seeds/stocks';

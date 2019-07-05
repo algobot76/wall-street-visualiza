@@ -5,8 +5,9 @@ import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
 import NewsModal from '../components/NewsModal';
-import { fetchStocks } from '../actions/stockActions';
 import { fetchNews } from '../actions/newsActions';
+import { fetchCompanies } from '../actions/companyActions';
+
 
 const Title = styled.p`
   font-weight: bold;
@@ -17,8 +18,9 @@ const Title = styled.p`
 
 class Visualiza extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchStocks());
+    this.props.dispatch(fetchCompanies());
     this.props.dispatch(fetchNews());
+
   }
 
   render() {

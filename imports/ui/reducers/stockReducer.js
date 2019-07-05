@@ -9,7 +9,7 @@ import {
   
   const initialState = {
     names: [],
-    selectedCompany: 'AAPL',
+    selectedStock: 'AAPL',
     data: stocks
   };
   
@@ -18,7 +18,8 @@ import {
       case SELECT_STOCK:
         return {
           ...state,
-          selectedCompany: action.payload.company
+          selectedCompany: action.payload.company,
+          data:action.payload.prices
         };
       case FETCH_STOCKS_SUCCESS:
         return {

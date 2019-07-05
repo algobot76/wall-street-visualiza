@@ -4,7 +4,7 @@ import { newsGetAll } from '../../api/news/methods';
 
 export const FETCH_NEWS_BEGIN = 'FETCH_NEWS_BEGIN';
 export const FETCH_NEWS_SUCCESS = 'FETCH_NEWS_SUCCESS';
-export const FETCH_NEWS_FAILURE = 'FETCH_NEWS_FAILURE'
+export const FETCH_NEWS_FAILURE = 'FETCH_NEWS_FAILURE';
 
 export const fetchNews = () => {
   return dispatch => {
@@ -42,14 +42,3 @@ export const fetchNewsFailure = () => (
 });
 
 
-/*
-export const fetchHeadlines = () => ({
-  type: FETCH_HEADLINES
-});
-
-export const FETCH_NEWS = 'FETCH_NEWS';
-
-export const fetchNews = () => ({
-  type: FETCH_NEWS
-});
-*/
