@@ -16,7 +16,7 @@ function Login() {
     const password = passwordRef.current.value.trim();
     Meteor.loginWithPassword({ email }, password, err => {
       if (err) {
-        setError('Unable to login. Check email and password.');
+        setError(err.reason);
       } else {
         setError('');
       }
