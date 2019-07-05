@@ -36,7 +36,7 @@ function Signup() {
           Password
         </label>
         <div className="control has-icons-left">
-          <input type="password" className="input" placeholder="Password" />
+          <input type="password" className="input" />
           <span className="icon is-left">
             <FontAwesomeIcon icon={faKey} />
           </span>
