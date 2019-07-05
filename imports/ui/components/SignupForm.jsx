@@ -92,6 +92,13 @@ function SignupForm() {
           </button>
         </div>
       </div>
+      <div className="field is-grouped is-grouped-centered">
+        <div className="control">
+          <button type="button" className="button is-text">
+            Already have an account?
+          </button>
+        </div>
+      </div>
     </form>
   );
 }
