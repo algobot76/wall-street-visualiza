@@ -8,7 +8,7 @@ function Login() {
         <div className="container">
           <div className="columns is-centered">
             <div className="column is-5-tablet is-4-desktop is-3-widescreen">
-              <LoginForm signupPath="/signup" />
+              <LoginForm signupPath="/signup" redirectPath="/home" />
             </div>
           </div>
         </div>

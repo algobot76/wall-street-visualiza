@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import useReactRouter from 'use-react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -10,11 +11,13 @@ const Error = styled.p`
   color: #dc143c;
 `;
 
-function LoginForm({ signupPath }) {
+function LoginForm({ signupPath, redirectPath }) {
   const [error, setError] = useState('');
 
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
+
+  const { history } = useReactRouter();
 
   const onSubmit = e => {
     e.preventDefault();
@@ -26,6 +29,7 @@ function LoginForm({ signupPath }) {
         setError(err.reason);
       } else {
         setError('');
+        history.push(redirectPath);
       }
     });
   };
@@ -80,7 +84,8 @@ function LoginForm({ signupPath }) {
 }
 
 LoginForm.propTypes = {
-  signupPath: PropTypes.string
+  signupPath: PropTypes.string,
+  redirectPath: PropTypes.string
 };
 
 export default LoginForm;
