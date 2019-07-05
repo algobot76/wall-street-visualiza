@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -8,7 +10,7 @@ const Error = styled.p`
   color: #dc143c;
 `;
 
-function SignupForm() {
+function SignupForm({ loginPath }) {
   const [error, setError] = useState('');
 
   const nameRef = useRef(null);
@@ -95,12 +97,16 @@ function SignupForm() {
       <div className="field is-grouped is-grouped-centered">
         <div className="control">
           <button type="button" className="button is-text">
-            Already have an account?
+            <Link to={loginPath}>Already have an account?</Link>
           </button>
         </div>
       </div>
     </form>
   );
 }
+
+SignupForm.propTypes = {
+  loginPath: PropTypes.string
+};
 
 export default SignupForm;
