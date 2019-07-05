@@ -8,7 +8,7 @@ const Error = styled.p`
   color: #dc143c;
 `;
 
-function Login() {
+function LoginForm() {
   const [error, setError] = useState('');
 
   const emailRef = useRef(null);
@@ -77,4 +77,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginForm;
