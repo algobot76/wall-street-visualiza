@@ -1,14 +1,14 @@
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-import Companies from './companies';
+
+import News from './news/news';
 
 
-
-export const companiesGetAll = new ValidatedMethod({
-  name: 'companies.getAll',
+export const newsGetAll = new ValidatedMethod ({
+  name: 'stocks.getAll',
   validate: new SimpleSchema({}).validator(),
   run() {
-    return Companies.find({}).fetch();
+    return Stocks.find({}).fetch();
   }
 });

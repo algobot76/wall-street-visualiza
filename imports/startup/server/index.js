@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 
 import Companies from '../../api/companies/companies';
-import Stocks from '../../api/companies/stocks';
-import News from '../../api/companies/news';
-import Headlines from "../../api/companies/headlines";
+import Stocks from '../../api/stocks/stocks';
+import News from '../../api/news/news';
+import Headlines from "../../api/headlines/headlines";
 
 import './register-api';
 import companies from '../seeds/companies';
@@ -13,22 +13,22 @@ import stocks from '../seeds/stocks';
 
 
 Meteor.startup(() => {
-  // Companies.remove({});
+  Companies.remove({});
   companies.forEach(company => {
   Companies.insert({ symbol: company.symbol });
    
   });
-  // Stocks.remove({});
+  Stocks.remove({});
   stocks.forEach(stock => {
   Stocks.insert ({company: stock.company, prices: stock.prices});
   });
 
-  // Headlines.remove({});
+  Headlines.remove({});
   headlines.forEach( headline => {
   Headlines.insert({headline});
   });
   
-  // News.remove({});
+   News.remove({});
   news.forEach( eachNew => {
   News.insert({company:eachNew.company, articles:eachNew.articles});
   });
