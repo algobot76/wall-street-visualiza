@@ -5,8 +5,8 @@ import Headlines from './headlines';
 
 
 
-export const headlineGetAll= new ValidatedMethod ({
-    name: 'headline.getAll',
+export const headlinesGetAll= new ValidatedMethod ({
+    name: 'headlines.getAll',
     validate: new SimpleSchema({}).validator(),
     run() {
       return Headlines.find({}).fetch();
