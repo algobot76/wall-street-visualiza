@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import { Meteor } from 'meteor/meteor';
 
 function Login() {
+  const [error, setError] = useState('');
+
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const email = emailRef.current.value.trim();
+    const password = passwordRef.current.value.trim();
+    Meteor.loginWithPassword({ email }, password, err => {
+      if (err) {
+        setError('Unable to login. Check email and password.');
+      } else {
+        setError('');
+      }
+    });
+  };
+
   return (
-    <form className="box">
+    <form onSubmit={e => onSubmit(e)} className="box">
       <div className="field">
         <div className="control has-icons-left">
-          <input type="email" className="input" placeholder="Email" />
+          <input
+            ref={emailRef}
+            type="email"
+            className="input"
+            placeholder="Email"
+          />
           <span className="icon is-left">
             <FontAwesomeIcon icon={faEnvelope} />
           </span>
@@ -15,7 +40,12 @@ function Login() {
       </div>
       <div className="field">
         <div className="control has-icons-left">
-          <input type="password" className="input" placeholder="Password" />
+          <input
+            ref={passwordRef}
+            type="password"
+            className="input"
+            placeholder="Password"
+          />
           <span className="icon is-left">
             <FontAwesomeIcon icon={faKey} />
           </span>
