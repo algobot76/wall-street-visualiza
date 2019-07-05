@@ -1,4 +1,4 @@
-import { stocksGetAll } from '../../api/companies/methods';
+import { stocksGetAll } from '../../api/stocks/methods';
 
 export const SELECT_STOCK = 'SELECT_STOCK';
 

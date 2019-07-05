@@ -1,7 +1,7 @@
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-import Headlines from './headlines/headlines';
+import Headlines from './headlines';
 
 
 

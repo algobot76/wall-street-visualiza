@@ -1,4 +1,4 @@
-import { newsGetAll } from '../../api/companies/news';
+import { newsGetAll } from '../../api/news/methods';
 
 
 

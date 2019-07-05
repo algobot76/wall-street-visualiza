@@ -2,7 +2,7 @@ import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 
-import News from './news/news';
+import News from './news';
 
 
 export const newsGetAll = new ValidatedMethod ({

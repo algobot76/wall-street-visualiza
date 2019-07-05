@@ -1,4 +1,4 @@
-import { headlinesGetAll } from '../../api/companies/methods';
+import { headlinesGetAll } from '../../api/headlines/methods';
 
 
 export const FETCH_HEADLINES_BEGIN = 'FETCH_HEADLINES_BEGIN';
