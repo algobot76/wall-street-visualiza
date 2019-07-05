@@ -26,12 +26,13 @@ import {
           names: action.payload.stocks.map(stock => stock.company),
           prices: action.payload.stocks.map(stock => stock.prices)
         };
+    
       case FETCH_STOCKS_BEGIN:
-        return console.log("data is loading");
-      case FETCH_STOCKS_FAILURE:
-        return console.log ("unable to retreive data");
       default:
         return state;
+      
+      case FETCH_STOCKS_FAILURE:
+        return action.payload.error
     }
   };
   
