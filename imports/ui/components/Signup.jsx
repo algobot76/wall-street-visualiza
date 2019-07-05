@@ -1,7 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 import { Accounts } from 'meteor/accounts-base';
+
+const Error = styled.p`
+  color: #dc143c;
+`;
 
 function Signup() {
   const [error, setError] = useState('');
@@ -71,6 +76,9 @@ function Signup() {
             <FontAwesomeIcon icon={faKey} />
           </span>
         </div>
+      </div>
+      <div className="field">
+        <Error>{error}</Error>
       </div>
       <div className="field is-grouped is-grouped-centered">
         <div className="control">

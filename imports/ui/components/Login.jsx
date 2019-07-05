@@ -1,7 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
 import { Meteor } from 'meteor/meteor';
+
+const Error = styled.p`
+  color: #dc143c;
+`;
 
 function Login() {
   const [error, setError] = useState('');
@@ -51,6 +56,11 @@ function Login() {
           </span>
         </div>
       </div>
+      {error && (
+        <div className="field">
+          <Error>{error}</Error>
+        </div>
+      )}
       <div className="field is-grouped is-grouped-centered">
         <div className="control">
           <button type="submit" className="button is-dark">
