@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useReactRouter from 'use-react-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 import { Accounts } from 'meteor/accounts-base';
 
 import Search from './Search';
@@ -20,7 +20,7 @@ function NavbarMenu() {
           onClick={() => Accounts.logout()}
         >
           <span className="icon is-left">
-            <FontAwesomeIcon icon={faSignOutAlt} />
+            <FontAwesomeIcon icon={faDoorOpen} />
           </span>
           <span>Log out</span>
         </Link>
