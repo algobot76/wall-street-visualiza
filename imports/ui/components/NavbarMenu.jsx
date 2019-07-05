@@ -6,11 +6,12 @@ import Search from './Search';
 
 function NavbarMenu() {
   const { location } = useReactRouter();
+  const pathname = location.pathname;
 
   return (
     <div className="navbar-menu">
       <div className="navbar-start">
-        <Link to={'/'} className="navbar-item">
+        <Link to={'/home'} className="navbar-item">
           Home
         </Link>
         <Link to={'/about'} className="navbar-item">
@@ -20,7 +21,7 @@ function NavbarMenu() {
           Visuliza
         </Link>
       </div>
-      {location.pathname === '/visualiza' && (
+      {pathname === '/visualiza' && (
         <div className="navbar-end">
           <Search />
         </div>
