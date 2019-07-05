@@ -19,6 +19,7 @@
     "bcrypt": "^3.0.6",
     "bulma-scss": "^0.7.5-1",
     "d3-scale": "^3.0.0",
+    "history": "^4.9.0",
     "install": "^0.12.2",
     "meteor-node-stubs": "^0.4.1",
     "npm": "^6.9.0",

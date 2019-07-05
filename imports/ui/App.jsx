@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom';
+import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 import { Tracker } from 'meteor/tracker';
 
@@ -17,15 +12,26 @@ import Visualiza from './pages/Visualiza';
 import NotFound from './pages/NotFound';
 
 import logo from './assets/logo.png';
+import history from './helpers/history';
 
 let isAuthenticated = false;
 Tracker.autorun(() => {
   isAuthenticated = !!Meteor.userId();
+  // console.log(`is authenticated ${isAuthenticated}`);
+  // const unauthenticatedPages = ['/', 'signup'];
+  // const authenticatedPages = ['/home', '/about', '/visualiza'];
+  // const pathname = history.location.pathname;
+  // const isUnauthenticatedPage = unauthenticatedPages.includes(pathname);
+  // const isAuthenticatedPage = authenticatedPages.includes(pathname);
+  // const isNotFoundPage = !isUnauthenticatedPage && !isAuthenticatedPage;
+  // if (isUnauthenticatedPage && isAuthenticated) {
+  //   history.goBack();
+  // }
 });
 
 function App() {
   return (
-    <Router>
+    <Router history={history}>
       <div>
         <Navbar logo={logo} />
         <Switch>
