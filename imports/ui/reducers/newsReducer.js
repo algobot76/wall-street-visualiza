@@ -1,8 +1,9 @@
 import { FETCH_NEWS_BEGIN, 
-       FETCH_NEWS_SUCCESS, 
-      FETCH_NEWS_FAILURE} from '../actions/newsActions';
+         FETCH_NEWS_SUCCESS, 
+         FETCH_NEWS_FAILURE}
+ from '../actions/newsActions';
 import news from '../seeds/news';
-// import { bindActionCreators } from 'redux';
+
 
 const initialState = {
   news

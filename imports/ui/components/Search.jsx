@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { fetchCompanies, selectCompany } from '../actions';
+import { fetchCompanies, selectCompany } from '../actions/companyActions';
 
 function Search() {
   const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { selectCompany } from '../actions/stockAction';
+import { selectCompany } from '../actions/stockActions';
 
 function Sidebar({ names }) {
   const dispatch = useDispatch();

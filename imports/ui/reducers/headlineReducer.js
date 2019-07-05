@@ -2,7 +2,7 @@ import {
     FETCH_HEADLINES_BEGIN,
     FETCH_HEADLINES_SUCCESS,
     FETCH_HEADLINES_FAILURE
-} from '../actions/headlineAction';
+} from '../actions/headlineActions';
 
 import headlines from '../seeds/headlines';
 import { FETCH_COMPANIES_FAILURE } from '../actions/companyActions';

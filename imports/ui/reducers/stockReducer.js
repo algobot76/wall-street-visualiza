@@ -3,7 +3,7 @@ import {
     FETCH_STOCKS_SUCCESS,
     FETCH_STOCKS_FAILURE,
     SELECT_STOCK
-  } from '../actions/stockAction';
+  } from '../actions/stockActions';
   
   import stocks from '../seeds/stocks';
   
