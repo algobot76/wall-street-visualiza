@@ -1,16 +1,45 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
+import { Accounts } from 'meteor/accounts-base';
 
 function Signup() {
+  const [error, setError] = useState('');
+
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
+  const onSubmit = e => {
+    e.preventDefault();
+
+    const name = nameRef.current.value.trim();
+    const email = emailRef.current.value.trim();
+    const password = passwordRef.current.value.trim();
+    const profile = { name };
+
+    Accounts.createUser({ email, password, profile }, err => {
+      if (err) {
+        setError(err.reason);
+      } else {
+        setError('');
+      }
+    });
+  };
+
   return (
-    <form className="box">
+    <form onSubmit={e => onSubmit(e)} className="box">
       <div className="field">
         <label htmlFor="name" className="label">
           Name
         </label>
         <div className="control has-icons-left">
-          <input type="text" className="input" placeholder="e.g. John Doe" />
+          <input
+            ref={nameRef}
+            type="text"
+            className="input"
+            placeholder="e.g. John Doe"
+          />
           <span className="icon is-left">
             <FontAwesomeIcon icon={faUser} />
           </span>
@@ -22,6 +51,7 @@ function Signup() {
         </label>
         <div className="control has-icons-left">
           <input
+            ref={emailRef}
             type="email"
             className="input"
             placeholder="e.g. john.doe@example.com"
@@ -36,7 +66,7 @@ function Signup() {
           Password
         </label>
         <div className="control has-icons-left">
-          <input type="password" className="input" />
+          <input ref={passwordRef} type="password" className="input" />
           <span className="icon is-left">
             <FontAwesomeIcon icon={faKey} />
           </span>
