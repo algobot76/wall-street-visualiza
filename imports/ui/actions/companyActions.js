@@ -2,6 +2,7 @@ import { companiesGetAll } from '../../api/companies/methods';
 
 export const SELECT_COMPANY = 'SELECT_COMPANY';
 
+
 export const selectCompany = company => ({
   type: SELECT_COMPANY,
   payload: { company }
@@ -37,3 +38,6 @@ export const fetchCompaniesFailure = error => ({
   type: FETCH_COMPANIES_FAILURE,
   payload: { error }
 });
+
+
+

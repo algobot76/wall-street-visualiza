@@ -3,7 +3,7 @@ import {
   FETCH_COMPANIES_SUCCESS,
   FETCH_COMPANIES_FAILURE,
   SELECT_COMPANY
-} from '../actions';
+} from '../actions/companyActions';
 
 import stocks from '../seeds/stocks';
 

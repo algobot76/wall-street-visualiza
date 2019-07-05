@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import NewsEntry from './NewsEntry';
-import { fetchHeadlines } from '../actions';
+import { fetchHeadlines } from '../actions/headlineAction';
 
 function News() {
   const dispatch = useDispatch();

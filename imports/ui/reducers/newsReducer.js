@@ -1,7 +1,8 @@
-import { FETCH_HEADLINES, FETCH_NEWS } from '../actions';
-import headlines from '../seeds/headlines';
-
+import { FETCH_NEWS_BEGIN, 
+       FETCH_NEWS_SUCCESS, 
+      FETCH_NEWS_FAILURE} from '../actions/newsActions';
 import news from '../seeds/news';
+// import { bindActionCreators } from 'redux';
 
 const initialState = {
   headlines,
@@ -10,10 +11,18 @@ const initialState = {
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_HEADLINES:
-      return state;
-    case FETCH_NEWS:
-      return state;
+    case FETCH_NEWS_BEGIN:
+      return console.log('loading');
+    case FETCH_NEWS_SUCCESS:
+      return {
+          ... state,
+          state : action.payload.news
+      };
+    case FETCH_NEWS_FAILURE:
+       return {
+         ... state,
+         state: action.payload.error
+       }
     default:
       return state;
   }
