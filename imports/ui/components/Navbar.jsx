@@ -9,8 +9,13 @@ import NavbarMenu from './NavbarMenu';
 function Navbar({ logo }) {
   const { location } = useReactRouter();
   const pathname = location.pathname;
+  const validPaths = ['/', '/signup', '/home', '/about', '/visualiza'];
 
-  if (pathname === '/' || pathname === '/signup') {
+  if (
+    pathname === '/' ||
+    pathname === '/signup' ||
+    !validPaths.includes(pathname)
+  ) {
     document.body.classList.remove('has-navbar-fixed-top');
     return null;
   } else {
