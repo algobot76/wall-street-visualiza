@@ -5,7 +5,7 @@ import {
 } from '../actions/headlineActions';
 
 import headlines from '../seeds/headlines';
-import { FETCH_COMPANIES_FAILURE } from '../actions/companyActions';
+
 
 const initialState = {
     headlines
@@ -14,18 +14,17 @@ const initialState = {
 
 const headlineReducer = (state = initialState, action) => {
    switch (action.type) {
-       case FETCH_HEADLINES_BEGIN:
-           return console.log ('loading');
        case FETCH_HEADLINES_SUCCESS:
            return {
                ... state,
                state: action.payload.headlines
            };
-       case FETCH_COMPANIES_FAILURE:
+       case FETCH_HEADLINES_FAILURE:
            return {
                ... state,
                state: action.payload.error
            }
+       case FETCH_HEADLINES_BEGIN:
         default:
             return state;
    }
