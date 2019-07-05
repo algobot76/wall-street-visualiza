@@ -5,7 +5,6 @@ import news from '../seeds/news';
 // import { bindActionCreators } from 'redux';
 
 const initialState = {
-  headlines,
   news
 };
 
