@@ -6,7 +6,7 @@ import News from './news';
 
 
 export const newsGetAll = new ValidatedMethod ({
-  name: 'stocks.getAll',
+  name: 'news.getAll',
   validate: new SimpleSchema({}).validator(),
   run() {
     return News.find({}).fetch();
