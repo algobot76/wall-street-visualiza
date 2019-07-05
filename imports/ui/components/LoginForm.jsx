@@ -1,4 +1,6 @@
 import React, { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -8,7 +10,7 @@ const Error = styled.p`
   color: #dc143c;
 `;
 
-function LoginForm() {
+function LoginForm({ signupPath }) {
   const [error, setError] = useState('');
 
   const emailRef = useRef(null);
@@ -69,12 +71,16 @@ function LoginForm() {
         </div>
         <div className="control">
           <button type="button" className="button is-text">
-            Make a new account
+            <Link to={signupPath}>Make a new account</Link>
           </button>
         </div>
       </div>
     </form>
   );
 }
+
+LoginForm.propTypes = {
+  signupPath: PropTypes.string
+};
 
 export default LoginForm;
