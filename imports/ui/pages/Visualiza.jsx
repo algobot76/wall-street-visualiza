@@ -5,7 +5,8 @@ import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
 import NewsModal from '../components/NewsModal';
-import { fetchCompanies, fetchNews } from '../actions';
+import { fetchNews } from '../actions';
+import { fetchCompanies } from '../actions';
 
 const Title = styled.p`
   font-weight: bold;

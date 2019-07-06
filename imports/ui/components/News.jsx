@@ -2,12 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import NewsEntry from './NewsEntry';
-import { fetchHeadlines } from '../actions';
+import { fetchHeadline } from '../actions';
 
 function News() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchHeadlines());
+    dispatch(fetchHeadline());
   }, []);
 
   const data = useSelector(state => state.news.headlines);

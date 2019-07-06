@@ -1,4 +1,9 @@
-import { FETCH_COMPANIES, SELECT_COMPANY } from '../actions';
+import {
+  FETCH_COMPANIES_BEGIN,
+  FETCH_COMPANIES_SUCCESS,
+  FETCH_COMPANIES_FAILURE,
+  SELECT_COMPANY
+} from '../actions/companyActions';
 
 import stocks from '../seeds/stocks';
 
@@ -7,28 +12,6 @@ const initialState = {
   selectedCompany: 'AAPL',
   data: stocks
 };
-const companies = [
-  'BAC',
-  'AAPL',
-  'BNS',
-  'FB',
-  'TSLA',
-  'TD',
-  'SBUX',
-  'SHOP',
-  'RY',
-  'NKE',
-  'NTGR',
-  'NFLX',
-  'GOOG',
-  'GS',
-  'GM',
-  'F',
-  'DIS',
-  'CM',
-  'BMO',
-  'BBY'
-];
 
 const companyReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -37,11 +20,12 @@ const companyReducer = (state = initialState, action) => {
         ...state,
         selectedCompany: action.payload.company
       };
-    case FETCH_COMPANIES:
+    case FETCH_COMPANIES_SUCCESS:
       return {
         ...state,
-        names: companies.sort()
+        names: action.payload.companies.map(company => company.symbol).sort()
       };
+    case FETCH_COMPANIES_BEGIN:
     default:
       return state;
   }
