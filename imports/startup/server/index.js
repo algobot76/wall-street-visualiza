@@ -9,7 +9,7 @@ import './register-api';
 import companies from '../seeds/stocks';
 import headlines from '../seeds/headlines';
 import news from '../seeds/news';
-import stocks from '../seeds/stocks';
+import stocks from '../seeds/companies';
 
 Meteor.startup(() => {
   Companies.remove({});
