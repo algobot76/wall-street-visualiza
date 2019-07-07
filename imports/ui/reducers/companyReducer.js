@@ -9,8 +9,7 @@ import stocks from '../seeds/stocks';
 
 const initialState = {
   names: [],
-  selectedCompany: 'AAPL',
-  data: stocks
+  selectedCompany: 'AAPL'
 };
 
 const companyReducer = (state = initialState, action) => {
@@ -18,7 +17,7 @@ const companyReducer = (state = initialState, action) => {
     case SELECT_COMPANY:
       return {
         ...state,
-        selectedCompany: action.payload.company
+        selectedCompany: action.payload.symbol
       };
     case FETCH_COMPANIES_SUCCESS:
       return {

@@ -24,7 +24,7 @@ function Visualiza() {
 
   const names = useSelector(state => state.companies.names);
   const company = useSelector(state => state.companies.selectedCompany);
-  const data = useSelector(state => state.companies.data);
+  const data = useSelector(state => state.stocks.data);
   const startIndex = useSelector(state => state.chart.startIndex);
   const endIndex = useSelector(state => state.chart.endIndex);
   const news = useSelector(state => state.news.news);
