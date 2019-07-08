@@ -5,10 +5,10 @@ import {
   SELECT_COMPANY
 } from '../actions/companyActions';
 
-
 const initialState = {
   names: [],
-  selectedCompany: 'AAPL'
+  selectedCompany: 'AAPL',
+  error: {}
 };
 
 const companyReducer = (state = initialState, action) => {
@@ -26,7 +26,7 @@ const companyReducer = (state = initialState, action) => {
     case FETCH_COMPANIES_FAILURE:
       return {
         ...state,
-        state: action.payload.error
+        error: action.payload.error
       };
     case FETCH_COMPANIES_BEGIN:
     default:

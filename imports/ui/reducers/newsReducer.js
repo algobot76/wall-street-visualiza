@@ -4,11 +4,9 @@ import {
   FETCH_NEWS_FAILURE
 } from '../actions/newsActions';
 
-
-
-
 const initialState = {
-
+  news: {},
+  error: {}
 };
 
 const newsReducer = (state = initialState, action) => {
@@ -16,12 +14,12 @@ const newsReducer = (state = initialState, action) => {
     case FETCH_NEWS_SUCCESS:
       return {
         ...state,
-        state: action.payload.news
+        news: action.payload.news
       };
     case FETCH_NEWS_FAILURE:
       return {
         ...state,
-        state: action.payload.error
+        error: action.payload.error
       };
 
     case FETCH_NEWS_BEGIN:

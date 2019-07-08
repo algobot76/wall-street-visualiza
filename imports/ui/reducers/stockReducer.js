@@ -5,12 +5,10 @@ import {
   SELECT_STOCK
 } from '../actions/stockActions';
 
-import stocks from '../seeds/stocks';
-
 const initialState = {
   names: [],
-  selectedStock: 'AAPL',
-  data: stocks
+  selectedStock: '',
+  data: {}
 };
 
 const stockReducer = (state = initialState, action) => {
@@ -18,14 +16,15 @@ const stockReducer = (state = initialState, action) => {
     case SELECT_STOCK:
       return {
         ...state,
-        selectedCompany: action.payload.company,
-        data: action.payload.prices
+        selectedStock: action.payload.company,
+        data: action.payload.prices,
+        error: {}
       };
     case FETCH_STOCKS_SUCCESS:
       return {
         ...state,
         names: action.payload.stocks.map(stock => stock.company),
-        prices: action.payload.stocks.map(stock => stock.prices)
+        data: action.payload.stocks.map(stock => stock.prices)
       };
 
     case FETCH_STOCKS_BEGIN:
@@ -33,7 +32,10 @@ const stockReducer = (state = initialState, action) => {
       return state;
 
     case FETCH_STOCKS_FAILURE:
-      return action.payload.error;
+      return {
+        ...state,
+        error: action.payload.error
+      };
   }
 };
 

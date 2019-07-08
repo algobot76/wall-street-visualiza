@@ -5,7 +5,8 @@ import {
 } from '../actions/headlineActions';
 
 const initialState = {
-
+  headlines: {},
+  error: {}
 };
 
 const headlineReducer = (state = initialState, action) => {
@@ -13,12 +14,12 @@ const headlineReducer = (state = initialState, action) => {
     case FETCH_HEADLINES_SUCCESS:
       return {
         ...state,
-        selectedCompany: action.payload.headlines
+        headlines: action.payload.headlines
       };
     case FETCH_HEADLINES_FAILURE:
       return {
         ...state,
-        state:action.payload.error
+        error: action.payload.error
       };
     case FETCH_HEADLINES_BEGIN:
     default:

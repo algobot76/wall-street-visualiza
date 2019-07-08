@@ -5,8 +5,11 @@ import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
 import NewsModal from '../components/NewsModal';
-import { fetchNews } from '../actions';
-import { fetchCompanies } from '../actions';
+
+import {fetchNews} from '../actions/newsActions';
+import {fetchHeadline} from '../actions/headlineActions';
+import {fetchCompanies} from '../actions/companyActions';
+import {fetchStocks} from '../actions/stockActions';
 
 const Title = styled.p`
   font-weight: bold;
@@ -18,6 +21,8 @@ const Title = styled.p`
 function Visualiza() {
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(fetchStocks());
+    dispatch(fetchHeadline());
     dispatch(fetchCompanies());
     dispatch(fetchNews());
   }, []);
