@@ -14,9 +14,11 @@ export const newsGetAll = new ValidatedMethod({
 export const newsGetSpecificCompanyNews = name =>
   new ValidatedMethod({
     name: 'news.getSpecificNewInfo',
-    validate: new SimpleSchema({}).validator(),
-    parameter: name,
+    validate: new SimpleSchema({
+      name: { type: String }
+    }).validator(),
+
     run() {
-      return Stock.find({ company: name.toString() });
+      return News.find({ company: name.toString() });
     }
   });

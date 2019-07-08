@@ -1,6 +1,7 @@
-import { stocksGetAll, stocksGetSpecificStockInfo } from '../../api/stocks/methods';
-
-
+import {
+  stocksGetAll,
+  stocksGetSpecificStockInfo
+} from '../../api/stocks/methods';
 
 export const FETCH_STOCKS_BEGIN = 'FETCH_STOCKS_BEGIN';
 export const FETCH_STOCKS_SUCCESS = 'FETCH_STOCKS_SUCCESS';
@@ -40,10 +41,10 @@ export const SPECIFIC_STOCK_REQUEST_FAILURE = 'SPECIFIC_STOCK_REQUEST_FAILURE';
 export const specificStockRequest = company => {
   return dispatch => {
     dispatch(specificStockRequestBegin());
-    stocksGetSpecificStockInfo.call({company},(error,result)=> {
+    stocksGetSpecificStockInfo.call({ company }, (error, result) => {
       if (error) {
         dispatch(specificStockRequestFailure(error.message));
-      }else {
+      } else {
         dispatch(specificStockRequestSuccess(result));
       }
     });
@@ -56,10 +57,10 @@ export const specificStockRequestBegin = () => ({
 
 export const specificStockRequestSuccess = company => ({
   type: SPECIFIC_STOCK_REQUEST_SUCCESS,
-  payload: {company}
+  payload: { company }
 });
 
 export const specificStockRequestFailure = error => ({
   type: SPECIFIC_STOCK_REQUEST_FAILURE,
-  payload: {error}
-})
+  payload: { error }
+});

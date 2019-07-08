@@ -10,6 +10,7 @@ import {fetchNews} from '../actions/newsActions';
 import {fetchHeadline} from '../actions/headlineActions';
 import {fetchCompanies} from '../actions/companyActions';
 import {fetchStocks} from '../actions/stockActions';
+import { stocksGetSpecificStockInfo } from '../../api/stocks/methods';
 
 const Title = styled.p`
   font-weight: bold;
@@ -25,6 +26,7 @@ function Visualiza() {
     dispatch(fetchHeadline());
     dispatch(fetchCompanies());
     dispatch(fetchNews());
+
   }, []);
 
   const names = useSelector(state => state.companies.names);
