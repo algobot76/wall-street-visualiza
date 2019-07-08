@@ -8,7 +8,8 @@ import {
 const initialState = {
   names: [],
   selectedStock: '',
-  data: {}
+  data: {} ,
+  error: {}
 };
 
 const stockReducer = (state = initialState, action) => {
@@ -18,7 +19,7 @@ const stockReducer = (state = initialState, action) => {
         ...state,
         selectedStock: action.payload.company,
         data: action.payload.prices,
-        error: {}
+
       };
     case FETCH_STOCKS_SUCCESS:
       return {

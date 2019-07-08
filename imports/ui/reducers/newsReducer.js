@@ -14,12 +14,12 @@ const newsReducer = (state = initialState, action) => {
     case FETCH_NEWS_SUCCESS:
       return {
         ...state,
-        news: action.payload.news
+        news: action.payload
       };
     case FETCH_NEWS_FAILURE:
       return {
         ...state,
-        error: action.payload.error
+        error: action.payload
       };
 
     case FETCH_NEWS_BEGIN:

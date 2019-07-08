@@ -6,8 +6,8 @@ import stocks from './stockReducer';
 import headlines from './headlineReducer';
 export default combineReducers({
   companies,
-  news,
   chart,
   stocks,
-  headlines
+  headlines,
+  news
 });
