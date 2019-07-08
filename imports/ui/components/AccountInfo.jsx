@@ -1,14 +1,26 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
+import { Accounts } from 'meteor/accounts-base';
+import { withTracker } from 'meteor/react-meteor-data';
 
 const Buttons = styled.div`
   margin-top: 1.2rem;
 `;
 
-function AccountInfo() {
+function AccountInfo({ user }) {
   const [canEdit, setCanEdit] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+
+  useEffect(() => {
+    if (user) {
+      setEmail(user.emails[0].address);
+      setName(user.profile.name);
+    }
+  }, [user]);
 
   const nameRef = useRef(null);
   const emailRef = useRef(null);
@@ -31,7 +43,12 @@ function AccountInfo() {
           <div className="field-body">
             <div className="field">
               <div className="control has-icons-left">
-                <input ref={nameRef} type="text" className="input" />
+                <input
+                  ref={nameRef}
+                  type="text"
+                  className="input"
+                  defaultValue={name}
+                />
                 <span className="icon is-left">
                   <FontAwesomeIcon icon={faUser} />
                 </span>
@@ -48,7 +65,12 @@ function AccountInfo() {
           <div className="field-body">
             <div className="field">
               <div className="control has-icons-left">
-                <input ref={emailRef} type="email" className="input" />
+                <input
+                  ref={emailRef}
+                  type="email"
+                  className="input"
+                  defaultValue={email}
+                />
                 <span className="icon is-left">
                   <FontAwesomeIcon icon={faEnvelope} />
                 </span>
@@ -116,4 +138,12 @@ function AccountInfo() {
   );
 }
 
-export default AccountInfo;
+AccountInfo.propTypes = {
+  user: PropTypes.object
+};
+
+export default withTracker(() => {
+  return {
+    user: Accounts.user()
+  };
+})(AccountInfo);
