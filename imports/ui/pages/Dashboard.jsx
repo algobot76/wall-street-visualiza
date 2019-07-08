@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AccountInfo from '../components/AccountInfo';
+import AccountInfo from '../components/Profile';
 
 function Dashboard() {
   return (

@@ -10,7 +10,7 @@ const Buttons = styled.div`
   margin-top: 1.2rem;
 `;
 
-function AccountInfo({ user }) {
+function Profile({ user }) {
   const [canEdit, setCanEdit] = useState(false);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -138,7 +138,7 @@ function AccountInfo({ user }) {
   );
 }
 
-AccountInfo.propTypes = {
+Profile.propTypes = {
   user: PropTypes.object
 };
 
@@ -146,4 +146,4 @@ export default withTracker(() => {
   return {
     user: Accounts.user()
   };
-})(AccountInfo);
+})(Profile);
