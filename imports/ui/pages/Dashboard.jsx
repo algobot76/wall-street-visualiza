@@ -1,11 +1,13 @@
 import React from 'react';
 
+import AccountInfo from '../components/AccountInfo';
+
 function Dashboard() {
   return (
     <section className="hero is-light is-fullheight">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">Dashboard</h1>
+          <AccountInfo />
         </div>
       </div>
     </section>
