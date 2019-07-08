@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
-
 import styled from 'styled-components';
 
 const Buttons = styled.div`
@@ -15,8 +14,13 @@ function AccountInfo() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
+  const onSubmit = e => {
+    e.preventDefault();
+    setCanEdit(false);
+  };
+
   return (
-    <form className="container">
+    <form onSubmit={e => onSubmit(e)} className="container">
       <fieldset disabled={!canEdit}>
         <div className="field is-horizontal">
           <div className="field-label is-normal">
@@ -74,16 +78,36 @@ function AccountInfo() {
         <div className="field is-horizontal">
           <div className="field-label" />
           <div className="field-body">
-            <div className="field">
-              <div className="control">
-                <button
-                  onClick={() => setCanEdit(true)}
-                  type="button"
-                  className="button is-dark"
-                >
-                  Edit
-                </button>
-              </div>
+            <div className="field is-grouped">
+              {!canEdit ? (
+                <div className="control">
+                  <button
+                    onClick={() => setCanEdit(true)}
+                    type="button"
+                    className="button is-dark"
+                  >
+                    Edit
+                  </button>
+                </div>
+              ) : null}
+              {canEdit ? (
+                <>
+                  <div className="control">
+                    <button type="submit" className="button is-info">
+                      Update
+                    </button>
+                  </div>
+                  <div className="control">
+                    <button
+                      onClick={() => setCanEdit(false)}
+                      type="button"
+                      className="button is-danger"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </>
+              ) : null}
             </div>
           </div>
         </div>
