@@ -9,6 +9,7 @@ import Signup from './pages/Signup';
 import Home from './pages/Home';
 import About from './pages/About';
 import Visualiza from './pages/Visualiza';
+import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 
 import logo from './assets/logo.png';
@@ -40,6 +41,7 @@ function App() {
           <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/about" component={About} />
           <PrivateRoute path="/visualiza" component={Visualiza} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route path="*" component={NotFound} />
         </Switch>
       </div>

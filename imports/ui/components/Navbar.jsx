@@ -9,7 +9,14 @@ import NavbarMenu from './NavbarMenu';
 function Navbar({ logo }) {
   const { location } = useReactRouter();
   const pathname = location.pathname;
-  const validPaths = ['/', '/signup', '/home', '/about', '/visualiza'];
+  const validPaths = [
+    '/',
+    '/signup',
+    '/home',
+    '/about',
+    '/visualiza',
+    '/dashboard'
+  ];
 
   if (
     pathname === '/' ||
