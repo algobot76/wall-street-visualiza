@@ -40,13 +40,13 @@ export const SPECIFIC_STOCK_REQUEST_FAILURE = 'SPECIFIC_STOCK_REQUEST_FAILURE';
 export const specificStockRequest = company => {
   return dispatch => {
     dispatch(specificStockRequestBegin());
-    stocksGetSpecificStockInfo.call({company},callback(error,result)) => {
+    stocksGetSpecificStockInfo.call({company},(error,result)=> {
       if (error) {
         dispatch(specificStockRequestFailure(error.message));
       }else {
         dispatch(specificStockRequestSuccess(result));
       }
-    }
+    });
   };
 };
 
@@ -61,5 +61,5 @@ export const specificStockRequestSuccess = company => ({
 
 export const specificStockRequestFailure = error => ({
   type: SPECIFIC_STOCK_REQUEST_FAILURE,
-  payload: {error};
+  payload: {error}
 })
