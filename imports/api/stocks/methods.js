@@ -11,15 +11,12 @@ export const stocksGetAll = new ValidatedMethod({
   }
 });
 
-
-
-export const stocksGetSpecificStockInfo  =   new ValidatedMethod({
+export const stocksGetSpecificStockInfo = new ValidatedMethod({
   name: 'stocks.getSpecificStockInfo',
   validate: new SimpleSchema({
     company: { type: String }
   }).validator(),
   run(company) {
     return Stocks.findOne(company.toString());
-
   }
 });

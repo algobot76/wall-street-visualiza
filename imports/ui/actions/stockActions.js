@@ -41,7 +41,7 @@ export const SPECIFIC_STOCK_REQUEST_FAILURE = 'SPECIFIC_STOCK_REQUEST_FAILURE';
 export const specificStockRequest = name => {
   return dispatch => {
     dispatch(specificStockRequestBegin());
-    stocksGetSpecificStockInfo.call({company:name} , (error, result) => {
+    stocksGetSpecificStockInfo.call({ company: name }, (error, result) => {
       if (error) {
         dispatch(specificStockRequestFailure(error.message));
       } else {

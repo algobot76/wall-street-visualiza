@@ -6,9 +6,9 @@ import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
 import NewsModal from '../components/NewsModal';
 
-import {fetchNews} from '../actions/newsActions';
-import {fetchHeadline} from '../actions/headlineActions';
-import {fetchCompanies} from '../actions/companyActions';
+import { fetchNews } from '../actions/newsActions';
+import { fetchHeadline } from '../actions/headlineActions';
+import { fetchCompanies } from '../actions/companyActions';
 import { fetchStocks, specificStockRequest } from '../actions/stockActions';
 import { stocksGetSpecificStockInfo } from '../../api/stocks/methods';
 
@@ -26,7 +26,7 @@ function Visualiza() {
     dispatch(fetchHeadline());
     dispatch(fetchCompanies());
     dispatch(fetchNews());
-   // dispatch(specificStockRequest('AAPL'));
+    // dispatch(specificStockRequest('AAPL'));
   }, []);
 
   const names = useSelector(state => state.companies.names);
@@ -35,7 +35,6 @@ function Visualiza() {
   const startIndex = useSelector(state => state.chart.startIndex);
   const endIndex = useSelector(state => state.chart.endIndex);
   const news = useSelector(state => state.news.news);
-
 
   const filteredData = data.find(item => item.company === company);
   let startDate = '';
