@@ -10,7 +10,7 @@ function News() {
     dispatch(fetchHeadline());
   }, []);
 
-  const data = useSelector(state => state.news.headlines);
+  const data = useSelector(state => state.headlines.entries);
 
   return (
     <section className="hero is-fullheight has-background-light">

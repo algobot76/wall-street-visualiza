@@ -5,8 +5,8 @@ import {
 } from '../actions/headlineActions';
 
 const initialState = {
-  headlines: {},
-  error: {}
+  entries: [],
+  error: ''
 };
 
 const headlineReducer = (state = initialState, action) => {
@@ -14,7 +14,7 @@ const headlineReducer = (state = initialState, action) => {
     case FETCH_HEADLINES_SUCCESS:
       return {
         ...state,
-        headlines: action.payload.headlines
+        entries: action.payload.headlines
       };
     case FETCH_HEADLINES_FAILURE:
       return {
