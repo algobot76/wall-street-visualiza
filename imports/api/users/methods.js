@@ -14,6 +14,7 @@ export const usersUpdateName = new ValidatedMethod({
   }
 });
 
+// TODO: Refactor this method
 export const usersUpdateEmail = new ValidatedMethod({
   name: 'users.updateEmail',
   validate: new SimpleSchema({
