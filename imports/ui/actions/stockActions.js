@@ -1,43 +1,32 @@
-import { stocksGetAll } from '../../api/stocks/methods';
+import { stocksGetSpecificStockInfo } from '../../api/stocks/methods';
 
-export const SELECT_STOCK = 'SELECT_STOCK';
+export const SPECIFIC_STOCK_REQUEST_BEGIN = 'SPECIFIC_STOCK_REQUEST_BEGIN';
+export const SPECIFIC_STOCK_REQUEST_SUCCESS = 'SPECIFIC_STOCK_REQUEST_SUCCESS';
+export const SPECIFIC_STOCK_REQUEST_FAILURE = 'SPECIFIC_STOCK_REQUEST_FAILURE';
 
-
-export const selectStock = stock => ({
-  type: SELECT_STOCK,
-  payload: { stock }
-});
-
-export const FETCH_STOCKS_BEGIN = 'FETCH_STOCKS_BEGIN';
-export const FETCH_STOCKS_SUCCESS = 'FETCH_STOCKS_SUCCESS';
-export const FETCH_STOCKS_FAILURE = 'FETCH_STOCKS_FAILURE';
-
-export const fetchStocks = () => {
+export const specificStockRequest = name => {
   return dispatch => {
-    dispatch(fetchStocksBegin());
-    stocksGetAll.call({}, (error, result) => {
+    dispatch(specificStockRequestBegin());
+    stocksGetSpecificStockInfo.call({ company: name }, (error, result) => {
       if (error) {
-        dispatch(fetchStocksFailure(error.message));
+        dispatch(specificStockRequestFailure(error.message));
       } else {
-        dispatch(fetchStocksSuccess(result));
+        dispatch(specificStockRequestSuccess(result.prices));
       }
     });
   };
 };
 
-export const fetchStocksBegin = () => ({
-  type: FETCH_STOCKS_BEGIN
+export const specificStockRequestBegin = () => ({
+  type: SPECIFIC_STOCK_REQUEST_BEGIN
 });
 
-export const fetchStocksSuccess = stocks => ({
-  type: FETCH_STOCKS_SUCCESS,
-  payload: { stocks}
+export const specificStockRequestSuccess = prices => ({
+  type: SPECIFIC_STOCK_REQUEST_SUCCESS,
+  payload: { prices }
 });
 
-export const fetchStocksFailure = error => ({
-  type: FETCH_STOCKS_FAILURE,
+export const specificStockRequestFailure = error => ({
+  type: SPECIFIC_STOCK_REQUEST_FAILURE,
   payload: { error }
 });
-
-
-

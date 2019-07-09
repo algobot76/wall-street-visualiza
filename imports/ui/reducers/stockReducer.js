@@ -1,39 +1,30 @@
 import {
-  FETCH_STOCKS_BEGIN,
-  FETCH_STOCKS_SUCCESS,
-  FETCH_STOCKS_FAILURE,
-  SELECT_STOCK
+  SPECIFIC_STOCK_REQUEST_BEGIN,
+  SPECIFIC_STOCK_REQUEST_SUCCESS,
+  SPECIFIC_STOCK_REQUEST_FAILURE
 } from '../actions/stockActions';
 
-import stocks from '../seeds/stocks';
-
 const initialState = {
-  names: [],
-  selectedStock: 'AAPL',
-  data: stocks
+  prices: [],
+  error: ''
 };
 
 const stockReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SELECT_STOCK:
+    case SPECIFIC_STOCK_REQUEST_SUCCESS:
       return {
         ...state,
-        selectedCompany: action.payload.company,
-        data: action.payload.prices
+        prices: action.payload.prices,
+        error: ''
       };
-    case FETCH_STOCKS_SUCCESS:
+    case SPECIFIC_STOCK_REQUEST_FAILURE:
       return {
         ...state,
-        names: action.payload.stocks.map(stock => stock.company),
-        prices: action.payload.stocks.map(stock => stock.prices)
+        error: action.payload.error
       };
-
-    case FETCH_STOCKS_BEGIN:
+    case SPECIFIC_STOCK_REQUEST_BEGIN:
     default:
       return state;
-
-    case FETCH_STOCKS_FAILURE:
-      return action.payload.error;
   }
 };
 

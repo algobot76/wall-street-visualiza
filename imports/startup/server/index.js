@@ -6,7 +6,7 @@ import Stocks from '../../api/stocks/stocks';
 import News from '../../api/news/news';
 
 import './register-api';
-import companies from '../seeds/stocks';
+import companies from '../seeds/companies';
 import headlines from '../seeds/headlines';
 import news from '../seeds/news';
 import stocks from '../seeds/stocks';
@@ -16,6 +16,7 @@ Meteor.startup(() => {
   companies.forEach(company => {
     Companies.insert({ symbol: company.symbol });
   });
+
   Stocks.remove({});
   stocks.forEach(stock => {
     Stocks.insert({ company: stock.company, prices: stock.prices });
@@ -23,7 +24,12 @@ Meteor.startup(() => {
 
   Headlines.remove({});
   headlines.forEach(headline => {
-    Headlines.insert({ headline });
+    Headlines.insert({
+      title: headline.title,
+      description: headline.description,
+      image: headline.image,
+      url: headline.url
+    });
   });
 
   News.remove({});

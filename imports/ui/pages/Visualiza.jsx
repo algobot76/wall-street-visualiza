@@ -5,8 +5,13 @@ import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
 import NewsModal from '../components/NewsModal';
-import { fetchNews } from '../actions';
-import { fetchCompanies } from '../actions';
+
+import {
+  fetchCompanies,
+  specificStockRequest,
+  updateIndices,
+  fetchNewsBySymbol
+} from '../actions';
 
 const Title = styled.p`
   font-weight: bold;
@@ -19,37 +24,48 @@ function Visualiza() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchCompanies());
-    dispatch(fetchNews());
   }, []);
 
+  // TODO: Refactor this pile of shit later
   const names = useSelector(state => state.companies.names);
   const company = useSelector(state => state.companies.selectedCompany);
-  const data = useSelector(state => state.companies.data);
+  const data = useSelector(state => state.stocks.prices);
   const startIndex = useSelector(state => state.chart.startIndex);
   const endIndex = useSelector(state => state.chart.endIndex);
-  const news = useSelector(state => state.news.news);
+  const news = useSelector(state => state.news.articles);
 
-  const filteredData = data.find(item => item.company === company);
+  useEffect(() => {
+    dispatch(specificStockRequest(company));
+    dispatch(fetchNewsBySymbol(company));
+  }, [company]);
+
+  useEffect(() => {
+    updateIndices(0, data.length - 1);
+  }, [data]);
+
   let startDate = '';
   let endDate = '';
-  if (filteredData) {
-    startDate = filteredData['prices'][startIndex]['date'];
-    endDate = filteredData['prices'][endIndex]['date'];
+  if (data && data.length > 0) {
+    startDate = data[startIndex]['date'];
+    endDate = data[endIndex]['date'];
   }
-  const filteredNews = news.find(item => item.company === company);
-  const newsEntries = [];
-  if (filteredNews) {
-    const startDate = new Date(filteredData['prices'][startIndex]['date']);
-    const endDate = new Date(filteredData['prices'][endIndex]['date']);
-    filteredNews['articles'].forEach(article => {
-      const currDate = new Date(article['publishedAt']);
-      if (
-        currDate.getTime() >= startDate.getTime() &&
-        currDate.getTime() <= endDate.getTime()
-      ) {
-        newsEntries.push(article);
-      }
-    });
+
+  // FIXME: News not displayed on startup!!!
+  const filteredNews = [];
+  if (startDate && endDate) {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    if (news && news.length > 0) {
+      news.forEach(article => {
+        const curr = new Date(article['publishedAt']);
+        if (
+          curr.getTime() >= start.getTime() &&
+          curr.getTime() <= end.getTime()
+        ) {
+          filteredNews.push(article);
+        }
+      });
+    }
   }
 
   return (
@@ -65,9 +81,9 @@ function Visualiza() {
                 ? `News from ${startDate} to ${endDate}`
                 : 'News'
             }
-            content={newsEntries}
+            content={filteredNews}
           />
-          <Chart data={filteredData ? filteredData.prices : []} />
+          <Chart data={data ? data : []} />
         </div>
       </div>
     </div>

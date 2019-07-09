@@ -5,12 +5,10 @@ import {
   SELECT_COMPANY
 } from '../actions/companyActions';
 
-import stocks from '../seeds/stocks';
-
 const initialState = {
   names: [],
   selectedCompany: 'AAPL',
-  data: stocks
+  error: {}
 };
 
 const companyReducer = (state = initialState, action) => {
@@ -24,6 +22,11 @@ const companyReducer = (state = initialState, action) => {
       return {
         ...state,
         names: action.payload.companies.map(company => company.symbol).sort()
+      };
+    case FETCH_COMPANIES_FAILURE:
+      return {
+        ...state,
+        error: action.payload.error
       };
     case FETCH_COMPANIES_BEGIN:
     default:

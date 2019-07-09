@@ -50,7 +50,7 @@ const CustomTooltip = ({ active, payload, label }) => {
 function Chart({ data }) {
   const dispatch = useDispatch();
   useEffect(() => {
-    if (data) {
+    if (data && data.length > 0) {
       dispatch(updateIndices(0, data.length - 1));
     }
   }, []);

@@ -1,48 +1,29 @@
 import {
-  FETCH_NEWS_BEGIN,
-  FETCH_NEWS_SUCCESS,
-  FETCH_NEWS_FAILURE
-} from '../actions/newsActions';
-
-import {
-  FETCH_HEADLINES_BEGIN,
-  FETCH_HEADLINES_SUCCESS,
-  FETCH_HEADLINES_FAILURE
-} from '../actions/headlineActions';
-
-import headlines from '../seeds/headlines';
-import news from '../seeds/news';
+  NEWS_GET_BY_SYMBOL_BEGIN,
+  NEWS_GET_BY_SYMBOL_SUCCESS,
+  NEWS_GET_BY_SYMBOL_FAILURE
+} from '../actions';
 
 const initialState = {
-  headlines,
-  news
+  articles: [],
+  error: ''
 };
 
 const newsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_NEWS_SUCCESS:
+    case NEWS_GET_BY_SYMBOL_SUCCESS:
       return {
         ...state,
-        state: action.payload.news
+        articles: action.payload.articles,
+        error: ''
       };
-    case FETCH_NEWS_FAILURE:
+    case NEWS_GET_BY_SYMBOL_FAILURE:
       return {
         ...state,
-        state: action.payload.error
+        error: action.payload.error
       };
-    case FETCH_HEADLINES_SUCCESS:
-      return {
-        ...state,
-        state: action.payload.headlines
-      };
-    case FETCH_HEADLINES_FAILURE:
-      return {
-        ...state,
-        state: action.payload.error
-      };
-    case FETCH_HEADLINES_BEGIN:
-      return state;
-    case FETCH_NEWS_BEGIN:
+
+    case NEWS_GET_BY_SYMBOL_BEGIN:
     default:
       return state;
   }
