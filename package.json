@@ -34,13 +34,6 @@
     "styled-components": "^4.3.2",
     "use-react-router": "^1.0.7"
   },
-  "meteor": {
-    "mainModule": {
-      "client": "client/main.jsx",
-      "server": "server/main.js"
-    },
-    "testModule": "tests/main.js"
-  },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
