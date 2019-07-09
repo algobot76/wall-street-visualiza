@@ -10,7 +10,6 @@ export const usersUpdateName = new ValidatedMethod({
     name: { type: String }
   }).validator(),
   run({ id, name }) {
-    console.log(name);
     Meteor.users.update({ _id: id }, { $set: { profile: { name } } });
   }
 });
