@@ -31,111 +31,115 @@ function Profile({ user }) {
     setCanEdit(false);
   };
 
-  return (
-    <form onSubmit={e => onSubmit(e)} className="container">
-      <fieldset disabled={!canEdit}>
-        <div className="field is-horizontal">
-          <div className="field-label is-normal">
-            <label htmlFor="name" className="label">
-              Name
-            </label>
-          </div>
-          <div className="field-body">
-            <div className="field">
-              <div className="control has-icons-left">
-                <input
-                  ref={nameRef}
-                  type="text"
-                  className="input"
-                  defaultValue={name}
-                />
-                <span className="icon is-left">
-                  <FontAwesomeIcon icon={faUser} />
-                </span>
-              </div>
+  if (!user) {
+    return <progress className="progress is-large is-dark" max={100} />;
+  } else {
+    return (
+      <form onSubmit={e => onSubmit(e)} className="container">
+        <fieldset disabled={!canEdit}>
+          <div className="field is-horizontal">
+            <div className="field-label is-normal">
+              <label htmlFor="name" className="label">
+                Name
+              </label>
             </div>
-          </div>
-        </div>
-        <div className="field is-horizontal">
-          <div className="field-label is-normal">
-            <label htmlFor="email" className="label">
-              Email
-            </label>
-          </div>
-          <div className="field-body">
-            <div className="field">
-              <div className="control has-icons-left">
-                <input
-                  ref={emailRef}
-                  type="email"
-                  className="input"
-                  defaultValue={email}
-                />
-                <span className="icon is-left">
-                  <FontAwesomeIcon icon={faEnvelope} />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="field is-horizontal">
-          <div className="field-label is-normal">
-            <label htmlFor="password" className="label">
-              Password
-            </label>
-          </div>
-          <div className="field-body">
-            <div className="field">
-              <div className="control has-icons-left">
-                <input ref={passwordRef} type="password" className="input" />
-                <span className="icon is-left">
-                  <FontAwesomeIcon icon={faKey} />
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </fieldset>
-      <Buttons>
-        <div className="field is-horizontal">
-          <div className="field-label" />
-          <div className="field-body">
-            <div className="field is-grouped">
-              {!canEdit ? (
-                <div className="control">
-                  <button
-                    onClick={() => setCanEdit(true)}
-                    type="button"
-                    className="button is-dark"
-                  >
-                    Edit
-                  </button>
+            <div className="field-body">
+              <div className="field">
+                <div className="control has-icons-left">
+                  <input
+                    ref={nameRef}
+                    type="text"
+                    className="input"
+                    defaultValue={name}
+                  />
+                  <span className="icon is-left">
+                    <FontAwesomeIcon icon={faUser} />
+                  </span>
                 </div>
-              ) : null}
-              {canEdit ? (
-                <>
-                  <div className="control">
-                    <button type="submit" className="button is-info">
-                      Update
-                    </button>
-                  </div>
+              </div>
+            </div>
+          </div>
+          <div className="field is-horizontal">
+            <div className="field-label is-normal">
+              <label htmlFor="email" className="label">
+                Email
+              </label>
+            </div>
+            <div className="field-body">
+              <div className="field">
+                <div className="control has-icons-left">
+                  <input
+                    ref={emailRef}
+                    type="email"
+                    className="input"
+                    defaultValue={email}
+                  />
+                  <span className="icon is-left">
+                    <FontAwesomeIcon icon={faEnvelope} />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="field is-horizontal">
+            <div className="field-label is-normal">
+              <label htmlFor="password" className="label">
+                Password
+              </label>
+            </div>
+            <div className="field-body">
+              <div className="field">
+                <div className="control has-icons-left">
+                  <input ref={passwordRef} type="password" className="input" />
+                  <span className="icon is-left">
+                    <FontAwesomeIcon icon={faKey} />
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <Buttons>
+          <div className="field is-horizontal">
+            <div className="field-label" />
+            <div className="field-body">
+              <div className="field is-grouped">
+                {!canEdit ? (
                   <div className="control">
                     <button
-                      onClick={() => setCanEdit(false)}
+                      onClick={() => setCanEdit(true)}
                       type="button"
-                      className="button is-danger"
+                      className="button is-dark"
                     >
-                      Cancel
+                      Edit
                     </button>
                   </div>
-                </>
-              ) : null}
+                ) : null}
+                {canEdit ? (
+                  <>
+                    <div className="control">
+                      <button type="submit" className="button is-info">
+                        Update
+                      </button>
+                    </div>
+                    <div className="control">
+                      <button
+                        onClick={() => setCanEdit(false)}
+                        type="button"
+                        className="button is-danger"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </>
+                ) : null}
+              </div>
             </div>
           </div>
-        </div>
-      </Buttons>
-    </form>
-  );
+        </Buttons>
+      </form>
+    );
+  }
 }
 
 Profile.propTypes = {
