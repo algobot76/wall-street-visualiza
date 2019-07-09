@@ -33,6 +33,9 @@ function NavbarMenu() {
         <Link to={'/visualiza'} className="navbar-item">
           Visuliza
         </Link>
+        <Link to="/dashboard" className="navbar-item">
+          Dashboard
+        </Link>
       </div>
       {pathname === '/visualiza' && (
         <div className="navbar-end">
