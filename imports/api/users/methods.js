@@ -13,3 +13,14 @@ export const usersUpdateName = new ValidatedMethod({
     Meteor.users.update({ _id: id }, { $set: { profile: { name } } });
   }
 });
+
+export const usersUpdateEmail = new ValidatedMethod({
+  name: 'users.updateEmail',
+  validate: new SimpleSchema({
+    id: { type: String },
+    email: { type: String }
+  }).validator(),
+  run({ id, email }) {
+    Meteor.users.update({ _id: id }, { $set: { 'emails.0.address': email } });
+  }
+});
