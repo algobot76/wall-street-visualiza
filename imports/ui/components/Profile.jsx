@@ -5,11 +5,13 @@ import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import { Accounts } from 'meteor/accounts-base';
 import { withTracker } from 'meteor/react-meteor-data';
+import { usersUpdateName } from '../../api/users/methods';
 
 const Buttons = styled.div`
   margin-top: 1.2rem;
 `;
 
+// TODO: Add error handling
 function Profile({ user }) {
   const [canEdit, setCanEdit] = useState(false);
   const [name, setName] = useState('');
@@ -29,6 +31,9 @@ function Profile({ user }) {
   const onSubmit = e => {
     e.preventDefault();
     setCanEdit(false);
+    const id = Accounts.userId();
+    const name = nameRef.current.value.trim();
+    usersUpdateName.call({ id, name });
   };
 
   if (!user) {
