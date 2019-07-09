@@ -16,6 +16,7 @@ Meteor.startup(() => {
   companies.forEach(company => {
     Companies.insert({ symbol: company.symbol });
   });
+
   Stocks.remove({});
   stocks.forEach(stock => {
     Stocks.insert({ company: stock.company, prices: stock.prices });
