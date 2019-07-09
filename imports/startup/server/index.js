@@ -23,7 +23,12 @@ Meteor.startup(() => {
 
   Headlines.remove({});
   headlines.forEach(headline => {
-    Headlines.insert({ headline });
+    Headlines.insert({
+      title: headline.title,
+      description: headline.description,
+      image: headline.image,
+      url: headline.url
+    });
   });
 
   News.remove({});
