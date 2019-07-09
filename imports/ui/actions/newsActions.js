@@ -1,32 +1,36 @@
-import { newsGetAll } from '../../api/news/methods';
+import { newsGetBySymbol } from '../../api/news/methods';
 
-export const FETCH_NEWS_BEGIN = 'FETCH_NEWS_BEGIN';
-export const FETCH_NEWS_SUCCESS = 'FETCH_NEWS_SUCCESS';
-export const FETCH_NEWS_FAILURE = 'FETCH_NEWS_FAILURE';
+export const NEWS_GET_BY_SYMBOL_BEGIN = 'NEWS_GET_BY_SYMBOL_BEGIN';
+export const NEWS_GET_BY_SYMBOL_SUCCESS = 'NEWS_GET_BY_SYMBOL_SUCCESS';
+export const NEWS_GET_BY_SYMBOL_FAILURE = 'NEWS_GET_BY_SYMBOL_FAILURE';
 
-export const fetchNews = () => {
+export const fetchNewsBySymbol = symbol => {
   return dispatch => {
-    dispatch(fetchNewsBegin());
-    newsGetAll.call({}, (error, result) => {
+    dispatch(fetchNewsBySymbolBegin());
+    newsGetBySymbol.call({ symbol }, (error, result) => {
       if (error) {
-        dispatch(fetchNewsFailure(error.message));
+        dispatch(fetchNewsBySymbolFailure(error.message));
       } else {
-        dispatch(fetchNewsSuccess(result));
+        if (result.articles) {
+          dispatch(fetchNewsBySymbolSuccess(result.articles));
+        } else {
+          dispatch(fetchNewsBySymbolSuccess([]));
+        }
       }
     });
   };
 };
 
-export const fetchNewsBegin = () => ({
-  type: FETCH_NEWS_BEGIN
+export const fetchNewsBySymbolBegin = () => ({
+  type: NEWS_GET_BY_SYMBOL_BEGIN
 });
 
-export const fetchNewsSuccess = news => ({
-  type: FETCH_NEWS_SUCCESS,
-  payload: { news }
+export const fetchNewsBySymbolSuccess = articles => ({
+  type: NEWS_GET_BY_SYMBOL_SUCCESS,
+  payload: { articles }
 });
 
-export const fetchNewsFailure = () => ({
-  type: FETCH_NEWS_FAILURE,
+export const fetchNewsBySymbolFailure = error => ({
+  type: NEWS_GET_BY_SYMBOL_FAILURE,
   payload: { error }
 });

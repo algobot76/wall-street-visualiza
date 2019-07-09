@@ -3,22 +3,20 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import News from './news';
 
-export const newsGetAll = new ValidatedMethod({
-  name: 'news.getAll',
-  validate: new SimpleSchema({}).validator(),
-  run() {
-    return News.find({}).fetch();
+// TODO: Refactor this method
+export const newsGetBySymbol = new ValidatedMethod({
+  name: 'news.getBySymbol',
+  validate: new SimpleSchema({
+    symbol: { type: String }
+  }).validator(),
+  run({ symbol }) {
+    if (News.findOne({ company: symbol })) {
+      return News.findOne(
+        { company: symbol },
+        { fields: { _id: 0, articles: 1 } }
+      );
+    } else {
+      return [];
+    }
   }
 });
-
-export const newsGetSpecificCompanyNews = name =>
-  new ValidatedMethod({
-    name: 'news.getSpecificNewInfo',
-    validate: new SimpleSchema({
-      name: { type: String }
-    }).validator(),
-
-    run() {
-      return News.find({ company: name.toString() });
-    }
-  });
