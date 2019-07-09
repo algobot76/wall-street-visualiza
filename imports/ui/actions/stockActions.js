@@ -38,10 +38,10 @@ export const SPECIFIC_STOCK_REQUEST_BEGIN = 'SPECIFIC_STOCK_REQUEST_BEGIN';
 export const SPECIFIC_STOCK_REQUEST_SUCCESS = 'SPECIFIC_STOCK_REQUEST_SUCCESS';
 export const SPECIFIC_STOCK_REQUEST_FAILURE = 'SPECIFIC_STOCK_REQUEST_FAILURE';
 
-export const specificStockRequest = company => {
+export const specificStockRequest = name => {
   return dispatch => {
     dispatch(specificStockRequestBegin());
-    stocksGetSpecificStockInfo.call({ company }, (error, result) => {
+    stocksGetSpecificStockInfo.call({company:name} , (error, result) => {
       if (error) {
         dispatch(specificStockRequestFailure(error.message));
       } else {

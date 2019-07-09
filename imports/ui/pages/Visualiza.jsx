@@ -9,7 +9,7 @@ import NewsModal from '../components/NewsModal';
 import {fetchNews} from '../actions/newsActions';
 import {fetchHeadline} from '../actions/headlineActions';
 import {fetchCompanies} from '../actions/companyActions';
-import {fetchStocks} from '../actions/stockActions';
+import { fetchStocks, specificStockRequest } from '../actions/stockActions';
 import { stocksGetSpecificStockInfo } from '../../api/stocks/methods';
 
 const Title = styled.p`
@@ -26,15 +26,16 @@ function Visualiza() {
     dispatch(fetchHeadline());
     dispatch(fetchCompanies());
     dispatch(fetchNews());
-
+   // dispatch(specificStockRequest('AAPL'));
   }, []);
 
   const names = useSelector(state => state.companies.names);
   const company = useSelector(state => state.companies.selectedCompany);
-  const data = useSelector(state => state.stocks.data);
+  const data = useSelector(state => state.stocks.names);
   const startIndex = useSelector(state => state.chart.startIndex);
   const endIndex = useSelector(state => state.chart.endIndex);
   const news = useSelector(state => state.news.news);
+
 
   const filteredData = data.find(item => item.company === company);
   let startDate = '';
@@ -43,7 +44,7 @@ function Visualiza() {
     startDate = filteredData['prices'][startIndex]['date'];
     endDate = filteredData['prices'][endIndex]['date'];
   }
-  const filteredNews = news.find(item => item.company === company);
+  const filteredNews = data.find(item => item.company === company);
   const newsEntries = [];
   if (filteredNews) {
     const startDate = new Date(filteredData['prices'][startIndex]['date']);

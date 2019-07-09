@@ -13,11 +13,6 @@ const initialState = {
 
 const companyReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SELECT_COMPANY:
-      return {
-        ...state,
-        selectedCompany: action.payload.symbol
-      };
     case FETCH_COMPANIES_SUCCESS:
       return {
         ...state,

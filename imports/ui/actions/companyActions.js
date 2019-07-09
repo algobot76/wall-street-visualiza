@@ -1,11 +1,6 @@
 import { companiesGetAll } from '../../api/companies/methods';
 
-export const SELECT_COMPANY = 'SELECT_COMPANY';
 
-export const selectCompany = company => ({
-  type: SELECT_COMPANY,
-  payload: { company }
-});
 
 export const FETCH_COMPANIES_BEGIN = 'FETCH_COMPANIES_BEGIN';
 export const FETCH_COMPANIES_SUCCESS = 'FETCH_COMPANIES_SUCCESS';

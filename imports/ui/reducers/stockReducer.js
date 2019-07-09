@@ -2,7 +2,7 @@ import {
   FETCH_STOCKS_BEGIN,
   FETCH_STOCKS_SUCCESS,
   FETCH_STOCKS_FAILURE,
-  SELECT_STOCK
+  SPECIFIC_STOCK_REQUEST_SUCCESS
 } from '../actions/stockActions';
 
 const initialState = {
@@ -14,18 +14,16 @@ const initialState = {
 
 const stockReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SELECT_STOCK:
+    case SPECIFIC_STOCK_REQUEST_SUCCESS:
       return {
         ...state,
         selectedStock: action.payload.company,
-        data: action.payload.prices,
-
+        data: action.payload.prices
       };
     case FETCH_STOCKS_SUCCESS:
       return {
         ...state,
-        names: action.payload.stocks.map(stock => stock.company),
-        data: action.payload.stocks.map(stock => stock.prices)
+        data: action.payload
       };
 
     case FETCH_STOCKS_BEGIN:
