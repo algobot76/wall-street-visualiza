@@ -6,11 +6,8 @@ import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
 import NewsModal from '../components/NewsModal';
 
-import { fetchNews } from '../actions/newsActions';
-import { fetchHeadline } from '../actions/headlineActions';
-import { fetchCompanies } from '../actions/companyActions';
-import { fetchStocks, specificStockRequest } from '../actions/stockActions';
-import { stocksGetSpecificStockInfo } from '../../api/stocks/methods';
+import { fetchCompanies } from '../actions';
+import { specificStockRequest } from '../actions';
 
 const Title = styled.p`
   font-weight: bold;
@@ -22,42 +19,40 @@ const Title = styled.p`
 function Visualiza() {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchStocks());
-    dispatch(fetchHeadline());
     dispatch(fetchCompanies());
-    dispatch(fetchNews());
-    // dispatch(specificStockRequest('AAPL'));
   }, []);
 
   const names = useSelector(state => state.companies.names);
   const company = useSelector(state => state.companies.selectedCompany);
-  const data = useSelector(state => state.stocks.names);
+  const data = useSelector(state => state.stocks.prices);
   const startIndex = useSelector(state => state.chart.startIndex);
   const endIndex = useSelector(state => state.chart.endIndex);
-  const news = useSelector(state => state.news.news);
 
-  const filteredData = data.find(item => item.company === company);
-  let startDate = '';
-  let endDate = '';
-  if (filteredData) {
-    startDate = filteredData['prices'][startIndex]['date'];
-    endDate = filteredData['prices'][endIndex]['date'];
-  }
-  const filteredNews = data.find(item => item.company === company);
-  const newsEntries = [];
-  if (filteredNews) {
-    const startDate = new Date(filteredData['prices'][startIndex]['date']);
-    const endDate = new Date(filteredData['prices'][endIndex]['date']);
-    filteredNews['articles'].forEach(article => {
-      const currDate = new Date(article['publishedAt']);
-      if (
-        currDate.getTime() >= startDate.getTime() &&
-        currDate.getTime() <= endDate.getTime()
-      ) {
-        newsEntries.push(article);
-      }
-    });
-  }
+  useEffect(() => {
+    dispatch(specificStockRequest(company));
+  }, [company]);
+
+  // let startDate = '';
+  // let endDate = '';
+  // if (data) {
+  //   startDate = data['prices'][startIndex]['date'];
+  //   endDate = data['prices'][endIndex]['date'];
+  // }
+  // const filteredNews = data.find(item => item.company === company);
+  // const newsEntries = [];
+  // if (filteredNews) {
+  //   const startDate = new Date(filteredData['prices'][startIndex]['date']);
+  //   const endDate = new Date(filteredData['prices'][endIndex]['date']);
+  //   filteredNews['articles'].forEach(article => {
+  //     const currDate = new Date(article['publishedAt']);
+  //     if (
+  //       currDate.getTime() >= startDate.getTime() &&
+  //       currDate.getTime() <= endDate.getTime()
+  //     ) {
+  //       newsEntries.push(article);
+  //     }
+  //   });
+  // }
 
   return (
     <div className="section has-background-light">
@@ -65,16 +60,16 @@ function Visualiza() {
         <Sidebar names={names} />
         <div className="column">
           <Title>{company}</Title>
-          <NewsModal
-            buttonName="News"
-            title={
-              startDate && endDate
-                ? `News from ${startDate} to ${endDate}`
-                : 'News'
-            }
-            content={newsEntries}
-          />
-          <Chart data={filteredData ? filteredData.prices : []} />
+          {/*<NewsModal*/}
+          {/*  buttonName="News"*/}
+          {/*  title={*/}
+          {/*    startDate && endDate*/}
+          {/*      ? `News from ${startDate} to ${endDate}`*/}
+          {/*      : 'News'*/}
+          {/*  }*/}
+          {/*  content={[]}*/}
+          {/*/>*/}
+          <Chart data={data ? data : []} />
         </div>
       </div>
     </div>

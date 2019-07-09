@@ -1,15 +1,12 @@
 import {
-  FETCH_STOCKS_BEGIN,
-  FETCH_STOCKS_SUCCESS,
-  FETCH_STOCKS_FAILURE,
-  SPECIFIC_STOCK_REQUEST_SUCCESS
+  SPECIFIC_STOCK_REQUEST_BEGIN,
+  SPECIFIC_STOCK_REQUEST_SUCCESS,
+  SPECIFIC_STOCK_REQUEST_FAILURE
 } from '../actions/stockActions';
 
 const initialState = {
-  names: [],
-  selectedStock: '',
-  data: {} ,
-  error: {}
+  prices: [],
+  error: ''
 };
 
 const stockReducer = (state = initialState, action) => {
@@ -17,24 +14,17 @@ const stockReducer = (state = initialState, action) => {
     case SPECIFIC_STOCK_REQUEST_SUCCESS:
       return {
         ...state,
-        selectedStock: action.payload.company,
-        data: action.payload.prices
+        prices: action.payload.prices,
+        error: ''
       };
-    case FETCH_STOCKS_SUCCESS:
-      return {
-        ...state,
-        data: action.payload
-      };
-
-    case FETCH_STOCKS_BEGIN:
-    default:
-      return state;
-
-    case FETCH_STOCKS_FAILURE:
+    case SPECIFIC_STOCK_REQUEST_FAILURE:
       return {
         ...state,
         error: action.payload.error
       };
+    case SPECIFIC_STOCK_REQUEST_BEGIN:
+    default:
+      return state;
   }
 };
 
