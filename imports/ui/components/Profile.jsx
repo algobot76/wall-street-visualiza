@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -123,7 +123,7 @@ function Profile({ user }) {
                   </div>
                 ) : null}
                 {canEdit ? (
-                  <>
+                  <Fragment>
                     <div className="control">
                       <button type="submit" className="button is-info">
                         Update
@@ -138,7 +138,7 @@ function Profile({ user }) {
                         Cancel
                       </button>
                     </div>
-                  </>
+                  </Fragment>
                 ) : null}
               </div>
             </div>

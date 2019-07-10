@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
+import { hot } from 'react-hot-loader';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
@@ -58,4 +59,4 @@ export default withTracker(() => {
   return {
     isAuthenticated: !!Meteor.userId()
   };
-})(App);
+})(hot(module)(App));
