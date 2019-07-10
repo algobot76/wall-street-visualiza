@@ -32,7 +32,10 @@ const clientConfig = {
     new webpack.HotModuleReplacementPlugin()
   ],
   resolve: {
-    extensions: ['*', '.js', '.jsx']
+    extensions: ['*', '.js', '.jsx'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
   externals: [meteorExternals()],
   devServer: {
