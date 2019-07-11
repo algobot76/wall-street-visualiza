@@ -1,4 +1,5 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
@@ -23,5 +24,15 @@ export const usersUpdateEmail = new ValidatedMethod({
   }).validator(),
   run({ id, email }) {
     Meteor.users.update({ _id: id }, { $set: { 'emails.0.address': email } });
+  }
+});
+
+export const usersUpdatePassword = new ValidatedMethod({
+  name: 'users.updatePassword',
+  validate: null,
+  run({ id, password }) {
+    if (Meteor.isServer) {
+      Accounts.setPassword(id, password, { logout: false });
+    }
   }
 });

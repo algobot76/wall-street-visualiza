@@ -5,7 +5,11 @@ import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import { Accounts } from 'meteor/accounts-base';
 import { withTracker } from 'meteor/react-meteor-data';
-import { usersUpdateName, usersUpdateEmail } from '../../api/users/methods';
+import {
+  usersUpdateName,
+  usersUpdateEmail,
+  usersUpdatePassword
+} from '../../api/users/methods';
 
 const Buttons = styled.div`
   margin-top: 1.2rem;
@@ -34,8 +38,12 @@ function Profile({ user }) {
     const id = Accounts.userId();
     const name = nameRef.current.value.trim();
     const email = emailRef.current.value.trim();
+    const password = passwordRef.current.value.trim();
     usersUpdateName.call({ id, name });
     usersUpdateEmail.call({ id, email });
+    if (password && password.length > 0) {
+      usersUpdatePassword.call({ id, password });
+    }
   };
 
   if (!user) {
