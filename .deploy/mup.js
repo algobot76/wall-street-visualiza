@@ -1,7 +1,6 @@
 module.exports = {
   servers: {
     one: {
-      // TODO: set host address, username, and authentication method
       host: '35.162.117.170',
       username: 'ubuntu',
       pem: '~/.ssh/wsv.pem'
@@ -11,7 +10,6 @@ module.exports = {
   },
 
   app: {
-    // TODO: change app name and path
     name: 'wall-street-visualiza',
     path: '../',
 
@@ -24,7 +22,6 @@ module.exports = {
     },
 
     env: {
-      // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
       ROOT_URL: 'http://35.162.117.170',
       MONGO_URL: 'mongodb://mongodb/meteor',
