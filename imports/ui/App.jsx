@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 
+import PublicRoute from './helpers/PublicRoute';
 import PrivateRoute from './helpers/PrivateRoute';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
@@ -21,8 +22,8 @@ function App() {
       <div>
         <Navbar logo={logo} />
         <Switch>
-          <Route exact path="/" component={Login} />
-          <Route path="/signup" component={Signup} />
+          <PublicRoute exact path="/" component={Login} />
+          <PublicRoute path="/signup" component={Signup} />
           <PrivateRoute path="/home" component={Home} />
           <PrivateRoute path="/about" component={About} />
           <PrivateRoute path="/visualiza" component={Visualiza} />
