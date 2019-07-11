@@ -11,6 +11,7 @@ export const usersUpdateName = new ValidatedMethod({
     name: { type: String }
   }).validator(),
   run({ id, name }) {
+    console.log(name);
     Meteor.users.update({ _id: id }, { $set: { profile: { name } } });
   }
 });
@@ -23,6 +24,7 @@ export const usersUpdateEmail = new ValidatedMethod({
     email: { type: String }
   }).validator(),
   run({ id, email }) {
+    console.log(email);
     Meteor.users.update({ _id: id }, { $set: { 'emails.0.address': email } });
   }
 });

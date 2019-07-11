@@ -39,8 +39,12 @@ function Profile({ user }) {
     const newName = nameRef.current.value.trim();
     const newEmail = emailRef.current.value.trim();
     const newPassword = passwordRef.current.value.trim();
-    usersUpdateName.call({ id, name: newName });
-    usersUpdateEmail.call({ id, email: newEmail });
+    if (name !== newName) {
+      usersUpdateName.call({ id, name: newName });
+    }
+    if (email !== newEmail) {
+      usersUpdateEmail.call({ id, email: newEmail });
+    }
     if (newPassword && newPassword.length > 0) {
       usersUpdatePassword.call({ id, password: newPassword });
     }
