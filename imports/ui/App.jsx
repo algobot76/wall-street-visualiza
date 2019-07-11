@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Router, Switch, Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Router, Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
-import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
 
+import PrivateRoute from './helpers/PrivateRoute';
 import Navbar from './components/Navbar';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -16,27 +15,7 @@ import NotFound from './pages/NotFound';
 import logo from './assets/logo.png';
 import history from './helpers/history';
 
-function App({ isAuthenticated }) {
-  function PrivateRoute({ component: Component, ...rest }) {
-    return (
-      <Route
-        {...rest}
-        render={props =>
-          isAuthenticated ? (
-            <Component {...props} />
-          ) : (
-            <Redirect
-              to={{
-                pathname: '/',
-                state: { from: props.location }
-              }}
-            />
-          )
-        }
-      />
-    );
-  }
-
+function App() {
   return (
     <Router history={history}>
       <div>
@@ -55,8 +34,4 @@ function App({ isAuthenticated }) {
   );
 }
 
-export default withTracker(() => {
-  return {
-    isAuthenticated: !!Meteor.userId()
-  };
-})(hot(module)(App));
+export default hot(module)(App);
