@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 
 import PublicRoute from './helpers/PublicRoute';
@@ -14,11 +14,10 @@ import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
 
 import logo from './assets/logo.png';
-import history from './helpers/history';
 
 function App() {
   return (
-    <Router history={history}>
+    <Router>
       <div>
         <Navbar logo={logo} />
         <Switch>
