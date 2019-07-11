@@ -36,13 +36,13 @@ function Profile({ user }) {
     e.preventDefault();
     setCanEdit(false);
     const id = Accounts.userId();
-    const name = nameRef.current.value.trim();
-    const email = emailRef.current.value.trim();
-    const password = passwordRef.current.value.trim();
-    usersUpdateName.call({ id, name });
-    usersUpdateEmail.call({ id, email });
-    if (password && password.length > 0) {
-      usersUpdatePassword.call({ id, password });
+    const newName = nameRef.current.value.trim();
+    const newEmail = emailRef.current.value.trim();
+    const newPassword = passwordRef.current.value.trim();
+    usersUpdateName.call({ id, name: newName });
+    usersUpdateEmail.call({ id, email: newEmail });
+    if (newPassword && newPassword.length > 0) {
+      usersUpdatePassword.call({ id, password: newPassword });
     }
   };
 
