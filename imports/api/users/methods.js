@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
+import { check } from 'meteor/check';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
@@ -31,7 +32,12 @@ export const usersUpdateEmail = new ValidatedMethod({
 
 export const usersUpdatePassword = new ValidatedMethod({
   name: 'users.updatePassword',
-  validate: null,
+  validate(args) {
+    check(args, {
+      id: String,
+      password: String
+    });
+  },
   run({ id, password }) {
     if (Meteor.isServer) {
       Accounts.setPassword(id, password, { logout: false });
