@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '35.162.117.170',
+      host: '35.164.250.151',
       username: 'ubuntu',
       pem: '~/.ssh/wsv.pem'
       // password: 'server-password'
@@ -23,7 +23,7 @@ module.exports = {
 
     env: {
       // If you are using ssl, it needs to start with https://
-      ROOT_URL: 'http://35.162.117.170',
+      ROOT_URL: 'http://35.164.250.151',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
