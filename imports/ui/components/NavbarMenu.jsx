@@ -14,16 +14,6 @@ function NavbarMenu() {
   return (
     <div className="navbar-menu">
       <div className="navbar-start">
-        <Link
-          to="/"
-          className="navbar-item is-link"
-          onClick={() => Accounts.logout()}
-        >
-          <span className="icon is-left">
-            <FontAwesomeIcon icon={faDoorOpen} />
-          </span>
-          <span>Log out</span>
-        </Link>
         <Link to={'/home'} className="navbar-item">
           Home
         </Link>
@@ -35,6 +25,16 @@ function NavbarMenu() {
         </Link>
         <Link to="/dashboard" className="navbar-item">
           Dashboard
+        </Link>
+        <Link
+          to="/"
+          className="navbar-item is-link"
+          onClick={() => Accounts.logout()}
+        >
+          <span className="icon is-left">
+            <FontAwesomeIcon icon={faDoorOpen} />
+          </span>
+          <span>Log out</span>
         </Link>
       </div>
       {pathname === '/visualiza' && (
