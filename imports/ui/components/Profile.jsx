@@ -5,6 +5,9 @@ import { faEnvelope, faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 import { Accounts } from 'meteor/accounts-base';
 import { withTracker } from 'meteor/react-meteor-data';
+
+import Loading from './Loading';
+
 import {
   usersUpdateName,
   usersUpdateEmail,
@@ -51,7 +54,7 @@ function Profile({ user }) {
   };
 
   if (!user) {
-    return <progress className="progress is-large is-dark" max={100} />;
+    return <Loading text="Loading your profile..." />;
   } else {
     return (
       <form onSubmit={e => onSubmit(e)} className="container">
