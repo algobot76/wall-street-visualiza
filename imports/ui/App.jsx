@@ -12,6 +12,7 @@ import About from './pages/About';
 import Visualiza from './pages/Visualiza';
 import Dashboard from './pages/Dashboard';
 import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 
 import logo from './assets/logo.png';
 
@@ -29,6 +30,7 @@ function App() {
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route path="*" component={NotFound} />
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
