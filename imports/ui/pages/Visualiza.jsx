@@ -84,7 +84,7 @@ function Visualiza() {
             }
             content={filteredNews}
           />
-          <FinancialStatements />
+          <FinancialStatements symbol={company} />
           <Chart data={data ? data : []} />
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileCsv } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -15,7 +16,7 @@ const StyledLink = styled.a`
   }
 `;
 
-function FinancialStatements() {
+function FinancialStatements({ symbol }) {
   return (
     <StyledSection className="section">
       <div className="container">
@@ -25,7 +26,9 @@ function FinancialStatements() {
               <FontAwesomeIcon icon={faFileCsv} />
             </span>
             <span>
-              <StyledLink href="https://sample-videos.com/csv/Sample-Spreadsheet-10-rows.csv">
+              <StyledLink
+                href={`https://financialmodelingprep.com/api/v3/financials/income-statement/${symbol}?datatype=csv`}
+              >
                 Financial Statements
               </StyledLink>
             </span>
@@ -35,5 +38,9 @@ function FinancialStatements() {
     </StyledSection>
   );
 }
+
+FinancialStatements.propTypes = {
+  symbol: PropTypes.string
+};
 
 export default FinancialStatements;
