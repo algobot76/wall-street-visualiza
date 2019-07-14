@@ -14,6 +14,7 @@ import {
 } from 'recharts';
 import styled from 'styled-components';
 
+import Loading from './Loading';
 import { updateIndices } from '../actions';
 
 const StyledLineChart = styled(LineChart)`
@@ -55,36 +56,40 @@ function Chart({ data }) {
     }
   }, []);
 
-  return (
-    <section className="section">
-      <div className="container is-widescreen">
-        <StyledLineChart width={1000} height={600} data={data}>
-          <CartesianGrid strokeDasharray="5 5" />
-          <XAxis dataKey="date" />
-          <YAxis domain={['dataMin', 'dataMax']} />
-          <Tooltip content={<CustomTooltip />} />
-          <Line
-            dataKey="close"
-            stroke="#292421"
-            dot={false}
-            activeDot={{ r: 5 }}
-          />
-          <Brush
-            dataKey="date"
-            onChange={e => {
-              dispatch(updateIndices(e.startIndex, e.endIndex));
-            }}
-          >
-            <AreaChart>
-              <CartesianGrid />
-              <YAxis dataKey="close" hide domain={['auto', 'auto']} />
-              <Area dataKey="close" stroke="#696969" fill="#292421" />
-            </AreaChart>
-          </Brush>
-        </StyledLineChart>
-      </div>
-    </section>
-  );
+  if (!data || data.length === 0) {
+    return <Loading text="Loading data..." />;
+  } else {
+    return (
+      <section className="section">
+        <div className="container is-widescreen">
+          <StyledLineChart width={1000} height={600} data={data}>
+            <CartesianGrid strokeDasharray="5 5" />
+            <XAxis dataKey="date" />
+            <YAxis domain={['dataMin', 'dataMax']} />
+            <Tooltip content={<CustomTooltip />} />
+            <Line
+              dataKey="close"
+              stroke="#292421"
+              dot={false}
+              activeDot={{ r: 5 }}
+            />
+            <Brush
+              dataKey="date"
+              onChange={e => {
+                dispatch(updateIndices(e.startIndex, e.endIndex));
+              }}
+            >
+              <AreaChart>
+                <CartesianGrid />
+                <YAxis dataKey="close" hide domain={['auto', 'auto']} />
+                <Area dataKey="close" stroke="#696969" fill="#292421" />
+              </AreaChart>
+            </Brush>
+          </StyledLineChart>
+        </div>
+      </section>
+    );
+  }
 }
 
 Chart.propTypes = {
