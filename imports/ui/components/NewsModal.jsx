@@ -86,7 +86,7 @@ function NewsModal({ buttonName, buttonColor = 'is-dark', title, content }) {
   const [isToggled, setIsToggled] = useState(false);
 
   return (
-    <Section className="section">
+    <Section className="section is-paddingless">
       <div className="container">
         <div className="has-text-centered content">
           <button
