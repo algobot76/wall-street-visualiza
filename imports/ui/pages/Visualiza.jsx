@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Sidebar from '../components/Sidebar';
 import Chart from '../components/Chart';
 import NewsModal from '../components/NewsModal';
+import FinancialStatements from '../components/FinancialStatements';
 
 import {
   fetchCompanies,
@@ -83,6 +84,7 @@ function Visualiza() {
             }
             content={filteredNews}
           />
+          <FinancialStatements />
           <Chart data={data ? data : []} />
         </div>
       </div>
