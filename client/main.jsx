@@ -11,13 +11,18 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from '../imports/ui/reducers';
 
 import './main.scss';
+const middleware = [thunk];
+let store;
 
-const middleware = [thunk, createLogger()];
-
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(...middleware))
-);
+if (process.env.NODE_ENV === 'development') {
+  middleware.push(createLogger());
+  store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(...middleware))
+  );
+} else {
+  store = createStore(rootReducer, applyMiddleware(...middleware));
+}
 
 Meteor.startup(() => {
   render(
