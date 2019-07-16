@@ -13,6 +13,8 @@ import stocks from '../seeds/stocks';
 
 Meteor.startup(() => {
   Companies.remove({});
+
+
   companies.forEach(company => {
     Companies.insert({ symbol: company.symbol });
   });
