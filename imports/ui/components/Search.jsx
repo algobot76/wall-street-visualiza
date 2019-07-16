@@ -4,9 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
+// TODO: Adjust max-height
 const Scroll = styled.div`
   max-height: 24rem;
   overflow: auto;
+`;
+
+const FullName = styled.span`
+  color: #696969;
 `;
 
 import { selectCompany } from '../actions';
@@ -14,8 +19,9 @@ import { selectCompany } from '../actions';
 function Search() {
   const dispatch = useDispatch();
 
-  const names = useSelector(state => state.companies.names);
-  const symbols = names.map(name => name.symbol).sort();
+  const names = useSelector(state => state.companies.names).sort((a, b) =>
+    a.symbol.localeCompare(b.symbol)
+  );
 
   const [inputOnFocus, setInputOnFocus] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -51,20 +57,26 @@ function Search() {
                 >
                   <Scroll>
                     <div className="dropdown-content">
-                      {symbols
-                        .filter(symbol =>
-                          symbol.includes(inputValue.toUpperCase())
+                      {names
+                        .filter(
+                          name =>
+                            name.symbol.includes(inputValue.toUpperCase()) ||
+                            name.fullName
+                              .toLowerCase()
+                              .includes(inputValue.toLowerCase())
                         )
-                        .map((symbol, idx) => (
+                        .map((name, idx) => (
                           <div key={idx} className="dropdown-item">
                             <a
                               onMouseDown={() => {
                                 inputRef.current.value = '';
                                 setInputValue('');
-                                dispatch(selectCompany(symbol));
+                                dispatch(selectCompany(name.symbol));
                               }}
                             >
-                              {symbol}
+                              {name.symbol}
+                              <br />
+                              <FullName>({name.fullName})</FullName>
                             </a>
                           </div>
                         ))}
