@@ -15,10 +15,7 @@ import {
 } from '../actions';
 
 const Title = styled.p`
-  font-weight: bold;
-  font-size: 25px;
   text-align: center;
-  margin-bottom: 0.25rem;
 `;
 
 function Visualiza() {
@@ -28,7 +25,13 @@ function Visualiza() {
   }, []);
 
   // TODO: Refactor this pile of shit later
+  const namesMap = new Map();
   const names = useSelector(state => state.companies.names);
+  if (names && names.length > 0) {
+    names.forEach(name => {
+      namesMap.set(name.symbol, name.fullName);
+    });
+  }
   const company = useSelector(state => state.companies.selectedCompany);
   const data = useSelector(state => state.stocks.prices);
   const startIndex = useSelector(state => state.chart.startIndex);
@@ -74,7 +77,10 @@ function Visualiza() {
       <div className="columns">
         <Sidebar names={names} />
         <div className="column">
-          <Title>{company}</Title>
+          <Title className="title">{company}</Title>
+          {namesMap.get(company) && (
+            <Title className="subtitle">({namesMap.get(company)})</Title>
+          )}
           <NewsModal
             buttonName="News"
             title={

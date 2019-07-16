@@ -15,6 +15,7 @@ function Search() {
   const dispatch = useDispatch();
 
   const names = useSelector(state => state.companies.names);
+  const symbols = names.map(name => name.symbol).sort();
 
   const [inputOnFocus, setInputOnFocus] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -50,18 +51,20 @@ function Search() {
                 >
                   <Scroll>
                     <div className="dropdown-content">
-                      {names
-                        .filter(name => name.includes(inputValue.toUpperCase()))
-                        .map((name, idx) => (
+                      {symbols
+                        .filter(symbol =>
+                          symbol.includes(inputValue.toUpperCase())
+                        )
+                        .map((symbol, idx) => (
                           <div key={idx} className="dropdown-item">
                             <a
                               onMouseDown={() => {
                                 inputRef.current.value = '';
                                 setInputValue('');
-                                dispatch(selectCompany(name));
+                                dispatch(selectCompany(symbol));
                               }}
                             >
-                              {name}
+                              {symbol}
                             </a>
                           </div>
                         ))}

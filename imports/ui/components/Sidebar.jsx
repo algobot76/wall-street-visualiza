@@ -12,6 +12,8 @@ const Scroll = styled.div`
 `;
 
 function Sidebar({ names }) {
+  const symbols = names.map(name => name.symbol).sort();
+
   const dispatch = useDispatch();
   const selectedCompany = useSelector(state => state.companies.selectedCompany);
 
@@ -21,15 +23,15 @@ function Sidebar({ names }) {
         <p className="menu-label">Company List</p>
         <Scroll>
           <ul className="menu-list">
-            {names.map((name, idx) => (
+            {symbols.map((symbol, idx) => (
               <li
                 key={idx}
                 onClick={() => {
-                  dispatch(selectCompany(name));
+                  dispatch(selectCompany(symbol));
                 }}
               >
-                <a className={name === selectedCompany ? 'is-active' : ''}>
-                  {name}
+                <a className={symbol === selectedCompany ? 'is-active' : ''}>
+                  {symbol}
                 </a>
               </li>
             ))}
@@ -41,7 +43,7 @@ function Sidebar({ names }) {
 }
 
 Sidebar.propTypes = {
-  names: PropTypes.arrayOf(PropTypes.string)
+  names: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default Sidebar;
