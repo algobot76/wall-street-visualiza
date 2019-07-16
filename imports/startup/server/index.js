@@ -11,13 +11,14 @@ import headlines from '../seeds/headlines';
 import news from '../seeds/news';
 import stocks from '../seeds/stocks';
 
+
 Meteor.startup(() => {
   Companies.remove({});
 
-
   companies.forEach(company => {
-    Companies.insert({ symbol: company.symbol });
+    Companies.insert({ symbol: company.symbol , name: company.name});
   });
+
 
   Stocks.remove({});
   stocks.forEach(stock => {
