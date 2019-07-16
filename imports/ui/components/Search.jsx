@@ -2,6 +2,12 @@ import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import styled from 'styled-components';
+
+const Scroll = styled.div`
+  max-height: 24rem;
+  overflow: auto;
+`;
 
 import { selectCompany } from '../actions';
 
@@ -42,23 +48,25 @@ function Search() {
                     inputOnFocus ? '' : 'is-display-none-important'
                   }`}
                 >
-                  <div className="dropdown-content">
-                    {names
-                      .filter(name => name.includes(inputValue.toUpperCase()))
-                      .map((name, idx) => (
-                        <div key={idx} className="dropdown-item">
-                          <a
-                            onMouseDown={() => {
-                              inputRef.current.value = '';
-                              setInputValue('');
-                              dispatch(selectCompany(name));
-                            }}
-                          >
-                            {name}
-                          </a>
-                        </div>
-                      ))}
-                  </div>
+                  <Scroll>
+                    <div className="dropdown-content">
+                      {names
+                        .filter(name => name.includes(inputValue.toUpperCase()))
+                        .map((name, idx) => (
+                          <div key={idx} className="dropdown-item">
+                            <a
+                              onMouseDown={() => {
+                                inputRef.current.value = '';
+                                setInputValue('');
+                                dispatch(selectCompany(name));
+                              }}
+                            >
+                              {name}
+                            </a>
+                          </div>
+                        ))}
+                    </div>
+                  </Scroll>
                 </div>
               </div>
             </div>
