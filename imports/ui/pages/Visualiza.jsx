@@ -23,7 +23,6 @@ function Visualiza() {
   useEffect(() => {
     dispatch(fetchCompanies());
   }, []);
-
   // TODO: Refactor this pile of shit later
   const namesMap = new Map();
   const names = useSelector(state => state.companies.names);
