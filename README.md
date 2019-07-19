@@ -38,7 +38,8 @@
 - Honourable mention: Kristy Yang ([@kristyyang](https://github.com/kristyyang)) as our UI designer
 
 ## Project Description
-
+### High Level Description 
+Wall-street-Visualiza is created to help investors to have easy acess to performance of a particular company that they are intereted in investing. Specifically, each companies financial statements is only one click away and all news related to the company can be filtered based on the dates selected. This way, the investor can both analyze and evaluate the company both fundamentally and behaviourily.
 ### Who is it for?
 
 The project we are aiming to build is a visualization tool for users who are interested in understanding the price movements of a given publicly traded company.
@@ -67,7 +68,7 @@ We are hoping to add news links to days where important news are released for a 
 
 - A category box that when selected will lead to the web-page of a given company.
 - Graphical representation of the price movement using charts.
-- Highlighted nodes of days when the reports are released.
+- Links to Financial Statement of a chosen company
 
 ### Standard Requirements
 
@@ -80,19 +81,13 @@ We are hoping to add news links to days where important news are released for a 
 - Ensuring the the tool can accommodate users to browse through at least 10 companies.
 - Ensuring that all important news are featured for one particular company.
 
-## Minimum Requirement Task BreakDown
-
-### Requirement 1: Category Box for a Given Company
-
-1. Creating the index.html that acts as the main page that holds all the subpage together.
-1. Creating all the sub-pages for the relevant companies we intend to provide information on.
-1. Creating all the sub-pages for the relevant companies we intend to provide information on.
-
-### Requirement 2: Graphical representation of the price movement using charts
-
-1. Finding the relevant API that can allow us to retrieve all the financial price data for the companies that we intend to show.
-1. Finding relevant technologies that we can use to incorporate the financial data to form it in a graphical way so that visualization can be achieved.
-
+### Requirement BreakDown For The Last 5 Weeks
+- Ensuring the data will be loaded onto atlas instead of using local database 
+- Ensuring that news data has another graphical indication that represents whether the new about a given company is positive or negative 
+- Ensuring that news data has an image for each of them 
+- Eusuring that data are loaded rapidly 
+- Ensuring that data is cached once server starts 
+- Ensuring that data is updated daily. 
 ## UI Design
 
 ![UI 1](ui_1.png)
