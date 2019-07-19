@@ -1,5 +1,10 @@
 [
   {
+    "symbol": "AAPL",
+    "name": "Apple Inc.",
+    "price": 205.1
+  },
+  {
     "symbol": "SPY",
     "name": "SPDR S&P 500",
     "price": 300.54
