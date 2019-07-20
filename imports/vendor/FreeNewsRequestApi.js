@@ -4,10 +4,8 @@ import News from '../api/news/news';
 export function FreeApiNewsRequest(url, company) {
   axios
     .get(url)
-    .then(function(response) {
+    .then(function (response) {
       // handle success
-
-      let NewsData = [];
       let responseData = response.data.data;
       let articlesArray = [];
 
@@ -24,24 +22,25 @@ export function FreeApiNewsRequest(url, company) {
 
         let newData = {
           title: eachNews.title,
-          description: eachNews.text,
+          description: eachNews.title,
           url: eachNews.news_url,
           publishedAt: publishedDate,
-          sentiment: eachNews.sentiment
+          sentiment: eachNews.sentiment,
+          image: eachNews.image_url,
         };
         articlesArray.push(newData);
       });
 
 
 
-      News.insert ({company:company, articles:articlesArray});
+      News.insert({ company: company, articles: articlesArray });
 
     })
-    .catch(function(error) {
+    .catch(function (error) {
       // handle error
       console.log(error);
     })
-    .finally(function() {
+    .finally(function () {
       //  console.log("success");
     });
 }
