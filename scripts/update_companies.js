@@ -11,22 +11,29 @@ const ENTERPRISE_VALUE_LIST =
   console.log('Getting the top 100 companies');
   try {
     const symbolsListRes = await axios.get(SYMBOLS_LIST_URL);
-    const list = symbolsListRes.data.symbolsList.map(company => ({
+    let list = symbolsListRes.data.symbolsList.map(company => ({
       symbol: company.symbol,
       name: company.name
     }));
-    // TODO: Make parallel requests
+    let count = 0;
+    const timeout = 1000;
+    const getMarketCapPromises = [];
     for (const company of list) {
       const ticker = company.symbol;
-      const enterpriseValueRes = await axios.get(
-        `${ENTERPRISE_VALUE_LIST}${ticker}`
+      getMarketCapPromises.push(
+        new Promise(resolve => {
+          setTimeout(async () => {
+            console.log(`Getting market cap info of ${ticker}`);
+            const marketCap = await getMarketCap(ticker);
+            resolve(marketCap);
+          }, count * timeout);
+        })
       );
-      const enterpriseValues = enterpriseValueRes.data.enterpriseValues;
-      company.marketCap = enterpriseValues[0]
-        ? enterpriseValues[0]['Market Capitalization']
-        : 0;
-      console.log(`Info of ${ticker}:`);
-      console.log(company);
+      count += 1;
+    }
+    const data = await Promise.all(getMarketCapPromises);
+    for (let i = 0; i < list.length; i++) {
+      list[i].marketCap = data[i];
     }
     list.sort((a, b) => b.marketCap - a.marketCap);
     const top100 = list.slice(0, 100);
@@ -35,7 +42,20 @@ const ENTERPRISE_VALUE_LIST =
       JSON.stringify(top100),
       'utf8'
     );
+    console.log('seeds/companies.json has been updated!');
   } catch (err) {
     console.log(err.message);
   }
 })();
+
+async function getMarketCap(ticker) {
+  try {
+    const res = await axios.get(`${ENTERPRISE_VALUE_LIST}${ticker}`);
+    const enterpriseValues = res.data.enterpriseValues;
+    return enterpriseValues[0]
+      ? enterpriseValues[0]['Market Capitalization']
+      : 0;
+  } catch (err) {
+    return -1;
+  }
+}
