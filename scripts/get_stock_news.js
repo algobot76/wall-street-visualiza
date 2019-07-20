@@ -37,6 +37,7 @@ const items = 50;
       JSON.stringify(news),
       'utf8'
     );
+    console.log('seeds/news.json has been updated!');
   } catch (err) {
     console.log(err.message);
   }
