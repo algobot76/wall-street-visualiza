@@ -7,10 +7,10 @@ import Stocks from '../../api/stocks/stocks';
 import News from '../../api/news/news';
 
 import companies from '../seeds/companies';
-import headlines from '../seeds/headlines';
 import news from '../seeds/news';
 
 import { getHistoricalPricesByCompnay } from '../../vendor/FinancialModelingPrep';
+import { getTopHeadlines } from '../../vendor/NewsAPI';
 
 Meteor.startup(() => {
   News.remove({});
@@ -36,13 +36,11 @@ Meteor.startup(() => {
     count += 1;
   });
 
-  Headlines.remove({});
-  headlines.forEach(headline => {
-    Headlines.insert({
-      title: headline.title,
-      description: headline.description,
-      image: headline.image,
-      url: headline.url
-    });
-  });
+  getTopHeadlines()
+    .then(res => {
+      Headlines.remove({});
+      console.log(res);
+      res.forEach(article => Headlines.insert(article));
+    })
+    .catch(err => console.log(err.message));
 });
