@@ -2,5 +2,5 @@
 .idea/
 .vscode/
 node_modules/
-/settings.json
+/production.json
 /config.json
