@@ -2,5 +2,6 @@
 .idea/
 .vscode/
 node_modules/
+/development.json
 /production.json
 /config.json
