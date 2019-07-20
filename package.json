@@ -7,6 +7,7 @@
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer",
     "meteor-galaxy": "DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com meteor deploy --settings settings.json wall-street-visualiza.meteorapp.com",
+    "scripts:update-companies": "meteor node scripts/update_companies.js",
     "scrips:fetch-stock-news": "meteor node scripts/get_stock_news.js"
   },
   "dependencies": {
