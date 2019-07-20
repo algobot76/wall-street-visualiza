@@ -1,47 +1,40 @@
 import { Meteor } from 'meteor/meteor';
+import './register-api';
 
 import Companies from '../../api/companies/companies';
 import Headlines from '../../api/headlines/headlines';
 import Stocks from '../../api/stocks/stocks';
 import News from '../../api/news/news';
 
-import './register-api';
 import companies from '../seeds/companies';
 import headlines from '../seeds/headlines';
 import news from '../seeds/news';
-import stocks from '../seeds/stocks';
-import { FreeApiCompanyPriceRequest } from '../../vendor/FreeStockRequestApi';
-import { FreeApiNewsRequest } from '../../vendor/FreeNewsRequestApi';
+
+import { getHistoricalPricesByCompnay } from '../../vendor/FinancialModelingPrep';
 
 Meteor.startup(() => {
-  let link = 'https://financialmodelingprep.com/api/v3/historical-price-full/';
-  let firstHalfNewsLink = "https://stocknewsapi.com/api/v1?tickers=";
-  let secondHalfNewsLink = "&items=50&token=vshsmedf7qzrbotoxhacgdksma83q32t2gpuyzzw";
   News.remove({});
-  let urlArray = [];
-  let count  = 0;
 
-  let factor = 1000;
+  news.forEach(newsEntry => {
+    News.insert(newsEntry);
+  });
+
+  // We want to add a time interval between each request
+  let count = 0;
+  const timeout = 1000;
+
+  Stocks.remove({});
   Companies.remove({});
   companies.forEach(company => {
     Companies.insert({ symbol: company.symbol, fullName: company.name });
-    let eachLink = (link + company.symbol).trim();
-    let eachNewsLink = (firstHalfNewsLink + company.symbol + secondHalfNewsLink);
-    urlArray.push(eachLink);
-    FreeApiNewsRequest (eachNewsLink, company.symbol);
-  });
-
-
-  Stocks.remove({});
-
-  urlArray.forEach(url => {
-    setTimeout( () => {
-      FreeApiCompanyPriceRequest(url);
-    }, count * factor);
+    // Fetch stock prices for the company
+    setTimeout(() => {
+      getHistoricalPricesByCompnay(company)
+        .then(res => Stocks.insert(res))
+        .catch(err => console.log(err.message));
+    }, count * timeout);
     count += 1;
   });
-
-
 
   Headlines.remove({});
   headlines.forEach(headline => {
@@ -52,7 +45,4 @@ Meteor.startup(() => {
       url: headline.url
     });
   });
- 
-
-
 });

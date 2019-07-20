@@ -1,23 +1,25 @@
 import axios from 'axios';
-import Stocks from '../api/stocks/stocks';
 
-export function FreeApiCompanyPriceRequest(url) {
-  axios
-    .get(url)
-    .then(function(response) {
-      // handle success
-      let companyData = {
-        company: response.data.symbol,
-        prices: response.data.historical
-      };
-      //console.log(companyData);
-      Stocks.insert({company:companyData.company, prices:companyData.prices});
-    })
-    .catch(function(error) {
-      // handle error
-      console.log(error);
-    })
-    .finally(function() {
-      //  console.log("success");
-    });
+export function getHistoricalPricesByCompnay(company) {
+  const URL = 'https://financialmodelingprep.com/api/v3/historical-price-full/';
+  const ticker = company.symbol;
+
+  return new Promise((resolve, reject) => {
+    console.log(`Fetch stock prices for ${ticker}`);
+    axios
+      .get(`${URL}${ticker}`)
+      .then(function(response) {
+        const companyData = {
+          company: response.data.symbol,
+          prices: response.data.historical
+        };
+        resolve({
+          company: companyData.company,
+          prices: companyData.prices
+        });
+      })
+      .catch(function(error) {
+        reject(error);
+      });
+  });
 }
