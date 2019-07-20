@@ -11,11 +11,12 @@ export function getTopHeadlines() {
       ? Meteor.settings.newsApiKey
       : process.env.NEWS_API_KEY;
 
-  console.log(`apiKey ${apiKey}`);
   return new Promise((resolve, reject) => {
+    console.log('Getting top headlines from News API');
     axios
       .get(TOP_HEADLINES_URL, { params: { category, country, apiKey } })
       .then(res => {
+        console.log('Successfully fetched top headlines');
         const data = res.data;
         const articles = data.articles;
         resolve(
@@ -28,6 +29,7 @@ export function getTopHeadlines() {
         );
       })
       .catch(err => {
+        console.log('Failed to fetch top headlines');
         reject(err);
       });
   });
