@@ -1,5 +1,5 @@
 {
-  "name": "foo",
+  "name": "wall-street-visualiza",
   "private": true,
   "scripts": {
     "start": "meteor run --settings development.json",
