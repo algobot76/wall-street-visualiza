@@ -11,7 +11,7 @@ const items = 50;
     const news = [];
     for (const company of companies) {
       const ticker = company.symbol;
-      console.log(`Fetching news from ${ticker}`);
+      console.log(`Fetching news for ${ticker}`);
       const res = await axios.get(URL, {
         params: {
           tickers: ticker,
