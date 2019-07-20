@@ -1,10 +1,12 @@
 import axios from 'axios';
 import News from '../api/news/news';
 
-export function FreeApiNewsRequest(url, company) {
+const URL = 'https://stocknewsapi.com/api/v1?tickers=';
+
+export function FreeApiNewsRequest(company) {
   axios
-    .get(url)
-    .then(function (response) {
+    .get(URL)
+    .then(function(response) {
       // handle success
       let responseData = response.data.data;
       let articlesArray = [];
@@ -26,22 +28,16 @@ export function FreeApiNewsRequest(url, company) {
           url: eachNews.news_url,
           publishedAt: publishedDate,
           sentiment: eachNews.sentiment,
-          image: eachNews.image_url,
+          image: eachNews.image_url
         };
         articlesArray.push(newData);
       });
 
-
-
       News.insert({ company: company, articles: articlesArray });
-
     })
-    .catch(function (error) {
+    .catch(function(error) {
       // handle error
       console.log(error);
-    })
-    .finally(function () {
-      //  console.log("success");
     });
 }
 
