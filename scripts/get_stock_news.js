@@ -1,9 +1,10 @@
 const axios = require('axios');
+const fs = require('fs');
 const companies = require('../imports/startup/seeds/companies');
 const token = require('../config').stockNewsApi.token;
 
 const URL = 'https://stocknewsapi.com/api/v1';
-const items = 2;
+const items = 50;
 
 (async () => {
   try {
@@ -31,7 +32,11 @@ const items = 2;
       };
       news.push(newsEntry);
     }
-    console.log(news);
+    fs.writeFileSync(
+      './imports/startup/seeds/news.json',
+      JSON.stringify(news),
+      'utf8'
+    );
   } catch (err) {
     console.log(err.message);
   }
