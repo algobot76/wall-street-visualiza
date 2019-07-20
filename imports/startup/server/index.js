@@ -39,7 +39,6 @@ Meteor.startup(() => {
   getTopHeadlines()
     .then(res => {
       Headlines.remove({});
-      console.log(res);
       res.forEach(article => Headlines.insert(article));
     })
     .catch(err => console.log(err.message));
