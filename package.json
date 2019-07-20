@@ -6,7 +6,8 @@
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer",
-    "meteor-galaxy": "DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com meteor deploy --settings settings.json wall-street-visualiza.meteorapp.com"
+    "meteor-galaxy": "DEPLOY_HOSTNAME=us-east-1.galaxy-deploy.meteor.com meteor deploy --settings settings.json wall-street-visualiza.meteorapp.com",
+    "scrips:fetch-stock-news": "meteor node scripts/get_stock_news.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.1",
