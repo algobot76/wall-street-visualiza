@@ -11,7 +11,7 @@ export function FreeApiNewsRequest(url, company) {
 
       responseData.forEach(eachNews => {
         const jsonDate = JSON.stringify(eachNews.date);
-        var Split = jsonDate.split(',');
+        const Split = jsonDate.split(',');
         const SecondSplit = Split[1].split('');
         const day = SecondSplit[1] + SecondSplit[2];
         const month = SecondSplit[4] + SecondSplit[5] + SecondSplit[6];
@@ -45,7 +45,7 @@ export function FreeApiNewsRequest(url, company) {
     });
 }
 
-export function getMonth(month) {
+function getMonth(month) {
   if (month === 'Jan') return '01';
   else if (month === 'Feb') return '02';
   else if (month === 'Mar') return '03';
