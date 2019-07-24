@@ -20,10 +20,11 @@ const Title = styled.p`
 
 function Visualiza() {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchCompanies());
   }, []);
-  // TODO: Refactor this pile of shit later
+
   const namesMap = new Map();
   const names = useSelector(state => state.companies.names);
   if (names && names.length > 0) {
@@ -41,9 +42,10 @@ function Visualiza() {
     dispatch(specificStockRequest(company));
     dispatch(fetchNewsBySymbol(company));
   }, [company]);
-
   useEffect(() => {
-    updateIndices(0, data.length - 1);
+    if (data && data.length > 0) {
+      dispatch(updateIndices(0, data.length - 1));
+    }
   }, [data]);
 
   let startDate = '';
@@ -53,7 +55,6 @@ function Visualiza() {
     endDate = data[endIndex]['date'];
   }
 
-  // FIXME: News not displayed on startup!!!
   const filteredNews = [];
   if (startDate && endDate) {
     const start = new Date(startDate);
