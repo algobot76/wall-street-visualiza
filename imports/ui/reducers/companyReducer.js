@@ -7,7 +7,7 @@ import {
 
 const initialState = {
   names: [],
-  selectedCompany: 'AAPL',
+  selectedCompany: '',
   error: {}
 };
 
@@ -21,7 +21,10 @@ const companyReducer = (state = initialState, action) => {
     case FETCH_COMPANIES_SUCCESS:
       return {
         ...state,
-        names: action.payload.companies
+        names: action.payload.companies,
+        selectedCompany: action.payload.companies
+          .map(company => company.symbol)
+          .sort()[0]
       };
     case FETCH_COMPANIES_FAILURE:
       return {
