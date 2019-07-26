@@ -82,13 +82,13 @@ We are hoping to add news links to days where important news are released for a 
 - Ensuring that all important news are featured for one particular company.
 
 ### Requirement BreakDown For The Last 5 Weeks
+
 - Ensuring the data will be loaded onto atlas instead of using local database.
 - Ensuring that news data has another graphical indication that represents whether the new about a given company is positive or negative.
 - Ensuring that news data has an image for each of them.
 - Ensuring that data are loaded rapidly.
 - Ensuring that data is cached once server starts.
 - Ensuring that data is updated daily.
-
 - Defect discovery and testing.
 - Drafting a demo script and comparing it carefully against the rubric to ensure that we are fulfilling all items.
 - Identifying, cleaning, and documenting stand-out portions of the project in preparation for the demo and final submission.
