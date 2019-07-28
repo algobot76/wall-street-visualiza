@@ -27,7 +27,8 @@ const items = 50;
           description: article.text,
           url: article.news_url,
           image: article.image_url,
-          publishedAt: convertDate(article.date)
+          publishedAt: convertDate(article.date),
+          sentiment: article.sentiment
         }))
       };
       news.push(newsEntry);
