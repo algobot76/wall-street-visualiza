@@ -32,6 +32,7 @@ const NewsDisplay = ({ content }) => (
           title={entry.title}
           description={entry.description}
           url={entry.url}
+          sentiment={entry.sentiment}
         />
       ))}
     </div>
