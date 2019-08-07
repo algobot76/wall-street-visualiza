@@ -65,7 +65,12 @@ export const fetchHeadlines = () => {
 };
 
 2. CODE SMELLS:
-Location:
+Notes:
+Long Method is 
+
+Cognitive complexity is the term that tells you the difficulty of reading and understanding the code you wrote. There are two rules that will make the ode more complex, the first one is break in the linear flow of the code and the second one is flow breaking structures are nested.  
+
+
 For function Visualiza in import/ui/pages/Visualiza.jsk:
 It has 71 lines of code, and it exceeds 25 lines of code (recommended).
 It has a cognitive complexity of 9, and it exceeds 5 (recommended).
@@ -81,3 +86,4 @@ It has 70 lines of code, and it exceeds 25 lines of code (recommended).
 
 For function Profile in import/ui/components/Profile.jsk:
 It has a cognitive complexity of 13, and it exceeds 5 (recommended).
+

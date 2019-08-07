@@ -1,40 +1,43 @@
 
 Demo Plan
 
-
-1. Discuss your original goals for the app (minimal + extended), including how those goals evolved over the term and might evolve further in the future, and predict what it would take to complete the app
-
-
-
-
-
-2. Demo your application, walking through at least one or two use cases where you can explain what the user wants to do and how they accomplish it
+1. Discuss your original goals for the app (minimal + extended), including how those goals evolved over the term and might evolve further in the future, and predict what it would take to complete the app.
 
 
 
 
 
-3. Explain something super-cool about your design. Note: Obviously, this is entirely subjective, but you should strive to show some element where you went above and beyond, which could be in functionality, research, design, learning, debugging, documentation, or some other area
+2. Demo your application, walking through at least one or two use cases where you can explain what the user wants to do and how they accomplish it.
 
 
 
 
 
-
-4. Bring up one or two interesting problems you ran into and how you solved them
+3. Explain something super-cool about your design. Note: Obviously, this is entirely subjective, but you should strive to show some element where you went above and beyond, which could be in functionality, research, design, learning, debugging, documentation, or some other area.
 
 
 
 
 
 
-5. Walk us through how each of the first five units factored into your design. Feel free to show pieces of your code!
+4. Bring up one or two interesting problems you ran into and how you solved them.
+
+
+Problem 1:
+
+
+
+Problem 2:
+
+
+
+5. Walk us through how each of the first five units factored into your design. Feel free to show pieces of your code.
 
 
 
 
 
-6. Respond to our questions effectively, demonstrating clear understanding of your design and of the technologies used this term.Team response as a whole
+6. Respond to our questions effectively, demonstrating clear understanding of your design and of the technologies used this term. Team response as a whole.
 
 
 
