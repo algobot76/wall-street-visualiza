@@ -86,9 +86,9 @@ It has 70 lines of code, and it exceeds 25 lines of code (recommended).
 For function Profile in import/ui/components/Profile.jsk:
 It has a cognitive complexity of 13, and it exceeds 5 (recommended).
 
+
 Defect Discovery
-
-
+The main issue that we were experiencing was the limitation of the web server’s data size (because we are using a free plan in heroku). Our company’s dataset is very large, so the loading time is slow, and sometimes the app crashes. 
 
 
 

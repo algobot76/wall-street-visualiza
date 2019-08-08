@@ -1,40 +1,79 @@
 
 Demo Plan
 
-1. Discuss your original goals for the app (minimal + extended), including how those goals evolved over the term and might evolve further in the future, and predict what it would take to complete the app.
+First introduce our project to the industry guests (assuming they did not read the high level description on Github)
 
+ — what is this project about?
 
+1. Discuss our original goals for the app (minimal + extended), including how those goals evolved over the term and might evolve further in the future, and predict what it would take to complete the app.
 
+Minimal Requirement:
+A category box that when selected will lead to the web-page of a given company.
+Graphical representation of the price movement using charts.
+Links to Financial Statement of a chosen company.
+
+Standard Requirements:
+A search box that allow users to search for the company that the user is interested in.
+A category box for a given company to show all available financial statements.
+A category box for a given company that categorize all the news from one news outlet.
+
+Extended Requirements:
+Ensuring the the tool can accommodate users to browse through at least 10 companies.
+Ensuring that all important news are featured for one particular company.
+—————————————————————————————————————————————————————————————————————————
+We have completed all our minimal, standard, and stretch requirements.
+ 
+The differences:
+We made changes to the node on the stock chart.
+Originally we were planning to have all the financial statements downloadable on each node.
+But now the users can set a time period and download the financial statement (in cvs format and based on the timeline that they set) for the specific company of their choice.  
+
+New Functionality that we added:
+a. We added a sign-in page (you can create an account)
+b. graphical indicator on news articles using emoji
+
+In the future, we will continue to work on this app. We are thinking about adding a toggle functionality to our app, where the user can select and download not only the financial statements (based on the timeline that they selected) but also the balance sheets, cash flows statements and etc… for any company of their interest.
 
 
 2. Demo your application, walking through at least one or two use cases where you can explain what the user wants to do and how they accomplish it.
 
+a. Create an account and sign in (or sign in to an existing user account)
 
+b. Walkthrough the dashboard (Visualiza headlines) and go to the stock page
+ 
+c. Use search bar to search a company (input can be either the abbrev. of a company or the company’s full name) OR click on the left panel to select a company of their interest. 
 
+d. You can hover over any node on the stock chart and it will show you detail informations (price, detail time, and  ). You can also set a timeline (to show all the info only in the selected time period) for the selected company (by dragging the brush tool at the bottom of the stock chart)
+
+e. Now the financial statement and news articles (with emoji indicator) for the selected company are filtered based on the selected timeline.
+
+f. You can download the financial statements (in cvs format) and view the news articles in new tabs by clicking on it.
 
 
 3. Explain something super-cool about your design. Note: Obviously, this is entirely subjective, but you should strive to show some element where you went above and beyond, which could be in functionality, research, design, learning, debugging, documentation, or some other area.
 
-
-
-
+a. graphical indicator using emoji 
+b. react hook
+c. webpack
 
 
 4. Bring up one or two interesting problems you ran into and how you solved them.
 
+Problem 1: API call times 
+Solution:
 
-Problem 1:
 
-
-
-Problem 2:
-
+Problem 2: The dataset is too large, loading time is slow and sometimes the app crashes (heroku free plan)
+Solution:
 
 
 5. Walk us through how each of the first five units factored into your design. Feel free to show pieces of your code.
 
-
-
+1st technology (workshop 1): HTML/CSS/Javascript
+2nd Technology (workshop 2): React, Redux, Meteor “Front_End”
+3rd Technology (workshop 3): NodeJS, Meteor “Back_Ends”
+4th Technology (workshop 4): NoSQL and MongoDB
+5th Technology (workshop 5): Release Engineering (Project Deployment)
 
 
 6. Respond to our questions effectively, demonstrating clear understanding of your design and of the technologies used this term. Team response as a whole.
