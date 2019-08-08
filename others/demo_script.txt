@@ -3,7 +3,7 @@ Demo Plan
 
 First introduce our project to the industry guests (assuming they did not read the high level description on Github)
 
- — what is this project about?
+ — what is our project about?
 
 1. Discuss our original goals for the app (minimal + extended), including how those goals evolved over the term and might evolve further in the future, and predict what it would take to complete the app.
 
@@ -25,12 +25,12 @@ We have completed all our minimal, standard, and stretch requirements.
  
 The differences:
 We made changes to the node on the stock chart.
-Originally we were planning to have all the financial statements downloadable on each node.
+Originally we were planning to have all the financial statements downloadable when click on each node.
 But now the users can set a time period and download the financial statement (in cvs format and based on the timeline that they set) for the specific company of their choice.  
 
 New Functionality that we added:
 a. We added a sign-in page (you can create an account)
-b. graphical indicator on news articles using emoji
+b. graphical indicator on news articles using emoji to show positive or negative news about a specific company
 
 In the future, we will continue to work on this app. We are thinking about adding a toggle functionality to our app, where the user can select and download not only the financial statements (based on the timeline that they selected) but also the balance sheets, cash flows statements and etc… for any company of their interest.
 
@@ -52,18 +52,20 @@ f. You can download the financial statements (in cvs format) and view the news a
 
 3. Explain something super-cool about your design. Note: Obviously, this is entirely subjective, but you should strive to show some element where you went above and beyond, which could be in functionality, research, design, learning, debugging, documentation, or some other area.
 
-a. graphical indicator using emoji 
+a. graphical indicator using emoji to show positive or negative news about a chosen company
 b. react hook
 c. webpack
 
 
 4. Bring up one or two interesting problems you ran into and how you solved them.
 
-Problem 1: API call times 
-Solution:
+Problem 1: limitations of how often an individual user can request data from the stock price api server (because the stock price api is free, the api only allows for a certain number of free requests)
+ 
+Solution: Used built-in methods to set a timer interval, so api requests are not sent too frequently.
 
 
 Problem 2: The dataset is too large, loading time is slow and sometimes the app crashes (heroku free plan)
+
 Solution:
 
 
