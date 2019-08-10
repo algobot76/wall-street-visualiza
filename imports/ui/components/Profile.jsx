@@ -18,7 +18,6 @@ const Buttons = styled.div`
   margin-top: 1.2rem;
 `;
 
-// TODO: Add error handling
 function Profile({ user }) {
   const [canEdit, setCanEdit] = useState(false);
   const [name, setName] = useState('');

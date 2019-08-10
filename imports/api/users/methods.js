@@ -4,7 +4,6 @@ import { check } from 'meteor/check';
 import { ValidatedMethod } from 'meteor/mdg:validated-method';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
-// TODO: Refactor this method
 export const usersUpdateName = new ValidatedMethod({
   name: 'users.updateName',
   validate: new SimpleSchema({
@@ -17,7 +16,6 @@ export const usersUpdateName = new ValidatedMethod({
   }
 });
 
-// TODO: Refactor this method
 export const usersUpdateEmail = new ValidatedMethod({
   name: 'users.updateEmail',
   validate: new SimpleSchema({

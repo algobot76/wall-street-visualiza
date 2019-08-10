@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
-// TODO: Adjust max-height
 const Scroll = styled.div`
   max-height: 24rem;
   overflow: auto;

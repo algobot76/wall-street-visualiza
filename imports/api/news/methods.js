@@ -3,7 +3,6 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import News from './news';
 
-// TODO: Refactor this method
 export const newsGetBySymbol = new ValidatedMethod({
   name: 'news.getBySymbol',
   validate: new SimpleSchema({

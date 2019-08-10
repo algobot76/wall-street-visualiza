@@ -5,7 +5,6 @@ import styled from 'styled-components';
 
 import { selectCompany } from '../actions';
 
-// TODO: Make Scroll's max-height equal to height of menu
 const Scroll = styled.div`
   max-height: 30rem;
   overflow: auto;
