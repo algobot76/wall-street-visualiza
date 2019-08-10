@@ -1,0 +1,33 @@
+Documentation
+
+Basic Technology Requirements:
+We have fulfilled all the five required technologies.
+First technology: HTML/CSS/Javascript
+Examples: client folder, imports folder
+Second Technology: React+Redux, Meteor “Front_End”
+imports/ui
+Third Technology: NodeJS, Meteor “Back_End”
+imports/api
+Fourth Technology: NoSQL and MongoDB
+Fifth Technology: Release Engineering (Project Deployment)
+
+Basic Contribution Requirements:
+Kyo took a substantial leadership role on Meteor back_end (api), project deployment
+Hugo took a substantial leadership role on Meteor front_end, mongoDB and react+redux setup
+Eric took a substantial leadership role on defect discovery & testing, demo script, and documentation
+
+Basic Functionality Requirements:
+We have fulfilled all the functionality requirements that we planned to do for our app. 
+We created this app to help investors evaluating and analyzing public companies of their interest. 
+Investors will have easier access to the company’s performance (time-series graph, time vs. price) and 
+the company’s financial statement based on the selected timelines. 
+
+Challenges, learning, and future directions: 
+Problem 1: limitations of how often an individual user can request data from the stock price api server 
+(because the stock price api is free, the api only allows for a certain number of free requests)
+Solution: We learned to use built-in methods to set a timer interval, so api requests are not sent too frequently.
+Example code: imports/startup/server/index.js
+
+Initiative and additional contributions: 
+We used react hooks in our project. https://reactjs.org/docs/hooks-overview.html
+We also used webpack in our project. https://webpack.js.org/
