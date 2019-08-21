@@ -93,3 +93,32 @@ We are hoping to add news links to days where important news are released for a 
 ![UI 1](ui_1.png)
 
 ![UI 2](ui_2.png)
+
+## Documentation
+
+## Basic Technology Requirement
+- Use of React, Redux, Css, will be found in the import directory where they are spread out within the UI directory
+- Use of MongoDb, Axios, Express can be found in vendor and api file of the import directory
+
+## Basic Contribution Requirement
+- Kaitian, mostly made his contribution to the project by implementating react, redux and css appropriately to ensure our front end looks professional and concise.
+- Kyo, mostly made his contribution to the project by implementing the mongdb database, handling the api request and finding appropriate api services that can provide all the data. Furtheremore, cleaning the data to appropriate formats for rendering
+
+## Basic Funtionality Requirement
+- The project intends to allow finanacial analyst towho want to have a quick analysis of a company that they are interested in whether through visualization , fundamental analysis or through pricing analysis. 
+
+- We have managed to provided the basic funcationalities. Specifically, users can register an account and easily search throguh with auto suggest or scroll through the list of company that they are intersted in. Once the company of interest has been chosen they will be able to see the companies stock price performance ,downloading the company's financial statement as well as checking all the news regarding this specifically company with a sentiment indicator. 
+
+## Challenges, Learning, and Future Directions
+- The projet did encounter several challenges on its way to completion.
+- Problem: We were not able to secure a reliable API to get the financial information initially 
+- Initial Solution: Attempting to write a web-scrapper to get all appropriate information, noticing the amount of work it would take to scrapp information from a particular website is quite challenging
+- Final Solution: Found both API that can provide news and stock information and financial statements
+- Problem: The API found can not handle too many simulatnenous request at any given time
+- Final Solution: Setting up a time interval in between each request therefore the sever no longer provides a 404 response
+- To further progress the project, we will be using the financial ratio api to download all other financial metrics that will be switched from the current pricing window to the other display mode where users can choose a metric of interst to perform analysis and visualization
+- We will also try to build a little watchlist so that users can have their favourites 
+- We will also try to buold a little comparision window side by side for any two stocks of interest.
+
+## Initiative and Additional Contribution:
+- Kaitian, has noticed and shown to all the group memebers how react-hook can simplify the react-redux store/extract data experience. Not only users can type less code. But also it allows users to treat redux-store as a blackbox, simplying using the build in methods such as useSelector, or useDispatch to simply do what you want to do instead of repeated figure out which units need to subsribe to the store and how the module have to mapStatetoProps etc.
